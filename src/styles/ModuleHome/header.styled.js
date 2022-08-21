@@ -19,7 +19,7 @@ export const HeaderStyled = styled(Box)`
     transition: all 0.5s ease;
   }
   .header_link_logo {
-    padding-top: 10px;
+    padding: 10px;
   }
   .container_links {
     display: flex;
@@ -64,7 +64,8 @@ export const HeaderStyled = styled(Box)`
     display: flex;
     align-items: flex-end;
     height: 654px;
-    padding-bottom: 8%;
+		padding: 10px;
+		padding-bottom: 8%;
   }
   .title {
     font-weight: 500;
@@ -96,6 +97,7 @@ export const HeaderStyled = styled(Box)`
     text-decoration: none;
 	}
 	.marginLeftCard{
+		padding-top: 6%;
 		margin-left: 15%;
 	}
 `;

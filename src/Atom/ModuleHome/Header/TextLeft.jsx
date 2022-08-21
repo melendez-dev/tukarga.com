@@ -1,6 +1,6 @@
 // react-router-dom
 import { Link } from "react-router-dom";
-import {Box, Typography, Button } from "@material-ui/core";
+import { Box, Typography, Button } from "@material-ui/core";
 export default function TextLeft() {
   return (
     <>
@@ -25,11 +25,17 @@ export default function TextLeft() {
           style={{
             backgroundColor: "#ff6600",
             color: "#fff",
-            borderRadius: "30px",
+            borderRadius: "8px",
             marginTop: "20px",
           }}
         >
-          <Link to="/contacto" className="text_light_button">
+          <Link
+            to="/contacto"
+            className="text_light_button"
+            style={{
+              fontSize: "12px",
+            }}
+          >
             Cotizar ahora
           </Link>
         </Button>

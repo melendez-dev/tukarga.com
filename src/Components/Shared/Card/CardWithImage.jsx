@@ -64,7 +64,7 @@ export default function CardWithImage({ img, title, subtitle, textButton }) {
             variant="outlined"
             style={{
               height: "32px",
-              borderRadius: "8px",
+              borderRadius: "10px",
               marginTop: "14px",
               width: "192px",
               display: "flex",
