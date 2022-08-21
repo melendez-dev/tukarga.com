@@ -19,9 +19,10 @@ export default function LeftIlustration() {
           to="/contacto"
           className="text_light_button"
           style={{
-            fontSize: "12px",
+						fontSize: "12px",
+						textTransform: "capitalize"
           }}
-        >
+			>
           Más información
         </Link>
       </Button>

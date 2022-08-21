@@ -34,6 +34,7 @@ export default function TextLeft() {
             className="text_light_button"
             style={{
               fontSize: "12px",
+              textTransform: "capitalize",
             }}
           >
             Cotizar ahora
