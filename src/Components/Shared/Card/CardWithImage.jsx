@@ -1,7 +1,13 @@
 import { Box, Typography, Button, Grid } from "@material-ui/core";
 // Icons
 import { ReactComponent as Arrow } from "../../../assets/svg/Vector.svg";
-export default function CardWithImage({ img, title, subtitle, textButton }) {
+export default function CardWithImage({
+  img,
+  title,
+  subtitle,
+  textButton,
+  setToggle,
+}) {
   return (
     <Box
       style={{
@@ -70,6 +76,7 @@ export default function CardWithImage({ img, title, subtitle, textButton }) {
               display: "flex",
               alignItems: "center",
             }}
+            onClick={() => setToggle((prev) => !prev)}
           >
             <Typography
               style={{

@@ -41,6 +41,7 @@ export default function Header() {
                     title="Tukarga, plataforma tecnológica de servicios logísticos."
                     subtitle="Conoce y empieza un nuevo servicio!"
                     textButton="Conocer más"
+                    setToggle={setToggle}
                   />
                 </Box>
               </Grid>
