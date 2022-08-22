@@ -24,7 +24,7 @@ export default function SecondSection() {
           <Grid item xs={6}>
             <Box>
               <Typography className="title">
-                <b>Principales servicios</b>
+                Principales servicios
               </Typography>
             </Box>
             <Box className="paddingTop">
