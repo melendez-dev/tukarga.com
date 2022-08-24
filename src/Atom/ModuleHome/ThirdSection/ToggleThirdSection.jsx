@@ -49,7 +49,11 @@ export default function ToggleThridSection() {
         </Grid>
         <Grid item xs={6}>
           <Box className="centerIlustration">
-            <Ilustration />
+            <Ilustration
+              style={{
+                maxWidth: "90%",
+              }}
+            />
           </Box>
         </Grid>
       </Grid>

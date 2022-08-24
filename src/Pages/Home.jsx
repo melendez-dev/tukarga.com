@@ -5,6 +5,7 @@ import SecondSection from "../Components/Common/ModuleHome/SecondSection";
 import ThridSection from "../Components/Common/ModuleHome/ThridSection";
 import FourSection from "../Components/Common/ModuleHome/FourSection";
 import Footer from "../Components/Common/Footer/Footer";
+import FiveSection from "../Components/Common/ModuleHome/FiveSectionToggle";
 export default function Home() {
   const [toggle, setToggle] = useState(false);
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <SecondSection toggle={toggle} />
       <ThridSection toggle={toggle} />
       <FourSection toggle={toggle} />
+      {toggle && <FiveSection />}
       <Footer />
     </>
   );
