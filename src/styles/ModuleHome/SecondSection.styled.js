@@ -7,6 +7,7 @@ export const SecondSectionStyled = styled(Box)`
   padding-bottom: 100px;
 
   .container {
+    padding: 0px 73px;
   }
   .title {
     font-weight: 400;

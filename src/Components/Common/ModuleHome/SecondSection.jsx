@@ -14,38 +14,32 @@ export default function SecondSection() {
   return (
     <SecondSectionStyled>
       <Container>
-        <Grid
-          container
-          spacing={3}
-          style={{
-            alignItems: "center",
-          }}
-        >
+        <Grid container spacing={3}>
           <Grid item xs={6}>
-            <Box>
-              <Typography className="title">
-                Principales servicios
-              </Typography>
-            </Box>
-            <Box className="paddingTop">
-              <Typography>
-                Estos son los servicios más populares tomados por nuestros
-                clientes
-              </Typography>
-            </Box>
-            <Box>
-              <ButtonIconTextIco
-                firstIcon={<Mail />}
-                title="Mensajería"
-                subtitle="Solicita aquí"
-                secondIcon={<Arrow />}
-              />
-              <ButtonIconTextIco
-                firstIcon={<Motorcycle />}
-                title="Domicilios"
-                subtitle="Solicita aquí"
-                secondIcon={<Arrow />}
-              />
+            <Box className="container">
+              <Box>
+                <Typography className="title">Principales servicios</Typography>
+              </Box>
+              <Box className="paddingTop">
+                <Typography>
+                  Estos son los servicios más populares tomados por nuestros
+                  clientes
+                </Typography>
+              </Box>
+              <Box>
+                <ButtonIconTextIco
+                  firstIcon={<Mail />}
+                  title="Mensajería"
+                  subtitle="Solicita aquí"
+                  secondIcon={<Arrow />}
+                />
+                <ButtonIconTextIco
+                  firstIcon={<Motorcycle />}
+                  title="Domicilios"
+                  subtitle="Solicita aquí"
+                  secondIcon={<Arrow />}
+                />
+              </Box>
             </Box>
           </Grid>
           <Grid item xs={6}>

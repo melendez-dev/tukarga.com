@@ -6,6 +6,9 @@ export const FourSectionStyled = styled(Box)`
 
   padding-top: 100px;
   padding-bottom: 100px;
+  .container {
+    margin-left: "40px";
+  }
   .marginTop {
     margin-top: 10px;
   }
@@ -22,7 +25,7 @@ export const FourSectionStyled = styled(Box)`
     line-height: 18px;
     margin-top: 24px;
     margin-bottom: 24px;
-    width: 60%;
+    width: 90%;
   }
   .centerImage {
     display: flex;

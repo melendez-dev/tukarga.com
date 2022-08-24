@@ -3,23 +3,23 @@ import styled from "@emotion/styled";
 
 // import images
 import backgroundHeader from "../../assets/images/Hero_oficios.png";
-import backgroundTwo from "../../assets/images/backgroundTwo.jpg";
+import backgroundHeader2 from "../../assets/images/Hero_oficios3.png";
 
 export const HeaderStyled = styled(Box)`
   .firstBackground {
-    background-image: url(${backgroundHeader});
+		background-image: url(${backgroundHeader});
     height: 100%;
     background-size: cover;
     transition: all 0.5s ease;
   }
   .secondBackground {
-    background-image: url(${backgroundTwo});
+    background-image: url(${backgroundHeader2});
     height: 100%;
     background-size: cover;
     transition: all 0.5s ease;
   }
   .header_link_logo {
-    padding: 10px;
+    padding: 10px 73px;
   }
   .container_links {
     display: flex;
@@ -64,8 +64,8 @@ export const HeaderStyled = styled(Box)`
     display: flex;
     align-items: flex-end;
     height: 654px;
-		padding: 10px;
-		padding-bottom: 8%;
+    padding: 10px 73px;
+    padding-bottom: 8%;
   }
   .title {
     font-weight: 500;
@@ -95,9 +95,8 @@ export const HeaderStyled = styled(Box)`
     color: #ffffff;
     display: block;
     text-decoration: none;
-	}
-	.marginLeftCard{
-		padding-top: 6%;
-		margin-left: 15%;
-	}
+  }
+  .marginLeftCard {
+    padding-top: 6%;
+  }
 `;

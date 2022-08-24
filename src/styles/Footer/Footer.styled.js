@@ -3,8 +3,7 @@ import styled from "@emotion/styled";
 
 export const FooterStyled = styled(Box)`
   background: #3c3c3b;
-  padding-top: 73.45px;
-  padding-bottom: 73.45px;
+	padding: 73.45px;
   .textLink {
     color: #fff;
     font-size: 14px;

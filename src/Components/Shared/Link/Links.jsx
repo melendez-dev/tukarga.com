@@ -15,7 +15,7 @@ export default function Links({ toggle }) {
               linkSelect === item.id
                 ? "link_selected"
                 : toggle
-                ? "links_header_black"
+                ? "links_header_light"
                 : "links_header_light"
             }
             onClick={() => {

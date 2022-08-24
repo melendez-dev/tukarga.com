@@ -1,23 +1,29 @@
 // react-router-dom
 import { Link } from "react-router-dom";
 import { Box, Typography, Button } from "@material-ui/core";
-export default function TextLeft() {
+export default function TextLeft({ toggle }) {
   return (
     <>
       <Typography className="title">
-        <b>¡Despreocúpate</b>
+        <b>{!toggle ? "¡Despreocúpate" : "Tukarga es la"}</b>
       </Typography>
       <Typography className="title">
-        <b>De las entregas</b>
+        <b>{!toggle ? "De las entregas" : "primera plataforma"}</b>
       </Typography>
       <Typography className="subtitle">
-        Oficios by tuKarga lo hace por ti!
+        {!toggle
+          ? "Oficios by tuKarga lo hace por ti!"
+          : "tecnológica de servicios logísticos."}
       </Typography>
       <Typography className="text_light">
-        Con la ayuda de nuestra red de más de 4000 profesionales,
+        {!toggle
+          ? "Con la ayuda de nuestra red de más de 4000 profesionales,"
+          : "¡Con una gama completa de servicios, somos una"}
       </Typography>
       <Typography className="text_light">
-        llevamos tus envíos a tiempo.
+        {!toggle
+          ? "llevamos tus envíos a tiempo."
+          : "solucioń integral para todas las necesidades de su negoció!"}
       </Typography>
       <Box>
         <Button
@@ -30,14 +36,14 @@ export default function TextLeft() {
           }}
         >
           <Link
-            to="/contacto"
+            to={!toggle ? "/contacto" : "/login"}
             className="text_light_button"
             style={{
               fontSize: "12px",
               textTransform: "capitalize",
             }}
           >
-            Cotizar ahora
+            {!toggle ? "Cotizar ahora" : "Iniciar sesión"}
           </Link>
         </Button>
       </Box>

@@ -11,7 +11,7 @@ export default function CardWithImage({
   return (
     <Box
       style={{
-        width: "496px",
+        maxWidthh: "496px",
         height: "184px",
         borderRadius: "10px",
         background: "#fff",
@@ -24,9 +24,7 @@ export default function CardWithImage({
           <Box
             style={{
               background: `url(${img})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              width: "232px",
+              maxWidthh: "232px",
               height: "168px",
             }}
           />
@@ -60,6 +58,7 @@ export default function CardWithImage({
                   lineHeight: "18px",
                   width: "192px",
                   marginTop: "8px",
+                  minHeight: "36px",
                 }}
               >
                 {subtitle}
