@@ -31,4 +31,19 @@ export const SecondSectionStyled = styled(Box)`
     justify-content: center;
     align-items: center;
   }
+
+  // toggle
+  .titleToggle {
+    color: #3c635d;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 24px;
+    width: 50%;
+  }
+  .subtitleToggle {
+    font-weight: 300;
+    line-height: 18px;
+    color: #3c3c3b;
+    margin-bottom: 24px;
+  }
 `;

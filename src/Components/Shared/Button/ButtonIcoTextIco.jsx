@@ -9,7 +9,7 @@ export default function ButtonIcoTextIco({
     <>
       <Box
         style={{
-          width: "323px",
+          width: "368px",
           border: "1px solid rgba(60, 60, 59, 1)",
           borderRadius: "8px",
           marginTop: "10px",
@@ -28,7 +28,7 @@ export default function ButtonIcoTextIco({
           <Grid item xs={1}>
             {firstIcon}
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={6}>
             <Typography
               style={{
                 fontSize: "14px",
@@ -48,7 +48,6 @@ export default function ButtonIcoTextIco({
             xs={1}
             style={{
               display: "flex",
-              justifyContent: "flex-end",
             }}
           >
             {secondIcon}
