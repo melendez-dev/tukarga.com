@@ -23,7 +23,7 @@ export default function ToggleSecondSection() {
                 Ideal para cubrir el día a día, servicio de <b>Última Milla</b>
               </Typography>
             </Box>
-            <Box>
+            <Box style={{ width: "70%" }}>
               <Typography className="subtitleToggle">
                 Estamos convencidos de la eficiencia y grandes resultados de
                 nuestro servicio 360º en función de su negocio.

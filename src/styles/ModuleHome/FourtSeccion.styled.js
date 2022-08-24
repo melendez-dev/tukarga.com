@@ -32,4 +32,45 @@ export const FourSectionStyled = styled(Box)`
     justify-content: center;
     align-items: center;
   }
+
+  // toggle
+  .boxToggleRelative {
+    position: relative;
+    height: 267px;
+  }
+  .boxToggleAbs {
+    position: absolute;
+    top: 0;
+  }
+  .centerImageToggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .titleToggle {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 32px;
+    text-align: center;
+    color: #3c635d;
+  }
+  .subtitleToggle {
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: center;
+    color: #3c635d;
+  }
+  .centerTextToggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .centerIcons {
+    display: flex;
+    align-items: center;
+  }
+  .centerPadding {
+    padding: 0 73px;
+  }
 `;

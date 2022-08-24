@@ -13,7 +13,7 @@ export default function Home() {
       <FirstSection toggle={toggle} />
       <SecondSection toggle={toggle} />
       <ThridSection toggle={toggle} />
-      <FourSection />
+      <FourSection toggle={toggle} />
       <Footer />
     </>
   );

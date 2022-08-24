@@ -9,7 +9,9 @@ export default function RightSide() {
   return (
     <>
       <Box className="marginBottom">
-				<Typography className="titleFirstSec">Oficios by tu karga te ofrece</Typography>
+        <Typography className="titleFirstSec">
+          Oficios by tu karga te ofrece
+        </Typography>
       </Box>
       <Grid container spacing={6}>
         <Grid item xs={6}>

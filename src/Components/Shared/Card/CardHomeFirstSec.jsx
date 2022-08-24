@@ -1,10 +1,11 @@
-import { Box, Container, Grid, Typography, Button } from "@material-ui/core";
-export default function CardHomeFirstSec({ icon, title, text }) {
+import { Box, Typography } from "@material-ui/core";
+export default function CardHomeFirstSec({ icon, title, text, rever = false }) {
   return (
     <>
       <Box
         style={{
           display: "flex",
+          flexDirection: rever ? "row-reverse" : "row",
         }}
       >
         <Box>{icon}</Box>
