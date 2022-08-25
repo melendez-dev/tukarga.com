@@ -2,10 +2,9 @@ import { Box, Container, Grid, Typography, Button } from "@material-ui/core";
 // import styles
 import { HeaderStyled } from "../../../styles/ModuleHome/header.styled";
 // import icons
-import { ReactComponent as Logo } from "../../../assets/svg/Logo_white_1.svg";
 
-// import Links
-import Links from "../../Shared/Link/Links";
+// import Header
+import HeaderBanner from "../../Common/Header/Header";
 import TextLeft from "../../../Atom/ModuleHome/Header/TextLeft";
 // import CardWithImage
 import CardWithImage from "../../Shared/Card/CardWithImage";
@@ -18,16 +17,7 @@ export default function Header({ toggle, setToggle }) {
     <HeaderStyled>
       <Box className={toggle ? "secondBackground" : "firstBackground"}>
         <Container>
-          <Box className="header_link_logo">
-            <Grid container spacing={3}>
-              <Grid item xs={8}>
-                <Logo />
-              </Grid>
-              <Grid item xs={4}>
-                <Links toggle={toggle} />
-              </Grid>
-            </Grid>
-          </Box>
+          <HeaderBanner toggle={toggle} />
           <Box className="fixedBotton">
             <Grid container spacing={3}>
               <Grid item xs={6}>
