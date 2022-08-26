@@ -15,7 +15,7 @@ export default function FirstSection() {
             <Grid item xs={6}>
               <Box>
                 <Box>
-                  <Typography>
+                  <Typography className="title">
                     Estamos preparados para resolver tus necesidades logísticas
                   </Typography>
                 </Box>

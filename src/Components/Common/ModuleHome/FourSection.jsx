@@ -10,7 +10,11 @@ export default function FourSection({ toggle }) {
       <Container>
         {!toggle ? (
           <>
-            <AtomFourSection />
+            <AtomFourSection
+              title="Contáctanos ahora"
+              subtitle="Para contactar un ejecutivo comercial, llena el siguiente formulario"
+              buttonText="Enviar"
+            />
           </>
         ) : (
           <>

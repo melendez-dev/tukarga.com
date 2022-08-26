@@ -8,7 +8,11 @@ export default function FourSection() {
       <FourSectionStyled>
         <Container>
           <Box>
-            <AtomFormByHomePage />
+            <AtomFormByHomePage
+              title="Quieres más clientes satisfechos"
+              subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
+              buttonText="Enviar"
+            />
           </Box>
         </Container>
       </FourSectionStyled>
