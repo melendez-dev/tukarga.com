@@ -2,16 +2,22 @@ import { Container, Typography, Box } from "@material-ui/core";
 // styles
 import { FourSectionStyled } from "../../../styles/ModuleCompanies/FourSection.styled";
 import AtomFormByHomePage from "../../../Atom/ModuleHome/FourSection/AtomFourSection";
-export default function FourSection() {
+export default function FourSection({
+  title,
+  subtitle,
+  buttonText,
+  type = false,
+}) {
   return (
     <>
       <FourSectionStyled>
         <Container>
           <Box>
             <AtomFormByHomePage
-              title="Quieres más clientes satisfechos"
-              subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
-              buttonText="Enviar"
+              title={title}
+              subtitle={subtitle}
+              buttonText={buttonText}
+              type={type}
             />
           </Box>
         </Container>
