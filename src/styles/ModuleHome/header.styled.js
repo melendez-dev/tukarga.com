@@ -7,7 +7,7 @@ import backgroundHeader2 from "../../assets/images/Hero_oficios3.png";
 
 export const HeaderStyled = styled(Box)`
   .firstBackground {
-		background-image: url(${backgroundHeader});
+    background-image: url(${backgroundHeader});
     height: 100%;
     background-size: cover;
     transition: all 0.5s ease;
@@ -18,48 +18,7 @@ export const HeaderStyled = styled(Box)`
     background-size: cover;
     transition: all 0.5s ease;
   }
-  .header_link_logo {
-    padding: 10px 73px;
-  }
-  .container_links {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-  }
-  .links_header_light {
-    text-decoration: none;
-    color: #fff;
-    font-size: 14px;
-  }
-  .links_header_login {
-    text-decoration: none;
-    color: #000;
-    font-size: 10px;
-  }
-  .links_header_black {
-    text-decoration: none;
-    color: #000;
-    font-size: 14px;
-  }
-  // a hover with after
-  .links_header_light:hover {
-    color: #ff6600;
-    height: 30px;
-    border-bottom: 2px solid #ff6600;
-  }
-  .links_header_black:hover {
-    color: #ff6600;
-    height: 30px;
-    border-bottom: 2px solid #ff6600;
-  }
 
-  .link_selected {
-    text-decoration: none;
-    font-size: 14px;
-    color: #ff6600;
-    height: 30px;
-    border-bottom: 2px solid #ff6600;
-  }
   .fixedBotton {
     display: flex;
     align-items: flex-end;
