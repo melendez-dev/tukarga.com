@@ -2,7 +2,7 @@ import { SecondSectionStyled } from "../../../styles/ModuleCompanies/SecondSecti
 import { Grid, Box, Typography, Container } from "@mui/material";
 import { ReactComponent as Ilustration } from "../../../assets/svg/Img.svg";
 
-export default function SecondSection() {
+export default function SecondSection({ html_text, text }) {
   return (
     <SecondSectionStyled>
       <Container>
@@ -10,15 +10,14 @@ export default function SecondSection() {
           <Grid container className="centerBox">
             <Grid item xs={6}>
               <Box className="mb">
-                <Typography className="text ">
-                  Quieres más clientes sastifechos, la ayuda de nuestra red de{" "}
-                  <b>más de 4000 profionales,</b>
-                  Llevamos tus envios a tiempo
-                </Typography>
+                <p
+                  className="text"
+                  dangerouslySetInnerHTML={{ __html: html_text }}
+                />
               </Box>
               <Box>
                 <Typography className="text">
-                  <b>Contactanos y crezcamos juntos.</b>
+                  <b>{text}</b>
                 </Typography>
               </Box>
             </Grid>

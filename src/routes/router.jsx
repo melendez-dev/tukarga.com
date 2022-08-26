@@ -21,7 +21,7 @@ export default function Router() {
     },
     {
       path: routesName.conveyor,
-      element: <Conveyor />,
+      element: <Conveyor toggle={toggle} />,
     },
     // not found
     {
