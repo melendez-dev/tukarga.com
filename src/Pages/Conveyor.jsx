@@ -8,6 +8,8 @@ import Footer from "../Components/Common/Footer/Footer";
 // icons
 import { ReactComponent as Ilustraton } from "../assets/svg/Ilustracion_0001.svg";
 
+// to pass this to utils or other file
+
 import { ReactComponent as Dollar } from "../assets/svg/dollaricon.svg";
 import { ReactComponent as Car } from "../assets/svg/caricon.svg";
 import { ReactComponent as Builiding } from "../assets/svg/buildingicon.svg";
@@ -70,7 +72,12 @@ export default function Conveyor({ toggle }) {
         text="Diligencia el formulario y nos contactaremos contigo en breve."
       />
       <ThirdSection data={data} />
-      <FourSection />
+      <FourSection
+        title="¡No lo pienses más!"
+				subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
+				buttonText="Enviar"
+				type={true}
+      />
       <Footer />
     </>
   );

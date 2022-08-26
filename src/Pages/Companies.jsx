@@ -5,6 +5,7 @@ import ThirdSection from "../Components/Common/ModuleCompanies/ThridSection";
 import FourSection from "../Components/Common/ModuleCompanies/FourSection";
 import Footer from "../Components/Common/Footer/Footer";
 
+// to pass this to utils or other file
 // icons
 import { ReactComponent as Ilustration } from "../assets/svg/Ilustración_02.svg";
 import { ReactComponent as IconMotorcycle } from "../assets/svg/morotcycle_backg.svg";
@@ -49,7 +50,11 @@ export default function Companies({ toggle }) {
         text="Contactanos y crezcamos juntos."
       />
       <ThirdSection data={data} />
-      <FourSection />
+      <FourSection
+        title="Quieres más clientes satisfechos"
+        subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
+        buttonText="Enviar"
+      />
       <Footer />
     </>
   );
