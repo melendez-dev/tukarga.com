@@ -1,5 +1,11 @@
 import { Box, Typography } from "@material-ui/core";
-export default function CardHomeFirstSec({ icon, title, text, rever = false }) {
+export default function CardHomeFirstSec({
+  icon,
+  title,
+  text,
+  rever = false,
+  fullWidth = false,
+}) {
   return (
     <>
       <Box
@@ -8,7 +14,7 @@ export default function CardHomeFirstSec({ icon, title, text, rever = false }) {
           flexDirection: rever ? "row-reverse" : "row",
         }}
       >
-        <Box>{icon}</Box>
+        <Box style={{ width: fullWidth ? "70px" : undefined }}>{icon}</Box>
         <Box
           style={{
             display: "flex",
