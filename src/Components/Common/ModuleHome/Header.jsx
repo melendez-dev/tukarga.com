@@ -17,7 +17,7 @@ export default function Header({ toggle, setToggle }) {
     <HeaderStyled>
       <Box className={toggle ? "secondBackground" : "firstBackground"}>
         <Container>
-          <HeaderBanner toggle={toggle} />
+          <HeaderBanner />
           <Box className="fixedBotton">
             <Grid container spacing={3}>
               <Grid item xs={6}>

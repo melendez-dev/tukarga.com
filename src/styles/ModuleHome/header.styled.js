@@ -19,30 +19,6 @@ export const HeaderStyled = styled(Box)`
     transition: all 0.5s ease;
   }
 
-  .links_header_login {
-    text-decoration: none;
-    color: #000;
-    font-size: 10px;
-  }
-  // a hover with after
-  .links_header_light:hover {
-    color: #ff6600;
-    height: 30px;
-    border-bottom: 2px solid #ff6600;
-  }
-  .links_header_black:hover {
-    color: #ff6600;
-    height: 30px;
-    border-bottom: 2px solid #ff6600;
-  }
-
-  .link_selected {
-    text-decoration: none;
-    font-size: 14px;
-    color: #ff6600;
-    height: 30px;
-    border-bottom: 2px solid #ff6600;
-  }
   .fixedBotton {
     display: flex;
     align-items: flex-end;
