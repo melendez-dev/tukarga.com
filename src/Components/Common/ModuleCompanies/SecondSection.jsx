@@ -7,23 +7,23 @@ export default function SecondSection() {
     <SecondSectionStyled>
       <Container>
         <Box>
-          <Grid container>
+          <Grid container className="centerBox">
             <Grid item xs={6}>
-              <Box>
-                <Typography>Quieres más clientes sastifechos,</Typography>
-                <Typography>
-                  la ayuda de nuestra red de <b>más de 4000 profionales,</b>
+              <Box className="mb">
+                <Typography className="text ">
+                  Quieres más clientes sastifechos, la ayuda de nuestra red de{" "}
+                  <b>más de 4000 profionales,</b>
+                  Llevamos tus envios a tiempo
                 </Typography>
-                <Typography>Llevamos tus envios a tiempo</Typography>
               </Box>
               <Box>
-                <Typography>
+                <Typography className="text">
                   <b>Contactanos y crezcamos juntos.</b>
                 </Typography>
               </Box>
             </Grid>
             <Grid item xs={6}>
-              <Box>
+              <Box className="centerIlustraion">
                 <Ilustration />
               </Box>
             </Grid>

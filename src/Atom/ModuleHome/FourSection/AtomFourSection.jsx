@@ -17,7 +17,7 @@ import { ReactComponent as Ilustration } from "../../../assets/svg/Frame 1557.sv
 // react-hook-form
 import { useForm, Controller } from "react-hook-form";
 
-export default function AtomFourSection() {
+export default function AtomFourSection({ title, subtitle, buttonText }) {
   const {
     handleSubmit,
     control,
@@ -38,13 +38,10 @@ export default function AtomFourSection() {
             }}
           >
             <Box>
-              <Typography className="title">Contáctanos ahora</Typography>
+              <Typography className="title">{title}</Typography>
             </Box>
             <Box>
-              <Typography className="subtitle">
-                Para contactar un ejecutivo comercial, llena el siguiente
-                formulario
-              </Typography>
+              <Typography className="subtitle">{subtitle}</Typography>
             </Box>
             {/*FORM*/}
             <Box>
@@ -290,7 +287,7 @@ export default function AtomFourSection() {
                     variant="contained"
                     type="submit"
                   >
-                    Enviar
+                    {buttonText}
                   </Button>
                 </Grid>
               </form>

@@ -19,7 +19,7 @@ export default function ThirdSection() {
             <Grid item xs={6}>
               <Box>
                 <Box>
-                  <Typography>Servicios</Typography>
+                  <Typography className="title">Servicios</Typography>
                 </Box>
                 <Grid container spacing={3}>
                   <Grid item xs={6}>
