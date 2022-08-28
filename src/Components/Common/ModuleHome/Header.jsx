@@ -1,4 +1,4 @@
-import { Box, Container, Grid, Typography, Button } from "@material-ui/core";
+import { Box, Container, Grid, useMediaQuery } from "@material-ui/core";
 // import styles
 import { HeaderStyled } from "../../../styles/ModuleHome/header.styled";
 // import icons
@@ -13,41 +13,47 @@ import CardWithImage from "../../Shared/Card/CardWithImage";
 import quintigillar from "../../../assets/images/quintingellar.png";
 import hero_bg from "../../../assets/images/Oficios_Hero_BG.png";
 export default function Header({ toggle, setToggle }) {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <HeaderStyled>
-      <Box className={toggle ? "secondBackground" : "firstBackground"}>
+      <Box
+        className={toggle ? "secondBackground" : "firstBackground"}
+        style={{ height: isMobile ? "513px" : undefined }}
+      >
         <Container>
           <HeaderBanner />
-          <Box className="fixedBotton">
+          <Box className={!isMobile ? "fixedBotton" : undefined}>
             <Grid container spacing={3}>
-              <Grid item xs={6}>
-                <TextLeft toggle={toggle} />
+              <Grid item xs={12} md={6}>
+                <TextLeft toggle={toggle} isMobile={isMobile} />
               </Grid>
-              <Grid item xs={6}>
-                <Box className="marginLeftCard">
-                  {!toggle ? (
-                    <>
-                      <CardWithImage
-                        img={quintigillar}
-                        title="Tukarga, plataforma tecnológica de servicios logísticos."
-                        subtitle="Conoce y empieza un nuevo servicio!"
-                        textButton="Conocer más"
-                        setToggle={setToggle}
-                      />
-                    </>
-                  ) : (
-                    <>
-                      <CardWithImage
-                        img={hero_bg}
-                        title="¡Despreocúpate de las entregas, Oficios by tuKarga lo hace por ti!"
-                        subtitle="Solicita tu servicio ahora!"
-                        textButton="Solicitar servicio"
-                        setToggle={setToggle}
-                      />
-                    </>
-                  )}
-                </Box>
-              </Grid>
+              {!isMobile && (
+                <Grid item xs={6}>
+                  <Box className="marginLeftCard">
+                    {!toggle ? (
+                      <>
+                        <CardWithImage
+                          img={quintigillar}
+                          title="Tukarga, plataforma tecnológica de servicios logísticos."
+                          subtitle="Conoce y empieza un nuevo servicio!"
+                          textButton="Conocer más"
+                          setToggle={setToggle}
+                        />
+                      </>
+                    ) : (
+                      <>
+                        <CardWithImage
+                          img={hero_bg}
+                          title="¡Despreocúpate de las entregas, Oficios by tuKarga lo hace por ti!"
+                          subtitle="Solicita tu servicio ahora!"
+                          textButton="Solicitar servicio"
+                          setToggle={setToggle}
+                        />
+                      </>
+                    )}
+                  </Box>
+                </Grid>
+              )}
             </Grid>
           </Box>
         </Container>

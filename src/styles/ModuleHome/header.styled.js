@@ -58,4 +58,16 @@ export const HeaderStyled = styled(Box)`
   .marginLeftCard {
     padding-top: 6%;
   }
+  // mobile
+  @media only screen and (max-width: 960px) {
+    .title {
+      font-size: 24px;
+      line-height: 28px;
+    }
+    .subtitle {
+      font-size: 12px;
+      line-height: 16px;
+      margin-top: 8px;
+    }
+  }
 `;

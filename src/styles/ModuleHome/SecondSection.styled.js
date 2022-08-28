@@ -46,4 +46,16 @@ export const SecondSectionStyled = styled(Box)`
     color: #3c3c3b;
     margin-bottom: 24px;
   }
+  // mobile
+  @media only screen and (max-width: 960px) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    .container {
+      padding: 24px;
+    }
+    .title {
+      font-size: 20px;
+		}
+  }
 `;

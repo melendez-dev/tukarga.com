@@ -10,6 +10,7 @@ import {
   Select,
   InputLabel,
   Button,
+  useMediaQuery,
 } from "@material-ui/core";
 // icon
 import { ReactComponent as Icon } from "../../../assets/svg/ico_box.svg";
@@ -28,6 +29,7 @@ import { ReactComponent as Car } from "../../../assets/svg/ico_car-02form.svg";
 import { ReactComponent as Motorcycle } from "../../../assets/svg/ico_motorcyclefomr.svg";
 
 export default function AtomFourSection({ title, subtitle, buttonText, type }) {
+  const isMobile = useMediaQuery("(max-width:960px)");
   const [selected, setSelected] = useState(1);
   const {
     handleSubmit,
@@ -42,10 +44,10 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
   return (
     <>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
+        <Grid item xs={12} md={6}>
           <Box
             style={{
-              padding: "0px 73px",
+              padding: isMobile ? undefined : "0px 73px",
             }}
           >
             <Box>
@@ -576,11 +578,13 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={6}>
-          <Box className="centerImage">
-            <Ilustration />
-          </Box>
-        </Grid>
+        {!isMobile && (
+          <Grid item xs={6}>
+            <Box className="centerImage">
+              <Ilustration />
+            </Box>
+          </Grid>
+        )}
       </Grid>
     </>
   );

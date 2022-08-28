@@ -19,7 +19,7 @@ export const HeaderStyled = styled(Box)`
   }
   .header_link_logo {
     padding: 10px 73px;
-	}
+  }
 
   .links_header_login {
     text-decoration: none;
@@ -44,5 +44,11 @@ export const HeaderStyled = styled(Box)`
     color: #ff6600;
     height: 30px;
     border-bottom: 2px solid #ff6600;
+  }
+  // query max 960px
+  @media only screen and (max-width: 960px) {
+		.header_link_logo {
+			padding: 10px 0px;
+    }
   }
 `;

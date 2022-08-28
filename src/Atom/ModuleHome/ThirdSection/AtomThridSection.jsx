@@ -1,6 +1,8 @@
 import ImageClients from "../../../assets/images/Frame 85.png";
-import { Box, Typography } from "@material-ui/core";
+import ImageClients_mobile from "../../../assets/images/mobile_framer_85.png";
+import { Box, Typography, useMediaQuery } from "@material-ui/core";
 export default function ThirdSection() {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <>
       <Box>
@@ -14,7 +16,10 @@ export default function ThirdSection() {
         </Typography>
       </Box>
       <Box className="centerImg">
-        <img src={ImageClients} />
+        <img
+          src={isMobile ? ImageClients_mobile : ImageClients}
+          style={{ maxWidth: "100%" }}
+        />
       </Box>
     </>
   );
