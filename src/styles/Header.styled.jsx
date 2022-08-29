@@ -52,5 +52,8 @@ export const HeaderStyled = styled(Box)`
       padding: 10px 0px;
       max-width: 100%;
     }
+    a {
+      color: white;
+    }
   }
 `;
