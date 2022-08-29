@@ -2,7 +2,7 @@ import Links from "../../Shared/Link/Links";
 import { ReactComponent as Logo } from "../../../assets/svg/Logo_white_1.svg";
 import { ReactComponent as LogoDark } from "../../../assets/svg/Logo 1.svg";
 import { HeaderStyled } from "../../../styles/Header.styled";
-import { Grid, Box } from "@material-ui/core";
+import { Grid, Box,  } from "@material-ui/core";
 
 export default function Header({ dark = false }) {
   return (

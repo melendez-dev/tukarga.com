@@ -34,7 +34,7 @@ export default function CardWithImage({
           <Box
             style={{
               background: `url(${img}) center`,
-              maxWidth: isMobile ? "126px" : "232px",
+              maxWidth: isMobile ? "126px " : "232px",
               height: isMobile ? "126px" : "168px",
               transition: "ease-out 0.5s",
             }}
@@ -83,7 +83,7 @@ export default function CardWithImage({
               height: "32px",
               borderRadius: "10px",
               marginTop: "14px",
-              maxWidth: "192px",
+              maxWidth: "107px",
               display: "flex",
               alignItems: "center",
             }}
@@ -91,7 +91,7 @@ export default function CardWithImage({
           >
             <Typography
               style={{
-                fontSize: isMobile ? "11px" : "13px",
+                fontSize: isMobile ? "9px" : "13px",
                 color: "#3C3C3B",
                 fontWeight: "700",
                 width: "100%",
