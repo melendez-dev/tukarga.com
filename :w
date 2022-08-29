@@ -26,8 +26,7 @@ export default function ToggleSecondSection() {
           <Box
             style={{
               padding: isMobile ? "0px" : "0px 73px",
-              left: isMobile ? "-74px" : undefined,
-              top: isMobile ? "-153px" : undefined,
+              left: isMobile ? "-251px" : undefined,
               position: isMobile ? "absolute" : undefined,
             }}
           >
@@ -41,7 +40,7 @@ export default function ToggleSecondSection() {
                 Ideal para cubrir el día a día, servicio de <b>Última Milla</b>
               </Typography>
             </Box>
-            <Box style={{ width: isMobile ? "100%" : "70%" }}>
+            <Box style={{ width: "70%" }}>
               <Typography className="subtitleToggle">
                 Estamos convencidos de la eficiencia y grandes resultados de
                 nuestro servicio 360º en función de su negocio.
@@ -52,11 +51,11 @@ export default function ToggleSecondSection() {
             <Button
               style={{
                 height: "32px",
-                maxWidth: "152px",
+                width: "152px",
                 borderRadius: "8px",
                 backgroundColor: "#FF6600",
                 color: "white",
-                fontSize: isMobile ? "9px" : "11px",
+                fontSize: "11px",
               }}
             >
               Adquirir el servicio

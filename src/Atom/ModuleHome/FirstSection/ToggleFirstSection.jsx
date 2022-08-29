@@ -1,6 +1,7 @@
 import CardGoal from "../../../Components/Shared/Card/CardGoals";
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, useMediaQuery, Grid } from "@material-ui/core";
 export default function ToggleFirstSection() {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <>
       <Box>
@@ -24,15 +25,42 @@ export default function ToggleFirstSection() {
             Lo que hemos <b>conseguido</b>
           </Typography>
         </Box>
-        <Box className="centerEvenly">
-          <CardGoal
-            title="+2M"
-            subtitle="de TON a través de la alianza con Mercado y Bolsa"
-          />
-          <CardGoal title="+1K" subtitle="Viajes negociados por la app" />
-          <CardGoal title="3" subtitle="Productos tecnológicos propios" />
-          <CardGoal title="5" subtitle="Algoritmos de control de riesgo" />
-        </Box>
+        {isMobile ? (
+          <>
+            <Grid container spacing={3}>
+              <Grid item xs={6}>
+                <CardGoal
+                  title="+2M"
+                  subtitle="de TON a través de la alianza con Mercado y Bolsa"
+                />
+              </Grid>
+              <Grid item xs={6}>
+                <CardGoal title="+1K" subtitle="Viajes negociados por la app" />
+              </Grid>
+              <Grid item xs={6}>
+                <CardGoal title="3" subtitle="Productos tecnológicos propios" />
+              </Grid>
+              <Grid item xs={6}>
+                <CardGoal
+                  title="5"
+                  subtitle="Algoritmos de control de riesgo"
+                />
+              </Grid>
+            </Grid>
+          </>
+        ) : (
+          <>
+            <Box className="centerEvenly">
+              <CardGoal
+                title="+2M"
+                subtitle="de TON a través de la alianza con Mercado y Bolsa"
+              />
+              <CardGoal title="+1K" subtitle="Viajes negociados por la app" />
+              <CardGoal title="3" subtitle="Productos tecnológicos propios" />
+              <CardGoal title="5" subtitle="Algoritmos de control de riesgo" />
+            </Box>
+          </>
+        )}
       </Box>
     </>
   );

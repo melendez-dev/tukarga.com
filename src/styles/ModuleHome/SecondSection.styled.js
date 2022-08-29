@@ -56,6 +56,19 @@ export const SecondSectionStyled = styled(Box)`
     }
     .title {
       font-size: 20px;
-		}
+    }
+    .size {
+      width: 251px;
+    }
+    .titleToggle {
+      width: 100%;
+      font-size: 16px;
+      text-align: end;
+    }
+    .subtitleToggle {
+      font-size: 12px;
+      width: 100%;
+      text-align: center;
+    }
   }
 `;

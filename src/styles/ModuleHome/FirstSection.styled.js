@@ -58,5 +58,8 @@ export const FirstStyled = styled(Box)`
     .titleFirstSec {
       font-size: 20px;
     }
+    .titleToggle {
+      font-size: 20px;
+    }
   }
 `;

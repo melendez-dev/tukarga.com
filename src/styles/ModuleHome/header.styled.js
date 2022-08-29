@@ -1,9 +1,10 @@
-import { Box } from "@material-ui/core";
+import { Box, useMediaQuery } from "@material-ui/core";
 import styled from "@emotion/styled";
 
 // import images
 import backgroundHeader from "../../assets/images/Hero_oficios.png";
 import backgroundHeader2 from "../../assets/images/Hero_oficios3.png";
+import backgroundHeader2Mobile from "../../assets/images/Hero_karga.png";
 
 export const HeaderStyled = styled(Box)`
   .firstBackground {
@@ -68,6 +69,9 @@ export const HeaderStyled = styled(Box)`
       font-size: 12px;
       line-height: 16px;
       margin-top: 8px;
+    }
+    .secondBackground {
+      background-image: url(${backgroundHeader2Mobile});
     }
   }
 `;

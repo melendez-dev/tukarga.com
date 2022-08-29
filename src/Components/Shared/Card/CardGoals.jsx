@@ -1,12 +1,12 @@
-import { Box, Typography } from "@material-ui/core";
-import { borderRadius, height } from "@mui/system";
+import { Box, Typography, useMediaQuery } from "@material-ui/core";
 export default function CardGoal({ title, subtitle }) {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <>
       <Box
         style={{
-          width: "224px",
-          height: "114px",
+          maxWidth: "224px",
+          maxHeight: "114px",
           padding: "16px",
           border: "1px solid #3C3C3B",
           borderRadius: "8px",
@@ -15,11 +15,11 @@ export default function CardGoal({ title, subtitle }) {
         <Box>
           <Typography
             style={{
-              fontSize: "36px",
+              fontSize: isMobile ? "24px" : "36px",
               fontWeight: "500",
               color: "#3C3C3B",
               lineHeight: "40px",
-              marginBottom: "8px",
+              marginBottom: isMobile ? "0px" : "8px",
             }}
           >
             {title}
@@ -28,7 +28,7 @@ export default function CardGoal({ title, subtitle }) {
         <Box>
           <Typography
             style={{
-              fontSize: "12px",
+              fontSize: isMobile ? "8px" : "12px",
               fontWeight: "300",
               color: "#3C3C3B",
               lineHeight: "16px",

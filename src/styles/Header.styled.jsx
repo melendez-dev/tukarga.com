@@ -47,8 +47,10 @@ export const HeaderStyled = styled(Box)`
   }
   // query max 960px
   @media only screen and (max-width: 960px) {
-		.header_link_logo {
-			padding: 10px 0px;
+    background: #3c3c3b;
+    .header_link_logo {
+      padding: 10px 0px;
+      max-width: 100%;
     }
   }
 `;

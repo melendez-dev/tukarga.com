@@ -15,7 +15,6 @@ export default function CardWithImage({
   setToggle,
 }) {
   const isMobile = useMediaQuery("(max-width:960px)");
-  console.log(img);
   return (
     <Box
       style={{

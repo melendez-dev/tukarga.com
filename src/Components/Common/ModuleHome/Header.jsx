@@ -20,8 +20,8 @@ export default function Header({ toggle, setToggle }) {
         className={toggle ? "secondBackground" : "firstBackground"}
         style={{ height: isMobile ? "513px" : undefined }}
       >
+        <HeaderBanner />
         <Container>
-          <HeaderBanner />
           <Box className={!isMobile ? "fixedBotton" : undefined}>
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
