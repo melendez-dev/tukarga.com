@@ -29,7 +29,7 @@ export const FirstStyled = styled(Box)`
     line-height: 30px;
     text-align: center;
     color: #3c635d;
-		margin-bottom: 16px;
+    margin-bottom: 16px;
   }
   .subtitleToggle {
     font-size: 12px;
@@ -52,5 +52,14 @@ export const FirstStyled = styled(Box)`
     font-size: 20px;
     text-align: center;
     margin-bottom: 40px;
+  }
+  // mobile
+  @media only screen and (max-width: 960px) {
+    .titleFirstSec {
+      font-size: 20px;
+    }
+    .titleToggle {
+      font-size: 20px;
+    }
   }
 `;

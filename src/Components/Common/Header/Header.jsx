@@ -8,11 +8,17 @@ export default function Header({ dark = false }) {
   return (
     <HeaderStyled>
       <Box className="header_link_logo">
-        <Grid container spacing={3}>
-          <Grid item xs={8}>
+        <Grid
+          container
+          spacing={3}
+          style={{
+            maxWidth: "100%",
+          }}
+        >
+          <Grid item xs={4} md={6}>
             {dark ? <LogoDark /> : <Logo />}
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={8} md={6}>
             <Links dark={dark} />
           </Grid>
         </Grid>

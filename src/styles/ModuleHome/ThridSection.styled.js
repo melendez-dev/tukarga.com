@@ -42,4 +42,23 @@ export const ThridSectionStyled = styled(Box)`
     margin-bottom: 24px;
     width: 60%;
   }
+  // mobil
+  @media only screen and (max-width: 960px) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+
+    .title {
+      font-size: 24px;
+      text-align: start;
+    }
+    .subtitle {
+      text-align: start;
+    }
+    .containerToggle {
+      padding: 0px;
+    }
+    .centerIlustration {
+      display: none;
+    }
+  }
 `;

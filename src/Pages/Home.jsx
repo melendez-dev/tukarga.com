@@ -9,7 +9,7 @@ export default function Home({ toggle, setToggle }) {
   return (
     <>
       <Header toggle={toggle} setToggle={setToggle} />
-      <FirstSection toggle={toggle} />
+      <FirstSection toggle={toggle} setToggle={setToggle} />
       <SecondSection toggle={toggle} />
       <ThridSection toggle={toggle} />
       <FourSection toggle={toggle} />
