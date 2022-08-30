@@ -55,6 +55,8 @@ export const FirstStyled = styled(Box)`
   }
   // mobile
   @media only screen and (max-width: 960px) {
+		padding: 0px;
+		overflow: hidden;
     .titleFirstSec {
       font-size: 20px;
     }

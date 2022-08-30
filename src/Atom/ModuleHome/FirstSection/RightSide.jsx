@@ -7,7 +7,7 @@ import { ReactComponent as Icon3 } from "../../../assets/svg/Icono _3.svg";
 import CardHomeFirstSec from "../../../Components/Shared/Card/CardHomeFirstSec";
 export default function RightSide({ isMobile }) {
   return (
-    <>
+    <Box style={{ padding: "24px" }}>
       <Box className="marginBottom">
         <Typography className="titleFirstSec">
           Oficios by tu karga te ofrece
@@ -59,6 +59,6 @@ export default function RightSide({ isMobile }) {
           </Grid>
         )}
       </Grid>
-    </>
+    </Box>
   );
 }

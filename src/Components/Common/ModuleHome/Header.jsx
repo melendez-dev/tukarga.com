@@ -12,13 +12,12 @@ import CardWithImage from "../../Shared/Card/CardWithImage";
 // images
 import quintigillar from "../../../assets/images/quintingellar.png";
 import hero_bg from "../../../assets/images/Oficios_Hero_BG.png";
-export default function Header({ toggle, setToggle }) {
-  const isMobile = useMediaQuery("(max-width:960px)");
+export default function Header({ toggle, setToggle, isMobile }) {
   return (
     <HeaderStyled>
       <Box
         className={toggle ? "secondBackground" : "firstBackground"}
-        style={{ height: isMobile ? "513px" : undefined }}
+        style={{ minHeight: isMobile ? "513px" : undefined }}
       >
         <HeaderBanner />
         <Container>
@@ -38,6 +37,7 @@ export default function Header({ toggle, setToggle }) {
                           subtitle="Conoce y empieza un nuevo servicio!"
                           textButton="Conocer más"
                           setToggle={setToggle}
+                          isMobile={!isMobile}
                         />
                       </>
                     ) : (
@@ -48,6 +48,7 @@ export default function Header({ toggle, setToggle }) {
                           subtitle="Solicita tu servicio ahora!"
                           textButton="Solicitar servicio"
                           setToggle={setToggle}
+                          isMobile={!isMobile}
                         />
                       </>
                     )}

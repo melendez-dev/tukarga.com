@@ -1,4 +1,4 @@
-import { Box, Typography } from "@material-ui/core";
+import { Box, Typography, useMediaQuery } from "@material-ui/core";
 export default function CardHomeFirstSec({
   icon,
   title,
@@ -6,6 +6,7 @@ export default function CardHomeFirstSec({
   rever = false,
   fullWidth = false,
 }) {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <>
       <Box
@@ -26,7 +27,7 @@ export default function CardHomeFirstSec({
             <Typography
               style={{
                 color: "#3C3C3B",
-                fontSize: "14px",
+                fontSize: isMobile ? "12px" : "14px",
                 lineHeight: "18px",
                 marginBottom: "10px",
               }}
@@ -37,7 +38,7 @@ export default function CardHomeFirstSec({
           <Box>
             <Typography
               style={{
-                fontSize: "14px",
+                fontSize: isMobile ? "12px" : "14px",
                 color: "#3C3C3B",
                 lineHeight: "18px",
                 fontWeight: "300",
