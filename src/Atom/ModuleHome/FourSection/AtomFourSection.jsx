@@ -29,7 +29,7 @@ import { ReactComponent as Car } from "../../../assets/svg/ico_car-02form.svg";
 import { ReactComponent as Motorcycle } from "../../../assets/svg/ico_motorcyclefomr.svg";
 
 export default function AtomFourSection({ title, subtitle, buttonText, type }) {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useMediaQuery("(max-width:930px)");
   const [selected, setSelected] = useState(1);
   const {
     handleSubmit,
@@ -562,7 +562,7 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                   <Button
                     style={{
                       marginTop: "20px",
-                      width: "176px",
+                      width: isMobile ? "100%" : "176px",
                       height: "32px",
                       background: "#FF6600",
                       color: "#fff",
