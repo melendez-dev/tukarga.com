@@ -14,7 +14,7 @@ export default function CardHomeFirstSec({
           flexDirection: rever ? "row-reverse" : "row",
         }}
       >
-        <Box style={{ width: fullWidth ? "70px" : undefined }}>{icon}</Box>
+        <Box style={{ maxWidth: fullWidth ? "70px" : undefined }}>{icon}</Box>
         <Box
           style={{
             display: "flex",
