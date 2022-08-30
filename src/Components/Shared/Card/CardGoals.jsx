@@ -10,6 +10,7 @@ export default function CardGoal({ title, subtitle }) {
           padding: "16px",
           border: "1px solid #3C3C3B",
           borderRadius: "8px",
+          transition: "ease-out 0.5s",
         }}
       >
         <Box>

@@ -16,7 +16,7 @@ export default function ThirdSection({ data }) {
         <Container>
           <Grid container spacing={3}>
             {!isMobil && (
-              <Grid item xs={12} md={3}>
+              <Grid item xs={12} md={6}>
                 <Box>
                   <Ilustration
                     style={{
@@ -26,7 +26,7 @@ export default function ThirdSection({ data }) {
                 </Box>
               </Grid>
             )}
-            <Grid item xs={12} md={3}>
+            <Grid item xs={12} md={6}>
               <Box>
                 <Box>
                   <Typography className="title">Servicios</Typography>

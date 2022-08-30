@@ -565,8 +565,9 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                       width: isMobile ? "100%" : "176px",
                       height: "32px",
                       background: "#FF6600",
+                      borderRadius: "10px",
                       color: "#fff",
-                      fontSize: "14px",
+                      fontSize: isMobile ? "12px" : "14px",
                     }}
                     variant="contained"
                     type="submit"

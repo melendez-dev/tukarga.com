@@ -13,20 +13,20 @@ export default function CardWithImage({
   subtitle,
   textButton,
   setToggle,
+  isMobile = false,
 }) {
-  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <Box
       style={{
-        maxWidthh: "350px",
+        maxWidth: "490px",
         width: "100%",
         height: "184px",
         borderRadius: "10px",
         background: "#fff",
         display: "flex",
-        padding: isMobile ? "0px" : "8px",
-        backgroundColor: isMobile ? " #FCFCED" : "white",
-        alignItems: isMobile ? "center" : "flex-start",
+        padding: !isMobile ? "0px" : "8px",
+        backgroundColor: !isMobile ? " #FCFCED" : "white",
+        alignItems: !isMobile ? "center" : "flex-start",
       }}
     >
       <Grid container spacing={2}>
@@ -34,9 +34,10 @@ export default function CardWithImage({
           <Box
             style={{
               background: `url(${img}) center`,
-              maxWidth: isMobile ? "126px " : "232px",
-              height: isMobile ? "126px" : "168px",
+              maxWidth: !isMobile ? "126px " : "232px",
+              height: !isMobile ? "126px" : "168px",
               transition: "ease-out 0.5s",
+              marginLeft: !isMobile ? "20px" : "0px",
             }}
           />
         </Grid>
@@ -51,7 +52,7 @@ export default function CardWithImage({
               <Typography
                 style={{
                   fontWeight: "500",
-                  fontSize: isMobile ? "12px" : "14px",
+                  fontSize: !isMobile ? "12px" : "14px",
                   color: "#3C635D",
                   lineHeight: "18px",
                   maxWidth: "192px",
@@ -70,7 +71,7 @@ export default function CardWithImage({
                   maxWidth: "192px",
                   marginTop: "8px",
                   minHeight: "36px",
-                  display: isMobile ? "none" : "block",
+                  display: !isMobile ? "none" : "block",
                 }}
               >
                 {subtitle}
@@ -83,7 +84,7 @@ export default function CardWithImage({
               height: "32px",
               borderRadius: "10px",
               marginTop: "14px",
-              maxWidth: "107px",
+              maxWidth: "230px",
               display: "flex",
               alignItems: "center",
             }}
@@ -91,7 +92,7 @@ export default function CardWithImage({
           >
             <Typography
               style={{
-                fontSize: isMobile ? "9px" : "13px",
+                fontSize: !isMobile ? "9px" : "13px",
                 color: "#3C3C3B",
                 fontWeight: "700",
                 width: "100%",

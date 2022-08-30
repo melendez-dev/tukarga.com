@@ -31,5 +31,11 @@ export const FourSectionStyled = styled(Box)`
   @media (max-width: 960px) {
     padding: 0px;
     margin-bottom: 27px;
+    .title {
+      font-size: 16px;
+    }
+    .subtitle {
+      font-size: 12px;
+    }
   }
 `;

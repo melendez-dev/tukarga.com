@@ -27,7 +27,8 @@ export const SecondSectionStyled = styled(Box)`
     overflow: hidden;
     padding: 20px 0px;
     .text {
-      width: 70%;
+			width: 80%;
+			font-size: 12px
     }
   }
 `;

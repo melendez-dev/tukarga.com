@@ -1,10 +1,9 @@
 import CardGoal from "../../../Components/Shared/Card/CardGoals";
 import { Box, Typography, useMediaQuery, Grid } from "@material-ui/core";
-export default function ToggleFirstSection() {
-  const isMobile = useMediaQuery("(max-width:960px)");
+export default function ToggleFirstSection({ isMobile }) {
   return (
     <>
-      <Box>
+      <Box style={{ padding: "24px" }}>
         <Box>
           <Typography className="titleToggle">Sumérgete y explora</Typography>
         </Box>
@@ -27,7 +26,7 @@ export default function ToggleFirstSection() {
         </Box>
         {isMobile ? (
           <>
-            <Grid container spacing={3}>
+            <Grid container spacing={2}>
               <Grid item xs={6}>
                 <CardGoal
                   title="+2M"
