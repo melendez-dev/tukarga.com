@@ -1,5 +1,11 @@
 // matrial-ui
-import { Box, Grid, Typography, Button } from "@material-ui/core";
+import {
+  Box,
+  Grid,
+  Typography,
+  Button,
+  useMediaQuery,
+} from "@material-ui/core";
 
 // shred
 import CardHome from "../../../Components/Shared/Card/CardHomeFirstSec";
@@ -15,6 +21,7 @@ import { ReactComponent as Time } from "../../../assets/svg/Icono (3).svg";
 import Ilustration from "../../../assets/images/image 8.png";
 
 export default function ToggleFourSection() {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <>
       <Box className="centerPadding">
@@ -27,7 +34,7 @@ export default function ToggleFourSection() {
             </Box>
           </Grid>
           <Grid item xs={12} className="centerTextToggle">
-            <Box style={{ width: "45%" }}>
+            <Box style={{ width: isMobile ? "100%" : "45%" }}>
               <Typography className="subtitleToggle">
                 Desarrollamos nuestra propia tecnología para cuidar de su dinero
                 su carga y su privacidad.
@@ -45,6 +52,7 @@ export default function ToggleFourSection() {
                     fontWeight: "bold",
                     padding: "4px 16px 6px",
                     borderRadius: "8px",
+                    display: isMobile ? "none" : "block",
                   }}
                 >
                   Adquirir el servicio
@@ -52,7 +60,7 @@ export default function ToggleFourSection() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={4} className="centerIcons">
+          <Grid item xs={12} md={4} className="centerIcons">
             <Box>
               <Box>
                 <CardHome
@@ -63,7 +71,7 @@ export default function ToggleFourSection() {
                   }
                 />
               </Box>
-              <Box>
+              <Box style={{ marginTop: "10px" }}>
                 <CardHome
                   icon={<Circle />}
                   title={"Clasificamos"}
@@ -74,7 +82,7 @@ export default function ToggleFourSection() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={4} style={{ display: isMobile ? "none" : "block" }}>
             {/*Maybe this box relative*/}
             <Box className="boxToggleRelative">
               <Box className="centerImageToggle">
@@ -82,7 +90,7 @@ export default function ToggleFourSection() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={4} className="centerIcons">
+          <Grid item xs={12} md={4} className="centerIcons">
             <Box>
               <Box>
                 <CardHome
@@ -91,9 +99,10 @@ export default function ToggleFourSection() {
                   text={
                     " Para tarifas, rutas y estacionalidades de producción así nuestros aliados toman decisiones basadas en datos."
                   }
-                  rever
+                  rever={isMobile ? false : true}
                 />
               </Box>
+
               <Box>
                 <CardHome
                   icon={<Time />}
@@ -101,8 +110,38 @@ export default function ToggleFourSection() {
                   text={
                     "Controlamos el riesgo de cada operación desde el nuestro backoffice"
                   }
-                  rever
+                  rever={isMobile ? false : true}
                 />
+              </Box>
+              <Box>
+                <Button
+                  style={{
+                    backgroundColor: "#FF6600",
+                    color: "#fff",
+                    fontSize: "11px",
+                    fontWeight: "bold",
+                    padding: "4px 16px 6px",
+                    borderRadius: "8px",
+                    width: "100%",
+                    display: !isMobile ? "none" : "block",
+                    marginTop: "32px",
+                  }}
+                >
+                  Adquirir el servicio
+                </Button>
+              </Box>
+              <Box
+                className="centerImageToggle"
+                style={{
+                  display: isMobile ? "flex" : "none",
+                  marginTop: "32px",
+                  position: "relative",
+                  bottom: "-25px",
+                }}
+              >
+                <Box>
+                  <img src={Ilustration} />
+                </Box>
               </Box>
             </Box>
           </Grid>

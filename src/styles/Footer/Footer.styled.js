@@ -3,13 +3,13 @@ import styled from "@emotion/styled";
 
 export const FooterStyled = styled(Box)`
   background: #3c3c3b;
-	padding: 73.45px;
+  padding: 73.45px;
   .textLink {
     color: #fff;
     font-size: 14px;
     line-height: 20px;
-		font-weight: 400;
-		cursor: pointer;
+    font-weight: 400;
+    cursor: pointer;
     margin-top: 16px;
   }
   .textNormal {
@@ -32,16 +32,22 @@ export const FooterStyled = styled(Box)`
     margin-top: 30px;
   }
   .containerIcons {
-		height: 48px;
-		display: flex;
-		align-items: center;
-	}
-	.pointer{
-		cursor: pointer;
-	}
-	.marginY{
-		margin-top: 20px;
-		margin-bottom: 20px;
-
-	}
+    height: 48px;
+    display: flex;
+    align-items: center;
+  }
+  .pointer {
+    cursor: pointer;
+  }
+  .marginY {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  // mobile
+  @media only screen and (max-width: 960px) {
+    padding: 10px 0px;
+    .flexCenterCenter {
+      margin-top: 0px;
+    }
+  }
 `;

@@ -1,6 +1,13 @@
-import { Box, Grid, Typography, Button } from "@material-ui/core";
+import {
+  Box,
+  Grid,
+  Typography,
+  Button,
+  useMediaQuery,
+} from "@material-ui/core";
 import { ReactComponent as Ilustration } from "../../../assets/svg/Ilustracion_135.svg";
 export default function ToggleSecondSection() {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <>
       <Grid
@@ -11,9 +18,20 @@ export default function ToggleSecondSection() {
           alignItems: "center",
         }}
       >
-        <Grid item xs={6}>
-          <Box style={{ padding: "0px 73px" }}>
-            <Ilustration />
+        <Grid
+          item
+          xs={6}
+          style={{ position: isMobile ? "relative" : undefined }}
+        >
+          <Box
+            style={{
+              padding: isMobile ? "0px" : "0px 73px",
+              left: isMobile ? "-74px" : undefined,
+              top: isMobile ? "-153px" : undefined,
+              position: isMobile ? "absolute" : undefined,
+            }}
+          >
+            <Ilustration className="size" />
           </Box>
         </Grid>
         <Grid item xs={6}>
@@ -23,7 +41,7 @@ export default function ToggleSecondSection() {
                 Ideal para cubrir el día a día, servicio de <b>Última Milla</b>
               </Typography>
             </Box>
-            <Box style={{ width: "70%" }}>
+            <Box style={{ width: isMobile ? "100%" : "70%" }}>
               <Typography className="subtitleToggle">
                 Estamos convencidos de la eficiencia y grandes resultados de
                 nuestro servicio 360º en función de su negocio.
@@ -34,11 +52,11 @@ export default function ToggleSecondSection() {
             <Button
               style={{
                 height: "32px",
-                width: "152px",
+                maxWidth: "152px",
                 borderRadius: "8px",
                 backgroundColor: "#FF6600",
                 color: "white",
-                fontSize: "11px",
+                fontSize: isMobile ? "9px" : "11px",
               }}
             >
               Adquirir el servicio

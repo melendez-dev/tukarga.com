@@ -1,6 +1,12 @@
 // styles
 import { FooterStyled } from "../../../styles/Footer/Footer.styled";
-import { Box, Grid, Typography, Container } from "@material-ui/core";
+import {
+  Box,
+  Grid,
+  Typography,
+  Container,
+  useMediaQuery,
+} from "@material-ui/core";
 // icons
 import { ReactComponent as Mail } from "../../../assets/svg/ico_mail-light2.svg";
 import { ReactComponent as Address } from "../../../assets/svg/ico_navigation.svg";
@@ -11,6 +17,7 @@ import { ReactComponent as Twitter } from "../../../assets/svg/twitter.svg";
 import { ReactComponent as FB } from "../../../assets/svg/FB.svg";
 import { ReactComponent as In } from "../../../assets/svg/Path 2520.svg";
 export default function Footer() {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <FooterStyled>
       <Container>
@@ -20,7 +27,7 @@ export default function Footer() {
               <Logo />
             </Box>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={12} md={3}>
             <Box>
               <Typography className="textLink">Empresas</Typography>
             </Box>
@@ -31,7 +38,7 @@ export default function Footer() {
               <Typography className="textLink">Iniciar sesión</Typography>
             </Box>
           </Grid>
-          <Grid item xs={3}>
+          <Grid item xs={12} md={3}>
             <Box className="flexCenter">
               <Box>
                 <Mail />
@@ -52,7 +59,15 @@ export default function Footer() {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={3}>
+          <Grid
+            item
+            xs={12}
+            md={3}
+            style={{
+              display: isMobile ? "flex" : undefined,
+              alignItems: isMobile ? "center" : undefined,
+            }}
+          >
             <Box>
               <Typography className="textNormal">
                 Recibimos todo tipo de pagos
@@ -67,8 +82,8 @@ export default function Footer() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={3}>
-            <Box>
+          <Grid item xs={12} md={3}>
+            <Box style={{ display: isMobile ? "none" : "block" }}>
               <Typography className="textNormal">
                 Siguenos en nuestras redes
               </Typography>

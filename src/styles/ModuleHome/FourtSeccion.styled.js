@@ -73,4 +73,33 @@ export const FourSectionStyled = styled(Box)`
   .centerPadding {
     padding: 0 73px;
   }
+  // mobile
+  @media only screen and (max-width: 960px) {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    .title {
+      font-size: 20px;
+    }
+    .subtitle {
+      font-size: 12px;
+    }
+    .centerPadding {
+      padding: 0px;
+    }
+    .titleToggle {
+      font-size: 24px;
+      text-align: start;
+      font-weight: 700;
+      width: 90%;
+    }
+    .subtitleToggle {
+      font-size: 14px;
+      line-height: 18px;
+      text-align: start;
+    }
+    .centerTextToggle {
+      display: block;
+      width: 100%;
+    }
+  }
 `;

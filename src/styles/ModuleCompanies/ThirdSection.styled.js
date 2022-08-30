@@ -10,4 +10,19 @@ export const ThirdSectionStyled = styled(Box)`
     color: #3c635d;
     margin-bottom: 56px;
   }
+
+  // mobile
+  @media (max-width: 930px) {
+    padding: 30px 0px;
+    .title {
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      /* identical to box height, or 120% */
+
+      /* Pine_tree */
+
+      color: #3c635d;
+    }
+  }
 `;

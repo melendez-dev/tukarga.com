@@ -1,20 +1,23 @@
-import { Box, Grid, Typography, Container } from "@material-ui/core";
+import { Box, Typography, Container, useMediaQuery } from "@material-ui/core";
 import Image from "../../../assets/images/Marcas.png";
+import ImageMobile from "../../../assets/images/marcas_mobile.png";
 export default function FiveSectionToggle() {
+  const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <>
-      <Box style={{ padding: "73px" }}>
+      <Box style={{ padding: isMobile ? "0px" : "73px" }}>
         <Container>
           <Box>
             <Box>
               <Typography
                 style={{
-                  fontSize: "30px",
+                  fontSize: isMobile ? "20px" : "30px",
                   lineHeight: "32px",
                   fontWeight: "400",
-                  textAlign: "center",
+                  textAlign: isMobile ? "start" : "center",
                   color: "#3C635D",
-                  marginBottom: "48px",
+                  marginBottom: isMobile ? "10px" : "48px",
+                  marginTop: isMobile ? "32px" : undefined,
                 }}
               >
                 Así nos fortalecemos
@@ -22,9 +25,15 @@ export default function FiveSectionToggle() {
             </Box>
           </Box>
           <Box>
-            <Box>
+            <Box
+              style={{
+                display: isMobile ? "flex" : undefined,
+                justifyContent: isMobile ? "center" : undefined,
+                marginBottom: isMobile ? "30px" : undefined,
+              }}
+            >
               <img
-                src={Image}
+                src={isMobile ? ImageMobile : Image}
                 alt="marcas"
                 style={{
                   width: "90%",

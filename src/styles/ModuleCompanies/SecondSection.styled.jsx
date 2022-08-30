@@ -22,4 +22,13 @@ export const SecondSectionStyled = styled(Box)`
     display: flex;
     justify-content: center;
   }
+  // mobile
+  @media (max-width: 930px) {
+    overflow: hidden;
+    padding: 20px 0px;
+    .text {
+			width: 80%;
+			font-size: 12px
+    }
+  }
 `;
