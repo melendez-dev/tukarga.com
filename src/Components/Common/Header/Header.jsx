@@ -4,7 +4,7 @@ import { ReactComponent as LogoDark } from "../../../assets/svg/Logo 1.svg";
 import { HeaderStyled } from "../../../styles/Header.styled";
 import { Grid, Box, useMediaQuery } from "@material-ui/core";
 
-export default function Header({ dark = false }) {
+export default function Header({ dark = false, darkLink }) {
   const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <HeaderStyled>
@@ -17,7 +17,7 @@ export default function Header({ dark = false }) {
           }}
         >
           <Grid item xs={4} md={6}>
-            {dark ? <LogoDark /> : <Logo />}
+            {isMobile ? <Logo /> : dark ? <LogoDark /> : <Logo />}
           </Grid>
           <Grid
             item
@@ -29,7 +29,7 @@ export default function Header({ dark = false }) {
               alignItems: isMobile ? "center" : undefined,
             }}
           >
-            <Links dark={dark} />
+            <Links dark={dark} darkLink={darkLink} />
           </Grid>
         </Grid>
       </Box>
