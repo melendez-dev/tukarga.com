@@ -7,7 +7,7 @@ export default function ThirdSection() {
     <>
       <Box>
         <Typography className="title">
-          Empresas que hacen parte de Oficios
+          Empresas que hacen parte de Oficios By TuKarga
         </Typography>
       </Box>
       <Box>
@@ -15,12 +15,14 @@ export default function ThirdSection() {
           Dedicate a vender, nosotros nos encargamos de entrgar tus envios
         </Typography>
       </Box>
-      <Box className="centerImg">
+      {/*
+ <Box className="centerImg">
         <img
           src={isMobile ? ImageClients_mobile : ImageClients}
           style={{ maxWidth: "100%" }}
         />
       </Box>
+			*/}
     </>
   );
 }

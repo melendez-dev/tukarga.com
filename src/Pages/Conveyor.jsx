@@ -21,7 +21,7 @@ const data = [
   {
     icon: <Dollar />,
     title: "Ganancia Segura.",
-    text: "Con cada servicio que realizado se acumulará en tu Wallet y lo recibirás el segundo y cuarto Martes de cada mes. ",
+    text: "Cada servicio realizado se acumulará en tu wallet y lo recibirás el segundo y cuarto martes de cada mes.",
     fullWidth: true,
   },
   {
@@ -74,9 +74,9 @@ export default function Conveyor({ toggle }) {
       <ThirdSection data={data} />
       <FourSection
         title="¡No lo pienses más!"
-				subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
-				buttonText="Enviar"
-				type={true}
+        subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
+        buttonText="Enviar"
+        type={true}
       />
       <Footer />
     </>

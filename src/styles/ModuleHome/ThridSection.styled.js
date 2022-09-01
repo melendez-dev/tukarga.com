@@ -2,8 +2,9 @@ import { Box } from "@material-ui/core";
 import styled from "@emotion/styled";
 
 export const ThridSectionStyled = styled(Box)`
-  padding-top: 72px;
-  padding-bottom: 72px;
+  //padding-top: 72px;
+	//padding-bottom: 72px;
+	padding: 73px;
   .title {
     text-align: center;
     font-size: 30px;
@@ -44,9 +45,7 @@ export const ThridSectionStyled = styled(Box)`
   }
   // mobil
   @media only screen and (max-width: 960px) {
-    padding-top: 24px;
-    padding-bottom: 24px;
-
+    padding: 24px;
     .title {
       font-size: 24px;
       text-align: start;

@@ -48,10 +48,10 @@ export default function TextLeft({ toggle, isMobile }) {
             <b>{!toggle ? "¡Despreocúpate" : "Primera fintech"}</b>
           </Typography>
           <Typography className="title">
-            <b>{!toggle ? "De las entregas" : "para el sector transporte"}</b>
+            <b>{!toggle ? "De las entregas," : "para el sector transporte"}</b>
           </Typography>
           <Typography className="subtitle">
-            {!toggle ? "Oficios by tuKarga lo hace por ti!" : undefined}
+            {!toggle ? "Oficios By TuKarga lo hace por ti!" : undefined}
           </Typography>
           <Typography className="text_light" style={{ marginTop: "10px" }}>
             {!toggle
