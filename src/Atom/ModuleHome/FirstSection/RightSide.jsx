@@ -10,7 +10,7 @@ export default function RightSide({ isMobile }) {
     <Box style={{ padding: "24px" }}>
       <Box className="marginBottom">
         <Typography className="titleFirstSec">
-          Oficios by tu karga te ofrece
+          Oficios By TuKarga te ofrece
         </Typography>
       </Box>
       <Grid container spacing={6}>
