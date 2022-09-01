@@ -17,7 +17,7 @@ export default function Header({ dark = false }) {
           }}
         >
           <Grid item xs={4} md={6}>
-            {!isMobile ? <LogoDark /> : <Logo />}
+            {dark ? <LogoDark /> : <Logo />}
           </Grid>
           <Grid
             item

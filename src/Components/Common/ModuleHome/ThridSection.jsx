@@ -11,7 +11,7 @@ export default function ThridSection({ toggle }) {
     <ThridSectionStyled>
       <Container>
         {!toggle ? (
-          <>
+					<>
             <AtomThridSection />
           </>
         ) : (
