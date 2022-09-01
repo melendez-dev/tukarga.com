@@ -8,7 +8,7 @@ export default function TextLeft({ toggle, isMobile }) {
         <>
           <Box style={{ marginTop: "17px" }}>
             <Typography className="title">
-              <b>{"Tukarga es la"}</b>
+              <b>{"Tukarga es la "}</b>
               <b>{"primera plataforma"}</b>
             </Typography>
             <Typography className="subtitle" style={{ fontSize: "18px" }}>
@@ -45,17 +45,15 @@ export default function TextLeft({ toggle, isMobile }) {
       ) : (
         <>
           <Typography className="title">
-            <b>{!toggle ? "¡Despreocúpate" : "Tukarga es la"}</b>
+            <b>{!toggle ? "¡Despreocúpate" : "Primera fintech"}</b>
           </Typography>
           <Typography className="title">
-            <b>{!toggle ? "De las entregas" : "primera plataforma"}</b>
+            <b>{!toggle ? "De las entregas" : "para el sector transporte"}</b>
           </Typography>
           <Typography className="subtitle">
-            {!toggle
-              ? "Oficios by tuKarga lo hace por ti!"
-              : "tecnológica de servicios logísticos."}
+            {!toggle ? "Oficios by tuKarga lo hace por ti!" : undefined}
           </Typography>
-          <Typography className="text_light">
+          <Typography className="text_light" style={{ marginTop: "10px" }}>
             {!toggle
               ? "Con la ayuda de nuestra red de más de 4000 profesionales,"
               : "¡Con una gama completa de servicios, somos una"}

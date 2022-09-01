@@ -47,7 +47,8 @@ export const HeaderStyled = styled(Box)`
   }
   // query max 960px
   @media only screen and (max-width: 960px) {
-    background: #3c3c3b;
+		background: #3c3c3b;
+		padding: 0px 10px;
     .header_link_logo {
       padding: 10px 0px;
       max-width: 100%;
