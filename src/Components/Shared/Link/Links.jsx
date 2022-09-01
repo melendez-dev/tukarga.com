@@ -18,7 +18,7 @@ import { ReactComponent as Twitter } from "../../../assets/svg/twitter.svg";
 import { ReactComponent as FB } from "../../../assets/svg/FB.svg";
 import { ReactComponent as In } from "../../../assets/svg/Path 2520.svg";
 
-export default function Links({ dark }) {
+export default function Links({ dark, darkLink }) {
   const isMobile = useMediaQuery("(max-width:960px)");
   const [linkSelect, setLinkSelect] = useState(1);
   // get the router
@@ -53,7 +53,7 @@ export default function Links({ dark }) {
                 className={
                   linkSelect === item?.id
                     ? "link_selected"
-                    : dark
+                    : darkLink
                     ? "links_header_black"
                     : "links_header_light"
                 }
