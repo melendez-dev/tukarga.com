@@ -1,11 +1,13 @@
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 import Links from "../../Shared/Link/Links";
 import { ReactComponent as Logo } from "../../../assets/svg/Logo_white_1.svg";
 import { ReactComponent as LogoDark } from "../../../assets/svg/Logo 1.svg";
 import { HeaderStyled } from "../../../styles/Header.styled";
-import { Grid, Box, useMediaQuery } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 
 export default function Header({ dark = false, darkLink }) {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   return (
     <HeaderStyled>
       <Box className="header_link_logo">
