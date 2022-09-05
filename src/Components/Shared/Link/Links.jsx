@@ -71,6 +71,7 @@ export default function Links({ dark, darkLink }) {
             width: "85px",
             backgroundColor: "#FCFCED",
             borderRadius: "8px",
+            marginLeft: "40px",
           }}
         >
           <Link to="/login" className="links_header_login">
@@ -78,7 +79,7 @@ export default function Links({ dark, darkLink }) {
           </Link>
         </Button>
         {isMobile && (
-          <Box onClick={() => setOpen(!open)} style={{marginLeft: "3%"}}>
+          <Box onClick={() => setOpen(!open)} style={{ marginLeft: "3%" }}>
             <IconMenu />
           </Box>
         )}

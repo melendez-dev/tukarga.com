@@ -14,12 +14,14 @@ export default function Header({ dark = false, darkLink }) {
           spacing={3}
           style={{
             maxWidth: "100%",
+            display: "flex",
+            alignItems: "center",
           }}
         >
-          <Grid item xs={4} md={6}>
+          <Grid item xs={6} md={6}>
             {isMobile ? <Logo /> : dark ? <LogoDark /> : <Logo />}
           </Grid>
-          <Grid item xs={8} md={6}>
+          <Grid item xs={6} md={6}>
             <Links dark={dark} darkLink={darkLink} isMobile={isMobile} />
           </Grid>
         </Grid>
