@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { Container, Grid, useMediaQuery } from "@material-ui/core";
 import { FirstStyled } from "../../../styles/ModuleHome/FirstSection.styled";
 
@@ -16,8 +17,11 @@ import quintigillar_mobile from "../../../assets/images/pexels-quintin-gellar-21
 // import CardWithImage
 import CardWithImage from "../../../Components/Shared/Card/CardWithImage";
 
+// context
+import { MobileContext } from "../../../context/MobileContext";
+
 export default function FirstSection({ toggle, setToggle }) {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   return (
     <>
       <FirstStyled>
