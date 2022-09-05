@@ -1,4 +1,4 @@
-import { Box, Container, Grid, useMediaQuery } from "@material-ui/core";
+import { Box, Container, Grid } from "@material-ui/core";
 // import styles
 import { HeaderStyled } from "../../../styles/ModuleHome/header.styled";
 // import icons
@@ -12,7 +12,11 @@ import CardWithImage from "../../Shared/Card/CardWithImage";
 // images
 import quintigillar from "../../../assets/images/quintingellar.png";
 import hero_bg from "../../../assets/images/Oficios_Hero_BG.png";
-export default function Header({ toggle, setToggle, isMobile }) {
+
+import { MobileContext } from "../../../context/MobileContext";
+import { useContext } from "react";
+export default function Header({ toggle, setToggle }) {
+  const isMobile = useContext(MobileContext);
   return (
     <HeaderStyled>
       <Box

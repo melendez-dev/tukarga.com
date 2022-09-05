@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 import { nameLinks } from "../../../utils/mics";
 import { useLocation } from "react-router-dom";
 import {
@@ -18,12 +20,15 @@ import { ReactComponent as Twitter } from "../../../assets/svg/twitter.svg";
 import { ReactComponent as FB } from "../../../assets/svg/FB.svg";
 import { ReactComponent as In } from "../../../assets/svg/Path 2520.svg";
 
-export default function Links({ dark, darkLink }) {
-  const isMobile = useMediaQuery("(max-width:960px)");
+export default function Links({ dark, darkLink, is }) {
   const [linkSelect, setLinkSelect] = useState(1);
   // get the router
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+
+  // context mobile
+
+  const isMobile = useContext(MobileContext);
 
   // switch the router with nameLinks
   useEffect(() => {
@@ -71,6 +76,7 @@ export default function Links({ dark, darkLink }) {
             width: "85px",
             backgroundColor: "#FCFCED",
             borderRadius: "8px",
+            marginLeft: "20px",
           }}
         >
           <Link to="/login" className="links_header_login">
@@ -78,7 +84,7 @@ export default function Links({ dark, darkLink }) {
           </Link>
         </Button>
         {isMobile && (
-          <Box onClick={() => setOpen(!open)}>
+          <Box onClick={() => setOpen(!open)} style={{ marginLeft: "3%" }}>
             <IconMenu />
           </Box>
         )}
@@ -93,12 +99,9 @@ export default function Links({ dark, darkLink }) {
               container
               spacing={2}
               style={{
-                display: "flex",
-                alignItems: "flex-start",
                 maxWidth: "100%",
                 padding: "24px",
                 display: "flex",
-                alignItems: "center",
               }}
             >
               <Grid item xs={11}>

@@ -7,7 +7,6 @@ export default function CardWithIcon({ icon, title, subtitle }) {
           width: "319px",
           background: "#FCFCED",
           borderRadius: "8px",
-          padding: "8px",
           marginRight: "17px",
           padding: "8px",
         }}
