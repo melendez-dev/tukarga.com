@@ -19,11 +19,11 @@ import { ReactComponent as FB } from "../../../assets/svg/FB.svg";
 import { ReactComponent as In } from "../../../assets/svg/Path 2520.svg";
 
 export default function Links({ dark, darkLink }) {
-  const isMobile = useMediaQuery("(max-width:960px)");
   const [linkSelect, setLinkSelect] = useState(1);
   // get the router
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
+  const isMobile = useMediaQuery("(max-width:960px)");
 
   // switch the router with nameLinks
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function Links({ dark, darkLink }) {
           </Link>
         </Button>
         {isMobile && (
-          <Box onClick={() => setOpen(!open)}>
+          <Box onClick={() => setOpen(!open)} style={{marginLeft: "3%"}}>
             <IconMenu />
           </Box>
         )}
@@ -93,12 +93,9 @@ export default function Links({ dark, darkLink }) {
               container
               spacing={2}
               style={{
-                display: "flex",
-                alignItems: "flex-start",
                 maxWidth: "100%",
                 padding: "24px",
                 display: "flex",
-                alignItems: "center",
               }}
             >
               <Grid item xs={11}>

@@ -18,7 +18,7 @@ export default function CardWithImage({
   return (
     <Box
       style={{
-        maxWidth: "490px",
+        maxWidth: "100%",
         width: "100%",
         height: "184px",
         borderRadius: "10px",
@@ -33,11 +33,11 @@ export default function CardWithImage({
         <Grid item xs={6}>
           <Box
             style={{
-              background: `url(${img}) center`,
-              maxWidth: !isMobile ? "126px " : "232px",
+              background: `url(${img}) center `,
               height: !isMobile ? "126px" : "168px",
               transition: "ease-out 0.5s",
               marginLeft: !isMobile ? "20px" : "0px",
+              backgroundRepeat: "no-repeat",
             }}
           />
         </Grid>
@@ -55,7 +55,7 @@ export default function CardWithImage({
                   fontSize: !isMobile ? "12px" : "14px",
                   color: "#3C635D",
                   lineHeight: "18px",
-                  maxWidth: "192px",
+                  maxWidth: "90%",
                   marginTop: "8px",
                 }}
               >

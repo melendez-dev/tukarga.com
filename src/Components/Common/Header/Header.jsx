@@ -19,17 +19,8 @@ export default function Header({ dark = false, darkLink }) {
           <Grid item xs={4} md={6}>
             {isMobile ? <Logo /> : dark ? <LogoDark /> : <Logo />}
           </Grid>
-          <Grid
-            item
-            xs={8}
-            md={6}
-            style={{
-              display: isMobile ? "flex" : undefined,
-              justifyContent: isMobile ? "flex-end" : undefined,
-              alignItems: isMobile ? "center" : undefined,
-            }}
-          >
-            <Links dark={dark} darkLink={darkLink} />
+          <Grid item xs={8} md={6}>
+            <Links dark={dark} darkLink={darkLink} isMobile={isMobile} />
           </Grid>
         </Grid>
       </Box>
