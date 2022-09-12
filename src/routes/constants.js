@@ -12,4 +12,5 @@ export const routesName = {
   home: "/home",
   companies: "/companies",
   conveyor: "/conveyor",
+  login: "/login",
 };
