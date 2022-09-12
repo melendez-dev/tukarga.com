@@ -29,12 +29,15 @@ export default function Links({ dark, darkLink, is }) {
   // context mobile
 
   const isMobile = useContext(MobileContext);
+  console.log(pathname);
 
   // switch the router with nameLinks
   useEffect(() => {
     nameLinks.forEach((link) => {
       if (link.url === pathname) {
         setLinkSelect(link.id);
+      } else if ("/login" === pathname) {
+        setLinkSelect(0);
       }
       return;
     });
@@ -69,20 +72,22 @@ export default function Links({ dark, darkLink, is }) {
             ))}
           </>
         )}
-        <Button
-          variant="contained"
-          style={{
-            height: "32px",
-            width: "85px",
-            backgroundColor: "#FCFCED",
-            borderRadius: "8px",
-            marginLeft: "20px",
-          }}
-        >
-          <Link to="/login" className="links_header_login">
+        <Link to="/login" className="links_header_login">
+          <Button
+            variant="contained"
+            style={{
+              height: "32px",
+              width: "85px",
+              backgroundColor: "#FCFCED",
+              borderRadius: "8px",
+              marginLeft: "20px",
+              fontSize: "10px",
+            }}
+          >
             Ingresar
-          </Link>
-        </Button>
+          </Button>
+        </Link>
+
         {isMobile && (
           <Box onClick={() => setOpen(!open)} style={{ marginLeft: "3%" }}>
             <IconMenu />

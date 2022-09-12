@@ -20,10 +20,10 @@ export default function Header({ dark = false, darkLink }) {
             alignItems: "center",
           }}
         >
-          <Grid item xs={6} md={6}>
+          <Grid item xs={6} md={7}>
             {isMobile ? <Logo /> : dark ? <LogoDark /> : <Logo />}
           </Grid>
-          <Grid item xs={6} md={6}>
+          <Grid item xs={6} md={5}>
             <Links dark={dark} darkLink={darkLink} isMobile={isMobile} />
           </Grid>
         </Grid>
