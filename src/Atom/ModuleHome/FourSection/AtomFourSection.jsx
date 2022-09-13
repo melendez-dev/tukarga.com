@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Box,
   Typography,
@@ -15,6 +15,7 @@ import {
 // icon
 import { ReactComponent as Icon } from "../../../assets/svg/ico_box.svg";
 import { ReactComponent as Ilustration } from "../../../assets/svg/Frame 1557.svg";
+import Autocomplete from "@mui/material/Autocomplete";
 
 // react-hook-form
 import { useForm, Controller } from "react-hook-form";
@@ -28,9 +29,12 @@ import { ReactComponent as Truck } from "../../../assets/svg/ico_truckform.svg";
 import { ReactComponent as Car } from "../../../assets/svg/ico_car-02form.svg";
 import { ReactComponent as Motorcycle } from "../../../assets/svg/ico_motorcyclefomr.svg";
 
+import { getCities } from "../../../services/City";
+
 export default function AtomFourSection({ title, subtitle, buttonText, type }) {
   const isMobile = useMediaQuery("(max-width:930px)");
   const [selected, setSelected] = useState(1);
+  const [autoComplete, setAutoComplete] = useState([]);
   const {
     handleSubmit,
     control,
@@ -40,6 +44,14 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
   const onSubmit = (json) => {
     console.log(json);
   };
+
+  useEffect(() => {
+    getCities().then((res) => {
+      setAutoComplete(res.data.data);
+    });
+  }, []);
+
+  console.log(autoComplete);
 
   return (
     <>
@@ -408,7 +420,7 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                         </FormHelperText>
                       )}
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} style={{ marginTop: "10px" }}>
                       <Controller
                         rules={{
                           required: {
@@ -418,18 +430,28 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                         }}
                         name="city"
                         control={control}
-                        defaultValue=""
                         render={({ field }) => (
-                          <TextField
+                          <Autocomplete
                             {...field}
-                            label="Ciudad"
-                            variant="outlined"
+                            disablePortal
+                            id="combo-box-demo"
+                            options={autoComplete}
                             size="small"
-                            className="marginTop"
-                            fullWidth
-                            error={errors?.city?.value}
-                            onChange={(e) => {
-                              field.onChange(e.target.value);
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                key={params.id}
+                                label="Ciudad"
+                                variant="outlined"
+                              />
+                            )}
+                            getOptionLabel={(option) => option.name}
+                            value={autoComplete.find(
+                              (option) => option.id === field.id
+                            )}
+                            onChange={(_, value) => {
+                              // change value
+                              field.onChange(value?.id);
                             }}
                           />
                         )}
