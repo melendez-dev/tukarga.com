@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -15,6 +16,9 @@ import {
 // icon
 import { ReactComponent as Icon } from "../../../assets/svg/ico_box.svg";
 import { ReactComponent as Ilustration } from "../../../assets/svg/Frame 1557.svg";
+import Autocomplete from "@mui/material/Autocomplete";
+import { postForm } from "../../../services/Forms";
+import { useSnackbar } from "notistack";
 
 // react-hook-form
 import { useForm, Controller } from "react-hook-form";
@@ -28,9 +32,15 @@ import { ReactComponent as Truck } from "../../../assets/svg/ico_truckform.svg";
 import { ReactComponent as Car } from "../../../assets/svg/ico_car-02form.svg";
 import { ReactComponent as Motorcycle } from "../../../assets/svg/ico_motorcyclefomr.svg";
 
+import { getCities } from "../../../services/City";
+
 export default function AtomFourSection({ title, subtitle, buttonText, type }) {
   const isMobile = useMediaQuery("(max-width:930px)");
   const [selected, setSelected] = useState(1);
+  const [autoComplete, setAutoComplete] = useState([]);
+  const [autoMovil, setAutoMovil] = useState(0);
+  const navigate = useNavigate();
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const {
     handleSubmit,
     control,
@@ -38,8 +48,29 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
   } = useForm();
 
   const onSubmit = (json) => {
-    console.log(json);
+    json.vehicle_type_id = autoMovil;
+    json.lastname = json.lastname ? json.lastname : "";
+    json.phone = parseInt(json.phone);
+    try {
+      postForm(json)
+        .then(() =>
+          enqueueSnackbar("Mensaje enviado correctamente", {
+            variant: "success",
+            //time
+            autoHideDuration: 2000,
+          })
+        )
+        .catch((e) => console.log(e));
+    } catch (e) {
+      console.log(e);
+    }
   };
+
+  useEffect(() => {
+    getCities().then((res) => {
+      setAutoComplete(res.data.data);
+    });
+  }, []);
 
   return (
     <>
@@ -326,7 +357,7 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                     </Grid>
                     <Grid item xs={4}>
                       <Controller
-                        name="type_document"
+                        name="document_type_id"
                         control={control}
                         defaultValue=""
                         rules={{
@@ -367,7 +398,7 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                     </Grid>
                     <Grid item xs={8}>
                       <Controller
-                        name="document_number"
+                        name="document"
                         control={control}
                         defaultValue=""
                         rules={{
@@ -376,7 +407,7 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                             message: "Este campo es requerido",
                           },
                           pattern: {
-                            value: /^[0-9]{8}$/,
+                            value: /^[0-9]/,
                             message:
                               "El número de documento debe tener 8 dígitos",
                           },
@@ -408,7 +439,7 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                         </FormHelperText>
                       )}
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid item xs={12} style={{ marginTop: "10px" }}>
                       <Controller
                         rules={{
                           required: {
@@ -416,20 +447,30 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                             message: "Este campo es requerido",
                           },
                         }}
-                        name="city"
+                        name="city_id"
                         control={control}
-                        defaultValue=""
                         render={({ field }) => (
-                          <TextField
+                          <Autocomplete
                             {...field}
-                            label="Ciudad"
-                            variant="outlined"
+                            disablePortal
+                            id="combo-box-demo"
+                            options={autoComplete}
                             size="small"
-                            className="marginTop"
-                            fullWidth
-                            error={errors?.city?.value}
-                            onChange={(e) => {
-                              field.onChange(e.target.value);
+                            renderInput={(params) => (
+                              <TextField
+                                {...params}
+                                key={params}
+                                label="Ciudad"
+                                variant="outlined"
+                              />
+                            )}
+                            getOptionLabel={(option) => option.name}
+                            value={autoComplete.find(
+                              (option) => option.id === field.id
+                            )}
+                            onChange={(_, value) => {
+                              // change value
+                              field.onChange(value?.id);
                             }}
                           />
                         )}
@@ -536,24 +577,30 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                           width: "233px",
                         }}
                       >
-                        <ButtonSelectForm
-                          icon={<Motorcycle />}
-                          selected={selected}
-                          id={1}
-                          setSelected={setSelected}
-                        />
-                        <ButtonSelectForm
-                          icon={<Car />}
-                          selected={selected}
-                          id={2}
-                          setSelected={setSelected}
-                        />
-                        <ButtonSelectForm
-                          icon={<Truck />}
-                          selected={selected}
-                          id={3}
-                          setSelected={setSelected}
-                        />
+                        <Box onClick={() => setAutoMovil(0)}>
+                          <ButtonSelectForm
+                            icon={<Motorcycle />}
+                            selected={selected}
+                            id={1}
+                            setSelected={setSelected}
+                          />
+                        </Box>
+                        <Box onClick={() => setAutoMovil(1)}>
+                          <ButtonSelectForm
+                            icon={<Car />}
+                            selected={selected}
+                            id={2}
+                            setSelected={setSelected}
+                          />
+                        </Box>
+                        <Box onClick={() => setAutoMovil(2)}>
+                          <ButtonSelectForm
+                            icon={<Truck />}
+                            selected={selected}
+                            id={3}
+                            setSelected={setSelected}
+                          />
+                        </Box>
                       </Box>
                     </Grid>
                   </Grid>

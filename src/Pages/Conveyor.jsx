@@ -5,6 +5,9 @@ import ThirdSection from "../Components/Common/ModuleCompanies/ThridSection";
 import FourSection from "../Components/Common/ModuleCompanies/FourSection";
 import Footer from "../Components/Common/Footer/Footer";
 
+// services
+import { getCities } from "../services/City";
+
 // icons
 import { ReactComponent as Ilustraton } from "../assets/svg/Ilustracion_0001.svg";
 
@@ -57,6 +60,10 @@ const data = [
 ];
 
 export default function Conveyor({ toggle }) {
+  //  useEffect(() => {
+  //   getCities().then((res) => console.log(res));
+  // clear axios
+  //}, []);
   return (
     <>
       <Header toggle={toggle} />

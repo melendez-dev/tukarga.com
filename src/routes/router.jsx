@@ -6,6 +6,7 @@ import { useRoutes } from "react-router-dom";
 import Home from "../Pages/Home";
 import Companies from "../Pages/Companies";
 import Conveyor from "../Pages/Conveyor";
+import Login from "../Pages/Login";
 
 export default function Router() {
   const [toggle, setToggle] = useState(false);
@@ -22,6 +23,10 @@ export default function Router() {
     {
       path: routesName.conveyor,
       element: <Conveyor toggle={toggle} />,
+    },
+    {
+      path: routesName.login,
+      element: <Login toggle={toggle} />,
     },
     // not found
     {
