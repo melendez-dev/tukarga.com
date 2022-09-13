@@ -28,7 +28,30 @@ export const FirstSectionStyled = styled(Box)`
   }
   .centerForm {
     display: flex;
-		justify-content: center;
-		margin-top: 20px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .forgetPass {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    display: flex;
+    text-align: center;
+    /* Black_100 */
+    color: #3c3c3b;
+  }
+  .createAcount {
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 18px;
+    /* identical to box height, or 129% */
+    display: flex;
+    text-align: center;
+    /* Black_100 */
+    color: #3c3c3b;
+  }
+  .pointer {
+    cursor: pointer;
   }
 `;
