@@ -31,8 +31,4 @@ export const documentTypes = [
     id: 3,
     name: "Pasaporte",
   },
-  {
-    id: 4,
-    name: "T.I",
-  },
 ];

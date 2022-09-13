@@ -1,6 +1,6 @@
 import { instanceOficios } from "./Instance";
 
-export const postForm = () => {
-  return instanceOficios.post(`professional/registry`);
+export const postForm = (data) => {
+  return instanceOficios.post(`professional/registry`, data);
 };
 

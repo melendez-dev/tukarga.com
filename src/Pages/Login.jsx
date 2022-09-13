@@ -20,7 +20,7 @@ export default function Login({ toggle }) {
               <AtomForm
                 title="Contáctanos ahora"
                 subtitle="Si tienes alguna duda o inquietud, no dudes en contactarnos"
-                button="Enviar"
+                buttonText="Enviar"
                 type={true}
               />
             </Box>
