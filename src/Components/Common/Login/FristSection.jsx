@@ -9,11 +9,14 @@ import {
 } from "@material-ui/core";
 import { ReactComponent as Domicilios } from "../../../assets/svg/Domicilios.svg";
 import { ReactComponent as Mensajeria } from "../../../assets/svg/Mensajeria.svg";
+import { ReactComponent as Domicilios2 } from "../../../assets/svg/Domicilios2.svg";
+import { ReactComponent as Mensajeria2 } from "../../../assets/svg/Mensajeria2.svg";
+
 // styles
 import { FirstSectionStyled } from "../../../styles/Login/FristSection.styled";
 // controller
 import { useForm, Controller } from "react-hook-form";
-export default function FirstSection({ toggleLogin }) {
+export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
   const {
     handleSubmit,
     control,
@@ -40,20 +43,24 @@ export default function FirstSection({ toggleLogin }) {
               </Typography>
             </Box>
           </Grid>
+
           <Grid item xs={6}>
-            <Box className="flexEnd">
-              <Mensajeria />
+            <Box
+              onClick={() => setToggleLogin(false)}
+              className="flexEnd pointer"
+            >
+              {!toggleLogin ? <Mensajeria /> : <Mensajeria2 />}
             </Box>
           </Grid>
           <Grid item xs={6}>
-            <Box>
-              <Domicilios />
+            <Box className=" pointer" onClick={() => setToggleLogin(true)}>
+              {!toggleLogin ? <Domicilios /> : <Domicilios2 />}
             </Box>
           </Grid>
         </Grid>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <Grid container style={{marginTop: "30px"}}>
-            <Grid item xs={12} className="centerForm">
+          <Grid container style={{ marginTop: "30px" }}>
+            <Grid item xs={12} style={{ textAlign: "center" }}>
               <Controller
                 rules={{
                   required: {
@@ -71,6 +78,9 @@ export default function FirstSection({ toggleLogin }) {
                     size="small"
                     label="Correo electrónico"
                     variant="outlined"
+                    style={{
+                      width: "272px",
+                    }}
                     onChange={(e) => field.onChange(e.target.value)}
                   />
                 )}
@@ -80,7 +90,7 @@ export default function FirstSection({ toggleLogin }) {
               )}
             </Grid>
 
-            <Grid item xs={12} className="centerForm">
+            <Grid item xs={12} style={{ textAlign: "center" }}>
               <Controller
                 name="password"
                 control={control}
@@ -98,6 +108,10 @@ export default function FirstSection({ toggleLogin }) {
                     size="small"
                     label="Contraseña"
                     type="password"
+                    style={{
+                      width: "272px",
+                      marginTop: "10px",
+                    }}
                     variant="outlined"
                     onChange={(e) => field.onChange(e.target.value)}
                   />
@@ -110,14 +124,33 @@ export default function FirstSection({ toggleLogin }) {
               )}
             </Grid>
             <Grid item xs={12} className="centerForm">
-              <Button type="submit">Ingresar</Button>
+              <Button
+                type="submit"
+                style={{
+                  padding: "4px 16px 6px",
+                  width: "272px",
+                  height: "32px",
+                  /* Orange_karga */
+                  background: " #FF6600",
+                  borderRadius: "8px",
+                  color: "#fff",
+                  fontSize: "14px",
+                }}
+              >
+                Ingresar
+              </Button>
             </Grid>
             <Grid item xs={12} className="centerForm">
-              <Typography>Olvide mi contraseña</Typography>
+              <Typography className="forgetPass">
+                Olvide mi contraseña
+              </Typography>
             </Grid>
             <Grid item xs={12} className="centerForm">
-              <Typography>
-                ¿No tienes una cuenta? <b>Registrame</b>
+              <Typography className="createAcount">
+                ¿No tienes una cuenta?{" "}
+                <span style={{ marginLeft: "8px" }}>
+                  <b>Registrame</b>
+                </span>
               </Typography>
             </Grid>
           </Grid>
