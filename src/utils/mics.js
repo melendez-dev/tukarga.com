@@ -32,3 +32,14 @@ export const documentTypes = [
     name: "Pasaporte",
   },
 ];
+
+export const Brands = {
+  0: {
+    id: 0,
+    name: "Oficios",
+  },
+  1: {
+    id: 1,
+    name: "Tukarga",
+  },
+};

@@ -5,15 +5,21 @@ import ThridSection from "../Components/Common/ModuleHome/ThridSection";
 import FourSection from "../Components/Common/ModuleHome/FourSection";
 import Footer from "../Components/Common/Footer/Footer";
 import FiveSection from "../Components/Common/ModuleHome/FiveSectionToggle";
-export default function Home({ toggle, setToggle }) {
+
+// useContext
+import { useContext } from "react";
+import { BrandContext } from "../context/BrandContext";
+
+export default function Home() {
+  const { brand } = useContext(BrandContext);
   return (
     <>
-      <Header toggle={toggle} setToggle={setToggle} />
-      <FirstSection toggle={toggle} setToggle={setToggle} />
-      <SecondSection toggle={toggle} />
-      <ThridSection toggle={toggle} />
-      <FourSection toggle={toggle} />
-      {toggle && <FiveSection />}
+      <Header />
+      <FirstSection />
+      <SecondSection />
+      <ThridSection />
+      <FourSection />
+      {brand && <FiveSection />}
       <Footer />
     </>
   );

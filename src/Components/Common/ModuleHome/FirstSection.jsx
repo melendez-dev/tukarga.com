@@ -19,13 +19,15 @@ import CardWithImage from "../../../Components/Shared/Card/CardWithImage";
 
 // context
 import { MobileContext } from "../../../context/MobileContext";
+import { BrandContext } from "../../../context/BrandContext";
 
-export default function FirstSection({ toggle, setToggle }) {
+export default function FirstSection() {
   const isMobile = useContext(MobileContext);
+  const { brand, setBrand } = useContext(BrandContext);
   return (
     <>
       <FirstStyled>
-        {!toggle ? (
+        {!brand ? (
           <>
             <Grid container spacing={3}>
               {!isMobile ? (
@@ -45,15 +47,15 @@ export default function FirstSection({ toggle, setToggle }) {
                 </>
               ) : (
                 <>
-                  {!toggle && (
+                  {!brand && (
                     <>
                       <CardWithImage
                         img={!isMobile ? quintigillar_mobile : quintigillar}
                         title="¡Despreocúpate de las entregas, Oficios by tuKarga lo hace por ti!"
                         textButton="Conocer más"
                         subtitle="Solicita tu servicio ahora!"
-                        setToggle={setToggle}
-                        toggle={toggle}
+                        setToggle={setBrand}
+                        toggle={brand}
                       />
                     </>
                   )}
@@ -69,15 +71,15 @@ export default function FirstSection({ toggle, setToggle }) {
           <>
             {isMobile && (
               <>
-                {toggle && (
+                {brand && (
                   <>
                     <CardWithImage
                       img={hero_bg}
                       title="Tukarga, plataforma tecnológica de servicios logísticos."
                       subtitle="Conoce y empieza un nuevo servicio!"
                       textButton="Solicitar servicio"
-                      setToggle={setToggle}
-                      toggle={toggle}
+                      setToggle={setBrand}
+                      toggle={brand}
                     />
                   </>
                 )}
