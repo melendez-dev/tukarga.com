@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 
 // images
 import heroKarga from "../../assets/images/Hero_kargaMobile.png";
+import heroKarga2 from "../../assets/images/Hero_oficiosMobile2.png";
 
 export const FirstStyled = styled(Box)`
   padding: 6%;
@@ -68,6 +69,16 @@ export const FirstStyled = styled(Box)`
     }
     .heroKarga {
       background-image: url(${heroKarga});
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      height: 356px;
+      padding: 24px;
+      transition: all 0.5s ease;
+    }
+    .heroKargaBgM {
+      background-image: url(${heroKarga2});
+      transition: all 0.5s ease;
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;

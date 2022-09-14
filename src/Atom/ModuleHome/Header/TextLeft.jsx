@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 import { Box, Typography, Button } from "@material-ui/core";
 // view context
 import { LandingViewContext } from "../../../context/LadingViewContext";
+import { BrandContext } from "../../../context/BrandContext";
 export default function TextLeft({ toggle, isMobile }) {
   // context
   const { landingView } = useContext(LandingViewContext);
+  const { brand } = useContext(BrandContext);
   return (
     <>
       {isMobile ? (
@@ -15,10 +17,21 @@ export default function TextLeft({ toggle, isMobile }) {
             <Typography className="title">
               {landingView ? (
                 <>
-                  <Box>
-                    <b>¡Despreocúpate </b>
-                  </Box>
-                  <b>de las entregas, </b>
+                  {brand ? (
+                    <>
+                      <Box>
+                        <b>Tukarga es la </b>
+                      </Box>
+                      <b> primera plataforma</b>
+                    </>
+                  ) : (
+                    <>
+                      <Box>
+                        <b>¡Despreocúpate </b>
+                      </Box>
+                      <b>de las entregas, </b>
+                    </>
+                  )}
                 </>
               ) : (
                 <>
@@ -29,7 +42,13 @@ export default function TextLeft({ toggle, isMobile }) {
             </Typography>
             <Typography className="subtitle" style={{ fontSize: "18px" }}>
               {landingView ? (
-                <>Oficios by tuKarga lo hace por ti!</>
+                <>
+                  {brand ? (
+                    <>tecnológica de servicios logísticos.</>
+                  ) : (
+                    <>Oficios by tuKarga lo hace por ti!</>
+                  )}
+                </>
               ) : (
                 <>{"tecnológica de servicios logísticos."}</>
               )}
@@ -37,8 +56,17 @@ export default function TextLeft({ toggle, isMobile }) {
             <Typography className="subtitle">
               {landingView ? (
                 <>
-                  Con la ayuda de nuestra red de más de 4000 profesionales,
-                  llevamos tus envíos a tiempo.
+                  {brand ? (
+                    <>
+                      ¡Con una gama completa de servicios, somos una solución
+                      integral para todas las necesidades de su negocio!
+                    </>
+                  ) : (
+                    <>
+                      Con la ayuda de nuestra red de más de 4000 profesionales,
+                      llevamos tus envíos a tiempo.
+                    </>
+                  )}
                 </>
               ) : (
                 <>
