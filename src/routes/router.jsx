@@ -7,13 +7,14 @@ import Home from "../Pages/Home";
 import Companies from "../Pages/Companies";
 import Conveyor from "../Pages/Conveyor";
 import Login from "../Pages/Login";
+import Quotation from "../Pages/Quotation";
 
 export default function Router() {
   const [toggle, setToggle] = useState(false);
   const router = useRoutes([
     {
       path: principalRoutes.base, // pricipal
-      element: <Home toggle={toggle} setToggle={setToggle} />,
+      element: <Home />,
     },
     // companies
     {
@@ -27,6 +28,10 @@ export default function Router() {
     {
       path: routesName.login,
       element: <Login toggle={toggle} />,
+    },
+    {
+      path: routesName.quotation,
+      element: <Quotation toggle={toggle} />,
     },
     // not found
     {

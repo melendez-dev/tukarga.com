@@ -3,12 +3,15 @@ import { Container } from "@material-ui/core";
 
 import AtomFourSection from "../../../Atom/ModuleHome/FourSection/AtomFourSection";
 import ToggleFourSection from "../../../Atom/ModuleHome/FourSection/ToggleFourSection";
-
-export default function FourSection({ toggle }) {
+// context
+import { useContext } from "react";
+import { BrandContext } from "../../../context/BrandContext";
+export default function FourSection() {
+  const { brand } = useContext(BrandContext);
   return (
     <FourSectionStyled>
       <Container>
-        {!toggle ? (
+        {!brand ? (
           <>
             <AtomFourSection
               title="Contáctanos ahora"

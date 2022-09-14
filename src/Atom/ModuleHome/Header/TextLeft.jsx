@@ -29,7 +29,7 @@ export default function TextLeft({ toggle, isMobile }) {
                 }}
               >
                 <Link
-                  to={!toggle ? "/contacto" : "/login"}
+                  to={!toggle ? "/quotation" : "/login"}
                   className="text_light_button"
                   style={{
                     fontSize: "12px",
