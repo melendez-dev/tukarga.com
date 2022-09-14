@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { Typography, Box, Grid, Button } from "@material-ui/core";
 // import svg icons
 import { ReactComponent as Icon } from "../../../assets/svg/Icono.svg";
@@ -6,6 +7,7 @@ import { ReactComponent as Icon2 } from "../../../assets/svg/Icono_2.svg";
 import { ReactComponent as Icon3 } from "../../../assets/svg/Icono _3.svg";
 import CardHomeFirstSec from "../../../Components/Shared/Card/CardHomeFirstSec";
 export default function RightSide({ isMobile }) {
+  const navigate = useNavigate();
   return (
     <Box style={{ padding: "24px" }}>
       <Box className="marginBottom">
@@ -53,6 +55,7 @@ export default function RightSide({ isMobile }) {
                 color: "white",
                 fontSize: "10px",
               }}
+              onClick={() => navigate("/companies#information")}
             >
               Más información
             </Button>

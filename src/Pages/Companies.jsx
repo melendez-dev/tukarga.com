@@ -41,7 +41,7 @@ export default function Companies({ toggle }) {
   const isMobil = useMediaQuery("(max-width:930px)");
   return (
     <>
-      <Header toggle={toggle}  />
+      <Header toggle={toggle} />
       <FirstSection
         icon={isMobil ? <Ilustration2 /> : <Ilustration />}
         title="Estamos preparados para
@@ -60,6 +60,7 @@ export default function Companies({ toggle }) {
         title="Quieres más clientes satisfechos"
         subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
         buttonText="Enviar"
+        id="#information"
       />
       <Footer />
     </>
