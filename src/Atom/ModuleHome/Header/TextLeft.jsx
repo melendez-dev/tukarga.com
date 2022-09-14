@@ -1,22 +1,53 @@
+import { useContext } from "react";
 // react-router-dom
 import { Link } from "react-router-dom";
 import { Box, Typography, Button } from "@material-ui/core";
+// view context
+import { LandingViewContext } from "../../../context/LadingViewContext";
 export default function TextLeft({ toggle, isMobile }) {
+  // context
+  const { landingView } = useContext(LandingViewContext);
   return (
     <>
       {isMobile ? (
         <>
           <Box style={{ marginTop: "17px" }}>
             <Typography className="title">
-              <b>{"Tukarga es la "}</b>
-              <b>{"primera plataforma"}</b>
+              {landingView ? (
+                <>
+                  <Box>
+                    <b>¡Despreocúpate </b>
+                  </Box>
+                  <b>de las entregas, </b>
+                </>
+              ) : (
+                <>
+                  <b>{"Tukarga es la "}</b>
+                  <b>{"primera plataforma"}</b>
+                </>
+              )}
             </Typography>
             <Typography className="subtitle" style={{ fontSize: "18px" }}>
-              {"tecnológica de servicios logísticos."}
+              {landingView ? (
+                <>Oficios by tuKarga lo hace por ti!</>
+              ) : (
+                <>{"tecnológica de servicios logísticos."}</>
+              )}
             </Typography>
             <Typography className="subtitle">
-              {"¡Con una gama completa de servicios, somos una"}
-              {"solucioń integral para todas las necesidades de su negoció!"}
+              {landingView ? (
+                <>
+                  Con la ayuda de nuestra red de más de 4000 profesionales,
+                  llevamos tus envíos a tiempo.
+                </>
+              ) : (
+                <>
+                  {"¡Con una gama completa de servicios, somos una"}
+                  {
+                    "solucioń integral para todas las necesidades de su negoció!"
+                  }
+                </>
+              )}
             </Typography>
             <Box>
               <Button
