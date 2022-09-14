@@ -1,3 +1,6 @@
+import { useContext } from "react";
+import { LandingViewContext } from "../../../context/LadingViewContext";
+import { useNavigate } from "react-router-dom";
 import {
   Grid,
   Typography,
@@ -11,6 +14,8 @@ import { FirstSectionStyled } from "../../../styles/Quotation/FirstSection.style
 // Controller
 import { useForm, Controller } from "react-hook-form";
 export default function Quotation() {
+  const navigate = useNavigate();
+  const { setLandingView } = useContext(LandingViewContext);
   const {
     handleSubmit,
     control,
@@ -160,6 +165,10 @@ export default function Quotation() {
                     border: "1px solid #D74723",
                     borderRadius: "8px",
                   }}
+                  onClick={() => {
+                    setLandingView(true);
+                    navigate("/");
+                  }}
                 >
                   <span className="buttonCancel">Cancelar</span>
                 </Button>
@@ -174,7 +183,7 @@ export default function Quotation() {
                     borderRadius: "8px",
                   }}
                 >
-									<span className="buttonNext">Siguiente</span>
+                  <span className="buttonNext">Siguiente</span>
                 </Button>
               </Grid>
             </Grid>

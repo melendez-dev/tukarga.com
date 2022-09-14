@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Container, Grid, useMediaQuery } from "@material-ui/core";
+import { Container, Grid, Typography, Box, Button } from "@material-ui/core";
 import { FirstStyled } from "../../../styles/ModuleHome/FirstSection.styled";
 
 // impor Atoms
@@ -20,16 +20,18 @@ import CardWithImage from "../../../Components/Shared/Card/CardWithImage";
 // context
 import { MobileContext } from "../../../context/MobileContext";
 import { BrandContext } from "../../../context/BrandContext";
+import { LandingViewContext } from "../../../context/LadingViewContext";
 
 export default function FirstSection() {
   const isMobile = useContext(MobileContext);
   const { brand, setBrand } = useContext(BrandContext);
+  const { landingView, setLandingView } = useContext(LandingViewContext);
   return (
     <>
       <FirstStyled>
         {!brand ? (
           <>
-            <Grid container spacing={3}>
+            <Grid container spacing={3} style={{ display: "block" }}>
               {!isMobile ? (
                 <>
                   <Grid
@@ -49,14 +51,53 @@ export default function FirstSection() {
                 <>
                   {!brand && (
                     <>
-                      <CardWithImage
-                        img={!isMobile ? quintigillar_mobile : quintigillar}
-                        title="¡Despreocúpate de las entregas, Oficios by tuKarga lo hace por ti!"
-                        textButton="Conocer más"
-                        subtitle="Solicita tu servicio ahora!"
-                        setToggle={setBrand}
-                        toggle={brand}
-                      />
+                      {landingView ? (
+                        <>
+                          <Box className="heroKarga">
+                            <Container>
+                              <Box>
+                                <Typography className="titleView">
+                                  <b>Tukarga es la primera plataforma</b>
+                                </Typography>
+                                <Typography className="subtitleView">
+                                  tecnológica de servicios logísticos.
+                                </Typography>
+                                <Typography className="textView">
+                                  ¡Con una gama completa de servicios, somos una
+                                  solución integral para todas las necesidades
+                                  de su negocio!
+                                </Typography>
+                              </Box>
+                              <Box className="marginTopView">
+                                <Button
+                                  variant="outlined"
+                                  style={{
+                                    width: "103px",
+                                    height: "32px",
+                                    border: "1px solid #D74723",
+                                    borderRadius: "8px",
+                                  }}
+                                >
+                                  <span className="buttonText">
+                                    Conocer más
+                                  </span>
+                                </Button>
+                              </Box>
+                            </Container>
+                          </Box>
+                        </>
+                      ) : (
+                        <>
+                          <CardWithImage
+                            img={!isMobile ? quintigillar_mobile : quintigillar}
+                            title="¡Despreocúpate de las entregas, Oficios by tuKarga lo hace por ti!"
+                            textButton="Conocer más"
+                            subtitle="Solicita tu servicio ahora!"
+                            setToggle={setBrand}
+                            toggle={brand}
+                          />
+                        </>
+                      )}
                     </>
                   )}
                 </>
