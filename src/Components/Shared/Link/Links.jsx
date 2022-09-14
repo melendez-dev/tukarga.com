@@ -29,7 +29,6 @@ export default function Links({ dark, darkLink, is }) {
   // context mobile
 
   const isMobile = useContext(MobileContext);
-  console.log(pathname);
 
   // switch the router with nameLinks
   useEffect(() => {

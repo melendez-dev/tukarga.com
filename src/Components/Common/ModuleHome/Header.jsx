@@ -16,14 +16,14 @@ import hero_bg from "../../../assets/images/Oficios_Hero_BG.png";
 import { MobileContext } from "../../../context/MobileContext";
 import { useContext } from "react";
 export default function Header({ toggle, setToggle }) {
-  const isMobile = useContext(MobileContext);
+const isMobile = useContext(MobileContext);
   return (
     <HeaderStyled>
       <Box
         className={toggle ? "secondBackground" : "firstBackground"}
         style={{ minHeight: isMobile ? "513px" : undefined }}
       >
-        <HeaderBanner dark={false} />
+        <HeaderBanner dark={false} toggle={toggle} />
         <Container>
           <Box className={!isMobile ? "fixedBotton" : undefined}>
             <Grid container spacing={3}>
