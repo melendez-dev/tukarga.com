@@ -30,7 +30,15 @@ export default function FirstSection({ toggle, setToggle }) {
             <Grid container spacing={3}>
               {!isMobile ? (
                 <>
-                  <Grid item xs={6}>
+                  <Grid
+                    item
+                    xs={6}
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      alignContent: "center",
+                    }}
+                  >
                     <LeftIlustration />
                   </Grid>
                 </>
