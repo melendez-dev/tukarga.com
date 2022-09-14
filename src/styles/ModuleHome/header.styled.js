@@ -12,6 +12,7 @@ export const HeaderStyled = styled(Box)`
     height: 100%;
     background-size: cover;
     transition: all 0.5s ease;
+    background-position: center;
   }
   .secondBackground {
     background-image: url(${backgroundHeader2});
