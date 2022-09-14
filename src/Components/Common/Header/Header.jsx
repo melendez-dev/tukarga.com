@@ -11,7 +11,9 @@ export default function Header({ dark = false, darkLink, toggle }) {
   const isMobile = useContext(MobileContext);
   return (
     <HeaderStyled>
-      <Box className="header_link_logo">
+      <Box
+        className={dark ? "white header_link_logo" : "black header_link_logo"}
+      >
         <Grid
           container
           spacing={3}
@@ -28,7 +30,11 @@ export default function Header({ dark = false, darkLink, toggle }) {
               }}
             >
               {isMobile ? (
-                <Logo />
+                dark ? (
+                  <LogoDark />
+                ) : (
+                  <Logo />
+                )
               ) : dark ? (
                 <LogoDark />
               ) : toggle ? (
