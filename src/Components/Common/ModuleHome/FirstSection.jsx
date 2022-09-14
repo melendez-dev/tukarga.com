@@ -32,7 +32,8 @@ export default function FirstSection({ toggle, setToggle }) {
                 <>
                   <Grid
                     item
-                    xs={6}
+                    xs={2}
+                    md={6}
                     style={{
                       display: "flex",
                       justifyContent: "center",
@@ -48,10 +49,11 @@ export default function FirstSection({ toggle, setToggle }) {
                     <>
                       <CardWithImage
                         img={!isMobile ? quintigillar_mobile : quintigillar}
-                        title="Tukarga, plataforma tecnológica de servicios logísticos."
-                        subtitle="Conoce y empieza un nuevo servicio!"
+                        title="¡Despreocúpate de las entregas, Oficios by tuKarga lo hace por ti!"
                         textButton="Conocer más"
+                        subtitle="Solicita tu servicio ahora!"
                         setToggle={setToggle}
+                        toggle={toggle}
                       />
                     </>
                   )}
@@ -71,10 +73,11 @@ export default function FirstSection({ toggle, setToggle }) {
                   <>
                     <CardWithImage
                       img={hero_bg}
-                      title="¡Despreocúpate de las entregas, Oficios by tuKarga lo hace por ti!"
-                      subtitle="Solicita tu servicio ahora!"
+                      title="Tukarga, plataforma tecnológica de servicios logísticos."
+                      subtitle="Conoce y empieza un nuevo servicio!"
                       textButton="Solicitar servicio"
                       setToggle={setToggle}
+                      toggle={toggle}
                     />
                   </>
                 )}

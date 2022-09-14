@@ -7,41 +7,45 @@ import {
 } from "@material-ui/core";
 // Icons
 import { ReactComponent as Arrow } from "../../../assets/svg/Vector.svg";
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 export default function CardWithImage({
   img,
   title,
   subtitle,
   textButton,
   setToggle,
-  isMobile = false,
+  toggle = false,
 }) {
+  const isMobile = useContext(MobileContext);
   return (
     <Box
       style={{
         maxWidth: "100%",
         width: "100%",
-        height: "184px",
+        height: isMobile ? "100%" : "184px",
         borderRadius: "10px",
-        background: "#fff",
         display: "flex",
-        padding: !isMobile ? "0px" : "8px",
-        backgroundColor: !isMobile ? " #FCFCED" : "white",
+        padding: !isMobile ? "0px" : !toggle ? "10px" : "10px",
+        backgroundColor: isMobile ? " #FCFCED" : "white",
         alignItems: !isMobile ? "center" : "flex-start",
       }}
     >
       <Grid container spacing={2}>
-        <Grid item xs={6}>
+        <Grid item xs={4} md={6}>
           <Box
             style={{
-              background: `url(${img}) center `,
-              height: !isMobile ? "126px" : "168px",
+              background: `url(${img}) center no-repeat`,
+              height: !isMobile ? "186px" : "96px",
+              width: !isMobile ? "100%" : "87px",
               transition: "ease-out 0.5s",
-              marginLeft: !isMobile ? "20px" : "0px",
-              backgroundRepeat: "no-repeat",
+              marginLeft: isMobile ? (!toggle ? "10px" : "0px") : "0px",
+              marginTop: isMobile ? (toggle ? "0px" : "10px") : "0px",
+              borderRadius: isMobile ? "8px" : "0px",
             }}
           />
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={8} md={6}>
           <Box
             style={{
               display: "flex",
@@ -52,10 +56,10 @@ export default function CardWithImage({
               <Typography
                 style={{
                   fontWeight: "500",
-                  fontSize: !isMobile ? "12px" : "14px",
+                  fontSize: isMobile ? "12px" : "15px",
                   color: "#3C635D",
                   lineHeight: "18px",
-                  maxWidth: "90%",
+                  maxWidth: isMobile ? "100%" : "90%",
                   marginTop: "8px",
                 }}
               >
@@ -71,7 +75,7 @@ export default function CardWithImage({
                   maxWidth: "192px",
                   marginTop: "8px",
                   minHeight: "36px",
-                  display: !isMobile ? "none" : "block",
+                  display: isMobile ? "none" : "block",
                 }}
               >
                 {subtitle}
@@ -92,7 +96,7 @@ export default function CardWithImage({
           >
             <Typography
               style={{
-                fontSize: !isMobile ? "9px" : "13px",
+                fontSize: isMobile ? "9px" : "13px",
                 color: "#3C3C3B",
                 fontWeight: "700",
                 width: "100%",

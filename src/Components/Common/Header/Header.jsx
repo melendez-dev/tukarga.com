@@ -22,15 +22,21 @@ export default function Header({ dark = false, darkLink, toggle }) {
           }}
         >
           <Grid item xs={6} md={7}>
-            {isMobile ? (
-              <Logo />
-            ) : dark ? (
-              <LogoDark />
-            ) : toggle ? (
-              <Tukarga />
-            ) : (
-              <Logo />
-            )}
+            <Box
+              style={{
+                marginLeft: isMobile ? "10px" : "0px",
+              }}
+            >
+              {isMobile ? (
+                <Logo />
+              ) : dark ? (
+                <LogoDark />
+              ) : toggle ? (
+                <Tukarga />
+              ) : (
+                <Logo />
+              )}
+            </Box>
           </Grid>
           <Grid item xs={6} md={5}>
             <Links dark={dark} darkLink={darkLink} isMobile={isMobile} />
