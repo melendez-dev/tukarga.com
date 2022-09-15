@@ -59,10 +59,14 @@ export default function Footer() {
                 </Box>
               </>
             )}
-            {brand & isMobile && (
-              <Box className="marginY">
-                <hr />
-              </Box>
+            {isMobile && (
+              <>
+                {brand && (
+                  <Box className="marginY">
+                    <hr />
+                  </Box>
+                )}
+              </>
             )}
           </Grid>
           <Grid item xs={12} md={3}>

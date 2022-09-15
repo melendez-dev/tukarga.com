@@ -9,6 +9,7 @@ export default function FourSection({
   type = false,
   id = "#",
   brand,
+  withoutTextArea,
 }) {
   return (
     <>
@@ -21,6 +22,7 @@ export default function FourSection({
               buttonText={buttonText}
               type={type}
               brand={brand}
+              withoutTextArea={withoutTextArea}
             />
           </Box>
         </Container>
