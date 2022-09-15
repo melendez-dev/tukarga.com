@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import {
   Box,
@@ -30,8 +30,17 @@ import { FirstSectionStyled } from "../../../styles/Login/FristSection.styled";
 import { useForm, Controller } from "react-hook-form";
 export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
   const { state } = useLocation();
+  const navigate = useNavigate();
   const isMobile = useContext(MobileContext);
   const { brand } = useContext(BrandContext);
+
+  const register = () => {
+    navigate("/companies");
+    setTimeout(() => {
+      const part = document.querySelector(`#information`);
+      part.scrollIntoView({ behavior: "smooth" });
+    }, 500);
+  };
   const {
     handleSubmit,
     control,
@@ -321,7 +330,12 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
                     <Grid item xs={12} className="centerForm">
                       <Typography className="createAcount">
                         ¿No tienes una cuenta?{" "}
-                        <span style={{ marginLeft: "8px" }}>
+                        <span
+                          style={{ marginLeft: "8px" }}
+                          onClick={() => {
+                            brand ? undefined : register();
+                          }}
+                        >
                           <b>Registrame</b>
                         </span>
                       </Typography>
@@ -430,7 +444,12 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
                     <Grid item xs={12} className="centerForm">
                       <Typography className="createAcount">
                         ¿No tienes una cuenta?{" "}
-                        <span style={{ marginLeft: "8px" }}>
+                        <span
+                          style={{ marginLeft: "8px" }}
+                          onClick={() => {
+                            brand ? undefined : register();
+                          }}
+                        >
                           <b>Registrame</b>
                         </span>
                       </Typography>
