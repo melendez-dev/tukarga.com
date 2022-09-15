@@ -35,7 +35,14 @@ import { ReactComponent as Motorcycle } from "../../../assets/svg/ico_motorcycle
 
 import { getCities } from "../../../services/City";
 
-export default function AtomFourSection({ title, subtitle, buttonText, type }) {
+export default function AtomFourSection({
+  title,
+  subtitle,
+  buttonText,
+  type,
+  withoutTextArea = false,
+  brand = false,
+}) {
   const isMobile = useContext(MobileContext);
   const [selected, setSelected] = useState(1);
   const [autoComplete, setAutoComplete] = useState([]);
@@ -75,7 +82,7 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
 
   return (
     <>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} >
         <Grid item xs={12} md={6}>
           <Box
             style={{
@@ -282,45 +289,47 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                         </FormHelperText>
                       )}
                     </Grid>
-                    <Grid item xs={12}>
-                      <Controller
-                        rules={{
-                          required: {
-                            value: true,
-                            message: "Este campo es requerido",
-                          },
-                          // max length
-                          maxLength: {
-                            value: 500,
-                            message: "Máximo 500 caracteres",
-                          },
-                        }}
-                        control={control}
-                        name="description"
-                        render={({ field }) => (
-                          <TextField
-                            {...field}
-                            size="small"
-                            label="Tu mensaje"
-                            variant="outlined"
-                            fullWidth
-                            error={errors?.description?.value}
-                            className="marginTop"
-                            multiline
-                            maxRows={10}
-                            minRows={7}
-                            onChange={(e) => {
-                              field.onChange(e.target.value);
-                            }}
-                          />
+                    {!withoutTextArea && (
+                      <Grid item xs={12}>
+                        <Controller
+                          rules={{
+                            required: {
+                              value: true,
+                              message: "Este campo es requerido",
+                            },
+                            // max length
+                            maxLength: {
+                              value: 500,
+                              message: "Máximo 500 caracteres",
+                            },
+                          }}
+                          control={control}
+                          name="description"
+                          render={({ field }) => (
+                            <TextField
+                              {...field}
+                              size="small"
+                              label="Tu mensaje"
+                              variant="outlined"
+                              fullWidth
+                              error={errors?.description?.value}
+                              className="marginTop"
+                              multiline
+                              maxRows={10}
+                              minRows={7}
+                              onChange={(e) => {
+                                field.onChange(e.target.value);
+                              }}
+                            />
+                          )}
+                        />
+                        {errors?.description && (
+                          <FormHelperText error>
+                            {errors?.description?.message}
+                          </FormHelperText>
                         )}
-                      />
-                      {errors?.description && (
-                        <FormHelperText error>
-                          {errors?.description?.message}
-                        </FormHelperText>
-                      )}
-                    </Grid>
+                      </Grid>
+                    )}
                   </>
                 ) : (
                   <Grid container>
@@ -356,90 +365,96 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                         </FormHelperText>
                       )}
                     </Grid>
-                    <Grid item xs={4}>
-                      <Controller
-                        name="document_type_id"
-                        control={control}
-                        defaultValue=""
-                        rules={{
-                          required: {
-                            value: true,
-                            message: "Este campo es requerido",
-                          },
-                        }}
-                        render={({ field }) => (
-                          <FormControl
-                            variant="outlined"
-                            fullWidth
-                            size="small"
-                            className="marginTop"
-                          >
-                            <InputLabel id="select">Tipo</InputLabel>
-                            <Select
-                              {...field}
-                              disabled={false}
-                              labelId="select"
-                              label="Tipo"
-                              onChange={(e) => field.onChange(e.target.value)}
-                            >
-                              {documentTypes?.map((item, index) => (
-                                <MenuItem value={item.id} key={index}>
-                                  {item.name}
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                        )}
-                      />
-                      {errors?.type_document && (
-                        <FormHelperText error>
-                          {errors?.type_document?.message}
-                        </FormHelperText>
-                      )}
-                    </Grid>
-                    <Grid item xs={8}>
-                      <Controller
-                        name="document"
-                        control={control}
-                        defaultValue=""
-                        rules={{
-                          required: {
-                            value: true,
-                            message: "Este campo es requerido",
-                          },
-                          pattern: {
-                            value: /^[0-9]/,
-                            message:
-                              "El número de documento debe tener 8 dígitos",
-                          },
-
-                          maxLength: {
-                            value: 20,
-                            message: "Máximo 20 caracteres",
-                          },
-                        }}
-                        render={({ field }) => (
-                          <TextField
-                            {...field}
-                            size="small"
-                            label="Número de documento"
-                            variant="outlined"
-                            fullWidth
-                            className="marginTop"
-                            error={errors?.document_number?.value}
-                            onChange={(e) => {
-                              field.onChange(e.target.value);
+                    {!brand && (
+                      <>
+                        <Grid item xs={4}>
+                          <Controller
+                            name="document_type_id"
+                            control={control}
+                            defaultValue=""
+                            rules={{
+                              required: {
+                                value: true,
+                                message: "Este campo es requerido",
+                              },
                             }}
-                            style={{ paddingLeft: "10px" }}
+                            render={({ field }) => (
+                              <FormControl
+                                variant="outlined"
+                                fullWidth
+                                size="small"
+                                className="marginTop"
+                              >
+                                <InputLabel id="select">Tipo</InputLabel>
+                                <Select
+                                  {...field}
+                                  disabled={false}
+                                  labelId="select"
+                                  label="Tipo"
+                                  onChange={(e) =>
+                                    field.onChange(e.target.value)
+                                  }
+                                >
+                                  {documentTypes?.map((item, index) => (
+                                    <MenuItem value={item.id} key={index}>
+                                      {item.name}
+                                    </MenuItem>
+                                  ))}
+                                </Select>
+                              </FormControl>
+                            )}
                           />
-                        )}
-                      />
-                      {errors?.document_number && (
-                        <FormHelperText error>
-                          {errors?.document_number?.message}
-                        </FormHelperText>
-                      )}
-                    </Grid>
+                          {errors?.type_document && (
+                            <FormHelperText error>
+                              {errors?.type_document?.message}
+                            </FormHelperText>
+                          )}
+                        </Grid>
+                        <Grid item xs={8}>
+                          <Controller
+                            name="document"
+                            control={control}
+                            defaultValue=""
+                            rules={{
+                              required: {
+                                value: true,
+                                message: "Este campo es requerido",
+                              },
+                              pattern: {
+                                value: /^[0-9]/,
+                                message:
+                                  "El número de documento debe tener 8 dígitos",
+                              },
+
+                              maxLength: {
+                                value: 20,
+                                message: "Máximo 20 caracteres",
+                              },
+                            }}
+                            render={({ field }) => (
+                              <TextField
+                                {...field}
+                                size="small"
+                                label="Número de documento"
+                                variant="outlined"
+                                fullWidth
+                                className="marginTop"
+                                error={errors?.document_number?.value}
+                                onChange={(e) => {
+                                  field.onChange(e.target.value);
+                                }}
+                                style={{ paddingLeft: "10px" }}
+                              />
+                            )}
+                          />
+                          {errors?.document_number && (
+                            <FormHelperText error>
+                              {errors?.document_number?.message}
+                            </FormHelperText>
+                          )}
+                        </Grid>
+                      </>
+                    )}
                     <Grid item xs={12} style={{ marginTop: "10px" }}>
                       <Controller
                         rules={{
@@ -574,18 +589,22 @@ export default function AtomFourSection({ title, subtitle, buttonText, type }) {
                       <Box
                         style={{
                           display: "flex",
-                          justifyContent: "space-between",
-                          width: "233px",
+                          justifyContent: brand ? "center" : "space-between",
+                          gap: brand ? "10px" : undefined,
+                          width: brand ? undefined : "233px",
                         }}
                       >
-                        <Box onClick={() => setAutoMovil(0)}>
-                          <ButtonSelectForm
-                            icon={<Motorcycle />}
-                            selected={selected}
-                            id={1}
-                            setSelected={setSelected}
-                          />
-                        </Box>
+                        {!brand && (
+                          <Box onClick={() => setAutoMovil(0)}>
+                            <ButtonSelectForm
+                              icon={<Motorcycle />}
+                              selected={selected}
+                              id={1}
+                              setSelected={setSelected}
+                            />
+                          </Box>
+                        )}
+
                         <Box onClick={() => setAutoMovil(1)}>
                           <ButtonSelectForm
                             icon={<Car />}

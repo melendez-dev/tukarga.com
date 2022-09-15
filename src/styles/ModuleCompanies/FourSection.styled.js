@@ -32,7 +32,14 @@ export const FourSectionStyled = styled(Box)`
     padding: 0px;
     margin-bottom: 27px;
     .title {
-      font-size: 16px;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 24px;
+      /* or 120% */
+
+      /* Pine_tree */
+
+      color: #3c635d;
     }
     .subtitle {
       font-size: 12px;

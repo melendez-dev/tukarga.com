@@ -7,6 +7,7 @@ export default function CardGoal({ title, subtitle }) {
         style={{
           maxWidth: "224px",
           maxHeight: "114px",
+          minHeight: "114px",
           padding: "16px",
           border: "1px solid #3C3C3B",
           borderRadius: "8px",

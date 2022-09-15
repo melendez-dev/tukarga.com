@@ -6,10 +6,10 @@ import FormLogin1 from "../Components/Common/ModuleHome/FourSection";
 import { Box, Container } from "@material-ui/core";
 import AtomForm from "../Atom/ModuleHome/FourSection/AtomFourSection";
 import { FourSectionStyled } from "../styles/ModuleHome/FourtSeccion.styled";
+import Footer from "../Components/Common/Footer/Footer";
 export default function Login({ toggle }) {
   const [toggleLogin, setToggleLogin] = useState(false);
   const isMobile = useContext(MobileContext);
-  console.log(isMobile);
   return (
     <>
       <HeaderCustom toggle={toggle} darkLink={true} dark={true} />
@@ -38,6 +38,7 @@ export default function Login({ toggle }) {
           </FourSectionStyled>
         )}
       </Box>
+      <Footer />
     </>
   );
 }
