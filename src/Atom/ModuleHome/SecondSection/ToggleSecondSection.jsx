@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 import {
   Box,
   Grid,
@@ -7,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { ReactComponent as Ilustration } from "../../../assets/svg/Ilustracion_135.svg";
 export default function ToggleSecondSection() {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   return (
     <>
       <Grid

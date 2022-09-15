@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import ButtonIconTextIco from "../../../Components/Shared/Button/ButtonIcoTextIco";
 // icons
 import { ReactComponent as Arrow } from "../../../assets/svg/Vector.svg";
@@ -5,10 +6,13 @@ import { ReactComponent as Mail } from "../../../assets/svg/ico_mail-light.svg";
 import { ReactComponent as Motorcycle } from "../../../assets/svg/ico_motorcycle.svg";
 import { ReactComponent as Ilustration } from "../../../assets/svg/Ilustración_02.svg";
 import { ReactComponent as IlustrationMobil } from "../../../assets/svg/Ilustracion_03.svg";
-import { Box, Grid, Typography, useMediaQuery } from "@material-ui/core";
+import { Box, Grid, Typography } from "@material-ui/core";
+
+// context
+import { MobileContext } from "../../../context/MobileContext";
 
 export default function PrinpalServices() {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   return (
     <>
       <Grid container spacing={3}>

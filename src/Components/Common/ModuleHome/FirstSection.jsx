@@ -168,7 +168,7 @@ export default function FirstSection() {
                 )}
               </>
             )}
-            <ToggleFirstSection isMobile={isMobile} />
+            <ToggleFirstSection />
           </>
         )}
       </FirstStyled>

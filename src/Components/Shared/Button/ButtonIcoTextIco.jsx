@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 import { useNavigate } from "react-router-dom";
 import { Box, Typography, Grid, useMediaQuery } from "@material-ui/core";
 export default function ButtonIcoTextIco({
@@ -9,7 +10,7 @@ export default function ButtonIcoTextIco({
   route,
   id,
 }) {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   const navigate = useNavigate();
   return (
     <>

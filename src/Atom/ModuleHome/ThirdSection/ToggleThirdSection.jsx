@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 // matrial
 
 import { Box, Typography, Grid, useMediaQuery } from "@material-ui/core";
@@ -19,7 +21,7 @@ import ButtonIconTextIco from "../../../Components/Shared/Button/ButtonIcoTextIc
 import CardWithIcon from "../../../Components/Shared/Card/Mobile/CardWithIcon";
 
 export default function ToggleThridSection() {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   return (
     <>
       <Grid

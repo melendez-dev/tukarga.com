@@ -1,8 +1,8 @@
-import ImageClients from "../../../assets/images/Frame 85.png";
-import ImageClients_mobile from "../../../assets/images/mobile_framer_85.png";
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 import { Box, Typography, useMediaQuery } from "@material-ui/core";
 export default function ThirdSection() {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   return (
     <>
       <Box>
