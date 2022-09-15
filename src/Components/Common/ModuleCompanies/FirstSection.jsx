@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
   Container,
   Box,
@@ -8,7 +9,7 @@ import {
 } from "@material-ui/core";
 import { FirstSectionStyled } from "../../../styles/ModuleCompanies/FirstSection";
 
-export default function FirstSection({ icon, title, button }) {
+export default function FirstSection({ icon, title, button, scroll, to }) {
   const isMobile = useMediaQuery("(max-width:960px)");
   return (
     <>
@@ -36,6 +37,7 @@ export default function FirstSection({ icon, title, button }) {
                       fontSize: "9px",
                       width: "100%",
                     }}
+                    onClick={() => scroll(to)}
                   >
                     <b>{button}</b>
                   </Button>

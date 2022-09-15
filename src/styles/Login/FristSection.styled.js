@@ -54,4 +54,34 @@ export const FirstSectionStyled = styled(Box)`
   .pointer {
     cursor: pointer;
   }
+  // mobile
+  @media only screen and (max-width: 960px) {
+    padding: 20px;
+    .title {
+      font-weight: 500;
+      font-size: 24px;
+      line-height: 28px;
+      /* identical to box height, or 117% */
+      /* Pine_tree */
+      color: #3c635d;
+      text-align: start;
+    }
+    .subtitle {
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 16px;
+      /* identical to box height, or 133% */
+      /* Black_100 */
+      color: #3c3c3b;
+      text-align: start;
+    }
+    .marginTopMobil {
+      margin-top: 20px;
+    }
+    .FlexCenter {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
 `;

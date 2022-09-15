@@ -8,7 +8,7 @@ import Footer from "../Components/Common/Footer/Footer";
 export default function Quotation() {
   return (
     <>
-      <Header />
+      <Header dark={true} />
       <FirstSection />
       <Footer />
     </>
