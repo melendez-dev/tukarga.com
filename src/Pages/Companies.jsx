@@ -39,6 +39,10 @@ const data = [
 ];
 export default function Companies({ toggle }) {
   const isMobil = useMediaQuery("(max-width:930px)");
+  const srcoll = (id) => {
+    const part = document.querySelector(`#${id}`);
+    part.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <Header toggle={toggle} />
@@ -47,6 +51,8 @@ export default function Companies({ toggle }) {
         title="Estamos preparados para
         resolver tus necesidades logísticas"
         button="conctacta un comercial"
+        scroll={srcoll}
+        to="information"
       />
       <SecondSection
         html_text="
@@ -60,7 +66,7 @@ export default function Companies({ toggle }) {
         title="Quieres más clientes satisfechos"
         subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
         buttonText="Enviar"
-        id="#information"
+        id="information"
       />
       <Footer />
     </>
