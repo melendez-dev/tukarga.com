@@ -2,15 +2,10 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { MobileContext } from "../../../context/MobileContext";
-import { nameLinks } from "../../../utils/mics";
+import { BrandContext } from "../../../context/BrandContext.jsx";
+import { nameLinks, nameLinksBrand } from "../../../utils/mics";
 import { useLocation } from "react-router-dom";
-import {
-  Box,
-  Button,
-  useMediaQuery,
-  Grid,
-  Typography,
-} from "@material-ui/core";
+import { Box, Button, Grid, Typography } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { ReactComponent as IconMenu } from "../../../assets/svg/ico_main-menu.svg";
 import { ReactComponent as IconMenuOrange } from "../../../assets/svg/ico_main-menu2.svg";
@@ -30,12 +25,13 @@ export default function Links({ dark, darkLink }) {
   const [open, setOpen] = useState(false);
 
   // context mobile
-
   const isMobile = useContext(MobileContext);
+  const { brand } = useContext(BrandContext);
 
   // switch the router with nameLinks
   useEffect(() => {
-    nameLinks.forEach((link) => {
+    let selected = brand ? nameLinksBrand : nameLinks;
+    selected.forEach((link) => {
       if (link.url === pathname) {
         setLinkSelect(link.id);
       } else if ("/login" === pathname) {
@@ -137,31 +133,57 @@ export default function Links({ dark, darkLink }) {
               </Grid>
               <Grid item xs={10}>
                 <Box>
-                  {nameLinks.map((item, index) => (
-                    <Link
-                      to={item.url}
-                      key={index}
-                      style={{
-                        color: linkSelect === item?.id ? "#ff6600" : "#fff",
-                        textDecoration: "none",
-                      }}
-                      onClick={() => setLinkSelect(item?.id)}
-                    >
-                      <span
-                        style={{
-                          display: "block",
-                          width: "30%",
-                          marginTop: "15px",
-                          borderBottom:
-                            linkSelect === item?.id
-                              ? "2px solid #ff6600"
-                              : "2px solid transparent",
-                        }}
-                      >
-                        {item.name}
-                      </span>
-                    </Link>
-                  ))}
+                  {brand
+                    ? nameLinksBrand?.map((item, index) => (
+                        <Link
+                          to={item.url}
+                          key={index}
+                          style={{
+                            color: linkSelect === item?.id ? "#ff6600" : "#fff",
+                            textDecoration: "none",
+                          }}
+                          onClick={() => setLinkSelect(item?.id)}
+                        >
+                          <span
+                            style={{
+                              display: "block",
+                              width: "30%",
+                              marginTop: "15px",
+                              borderBottom:
+                                linkSelect === item?.id
+                                  ? "2px solid #ff6600"
+                                  : "2px solid transparent",
+                            }}
+                          >
+                            {item.name}
+                          </span>
+                        </Link>
+                      ))
+                    : nameLinks.map((item, index) => (
+                        <Link
+                          to={item.url}
+                          key={index}
+                          style={{
+                            color: linkSelect === item?.id ? "#ff6600" : "#fff",
+                            textDecoration: "none",
+                          }}
+                          onClick={() => setLinkSelect(item?.id)}
+                        >
+                          <span
+                            style={{
+                              display: "block",
+                              width: "30%",
+                              marginTop: "15px",
+                              borderBottom:
+                                linkSelect === item?.id
+                                  ? "2px solid #ff6600"
+                                  : "2px solid transparent",
+                            }}
+                          >
+                            {item.name}
+                          </span>
+                        </Link>
+                      ))}
                 </Box>
               </Grid>
 

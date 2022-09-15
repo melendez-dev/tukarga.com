@@ -57,10 +57,12 @@ export default function Footer() {
                     Igresar como generador de carga
                   </Typography>
                 </Box>
-                <Box className="marginY">
-                  <hr />
-                </Box>
               </>
+            )}
+            {brand & isMobile && (
+              <Box className="marginY">
+                <hr />
+              </Box>
             )}
           </Grid>
           <Grid item xs={12} md={3}>

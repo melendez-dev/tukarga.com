@@ -13,8 +13,9 @@ export const FirstSectionStyled = styled(Box)`
   }
   // mobile
   @media (max-width: 930px) {
-		padding: 0px;
-		margin: 20px 0px;
+    padding: 0px;
+    max-width: 90%;
+    margin: 20px 0px;
     .title {
       font-weight: 400;
       font-size: 20px;

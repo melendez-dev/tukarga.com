@@ -18,6 +18,24 @@ export const nameLinks = [
   },
 ];
 
+export const nameLinksBrand = [
+  {
+    id: 1,
+    name: "Home",
+    url: routesName.base,
+  },
+  {
+    id: 2,
+    name: "Transportador",
+    url: routesName.conveyor,
+  },
+  {
+    id: 3,
+    name: "Generador",
+    url: routesName.generator,
+  },
+];
+
 export const documentTypes = [
   {
     id: 1,

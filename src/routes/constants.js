@@ -14,4 +14,5 @@ export const routesName = {
   conveyor: "/conveyor",
   login: "/login",
   quotation: "/quotation",
+  generator: "/generator",
 };

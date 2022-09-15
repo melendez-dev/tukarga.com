@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { ReactComponent as Ilustration } from "../../../assets/svg/Ilustracion_15324578.svg";
 import CardIcon from "../../Shared/Card/CardHomeFirstSec";
-export default function ThirdSection({ data }) {
+export default function ThirdSection({ data, title }) {
   const isMobil = useMediaQuery("(max-width:930px)");
   return (
     <>
@@ -29,7 +29,9 @@ export default function ThirdSection({ data }) {
             <Grid item xs={12} md={6}>
               <Box>
                 <Box>
-                  <Typography className="title">Servicios</Typography>
+                  <Typography className="title">
+                    {title ? title : "servicios"}
+                  </Typography>
                 </Box>
                 <Grid container spacing={3}>
                   {data.map((item, index) => (
