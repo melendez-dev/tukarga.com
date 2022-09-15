@@ -19,7 +19,7 @@ import { ReactComponent as FB } from "../../../assets/svg/FB.svg";
 import { ReactComponent as In } from "../../../assets/svg/Path 2520.svg";
 import img from "../../../assets/images/Logo-Tukarga-final-original_blanco 1.png";
 import img2 from "../../../assets/images/Logo.png";
-export default function Footer({ dark }) {
+export default function Footer() {
   const isMobile = useMediaQuery("(max-width:960px)");
   const { brand } = useContext(BrandContext);
   return (
@@ -27,27 +27,53 @@ export default function Footer({ dark }) {
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Box id="footer">
+            <Box id="footer" style={{ marginTop: "10px" }}>
               <img src={brand ? img : img2} alt="Logo" />
             </Box>
           </Grid>
           <Grid item xs={12} md={3}>
-            <Box>
-              <Typography className="textLink">Empresas</Typography>
-            </Box>
-            <Box>
-              <Typography className="textLink">Transportador</Typography>
-            </Box>
-            <Box>
-              <Typography className="textLink">Iniciar sesión</Typography>
-            </Box>
+            {!brand && (
+              <>
+                <Box>
+                  <Typography className="textLink">Empresas</Typography>
+                </Box>
+                <Box>
+                  <Typography className="textLink">Transportador</Typography>
+                </Box>
+                <Box>
+                  <Typography className="textLink">Iniciar sesión</Typography>
+                </Box>
+              </>
+            )}
+            {brand && (
+              <>
+                <Box>
+                  <Typography className="textLink">
+                    Igresar como transportador
+                  </Typography>
+                </Box>
+                <Box>
+                  <Typography className="textLink">
+                    Igresar como generador de carga
+                  </Typography>
+                </Box>
+                <Box className="marginY">
+                  <hr />
+                </Box>
+              </>
+            )}
           </Grid>
           <Grid item xs={12} md={3}>
-            <Box className="flexCenter">
+            <Box
+              className="flexCenter"
+              style={{ marginTop: brand ? "-20px" : undefined }}
+            >
               <Box>
                 <Mail />
               </Box>
-              <Typography className="textNormal">info@oficios.co</Typography>
+              <Typography className="textNormal">
+                info@{brand ? "tukarga" : "oficios"}.co
+              </Typography>
             </Box>
             <Box
               className="flexCenter"
@@ -59,33 +85,39 @@ export default function Footer({ dark }) {
                 <Address />
               </Box>
               <Typography className="textNormal">
-                Cra 9 # 123 - 36, Piso 7, Edificio Uzaque Bogotá, Colombia
+                {brand
+                  ? "AV 9ª, # 123 - 36 Of 702 Bogotá, Colombia"
+                  : " Cra 9 # 123 - 36, Piso 7, Edificio Uzaque Bogotá, Colombia "}
               </Typography>
             </Box>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={3}
-            style={{
-              display: isMobile ? "flex" : undefined,
-              alignItems: isMobile ? "center" : undefined,
-            }}
-          >
-            <Box>
-              <Typography className="textNormal">
-                Recibimos todo tipo de pagos
-              </Typography>
-            </Box>
-            <Box className="flexCenterCenter">
-              <Box className="containerIcons">
-                <MasterCard />
-              </Box>
-              <Box className="containerIcons">
-                <Visa />
-              </Box>
-            </Box>
-          </Grid>
+          {!brand && (
+            <>
+              <Grid
+                item
+                xs={12}
+                md={3}
+                style={{
+                  display: isMobile ? "flex" : undefined,
+                  alignItems: isMobile ? "center" : undefined,
+                }}
+              >
+                <Box>
+                  <Typography className="textNormal">
+                    Recibimos todo tipo de pagos
+                  </Typography>
+                </Box>
+                <Box className="flexCenterCenter">
+                  <Box className="containerIcons">
+                    <MasterCard />
+                  </Box>
+                  <Box className="containerIcons">
+                    <Visa />
+                  </Box>
+                </Box>
+              </Grid>
+            </>
+          )}
           <Grid item xs={12} md={3}>
             <Box style={{ display: isMobile ? "none" : "block" }}>
               <Typography className="textNormal">
@@ -105,11 +137,12 @@ export default function Footer({ dark }) {
             </Box>
           </Grid>
         </Grid>
-        <Box className="marginY">
-          <hr />
-        </Box>
-
-        <Box>
+        {!brand && (
+          <Box className="marginY">
+            <hr />
+          </Box>
+        )}
+        <Box style={{ marginTop: brand ? "10px" : undefined }}>
           <Typography align={"center"} className="textNormal">
             Todos los derechos reservados-Copyright-2020-Bogotá/Colombia
           </Typography>

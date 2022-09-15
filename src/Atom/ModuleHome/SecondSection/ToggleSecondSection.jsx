@@ -1,15 +1,11 @@
 import { useContext } from "react";
 import { MobileContext } from "../../../context/MobileContext";
-import {
-  Box,
-  Grid,
-  Typography,
-  Button,
-  useMediaQuery,
-} from "@material-ui/core";
+import { BrandContext } from "../../../context/BrandContext";
+import { Box, Grid, Typography, Button } from "@material-ui/core";
 import { ReactComponent as Ilustration } from "../../../assets/svg/Ilustracion_135.svg";
 export default function ToggleSecondSection() {
   const isMobile = useContext(MobileContext);
+  const { brand, setBrand } = useContext(BrandContext);
   return (
     <>
       <Grid
@@ -60,6 +56,7 @@ export default function ToggleSecondSection() {
                 color: "white",
                 fontSize: isMobile ? "9px" : "11px",
               }}
+              onClick={() => setBrand(!brand)}
             >
               Adquirir el servicio
             </Button>
