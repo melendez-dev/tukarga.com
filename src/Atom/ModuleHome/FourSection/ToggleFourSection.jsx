@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 // matrial-ui
 import {
   Box,
@@ -21,7 +23,7 @@ import { ReactComponent as Time } from "../../../assets/svg/Icono (3).svg";
 import Ilustration from "../../../assets/images/image 8.png";
 
 export default function ToggleFourSection() {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   return (
     <>
       <Box className="centerPadding">

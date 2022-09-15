@@ -1,6 +1,9 @@
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 import CardGoal from "../../../Components/Shared/Card/CardGoals";
-import { Box, Typography, useMediaQuery, Grid } from "@material-ui/core";
-export default function ToggleFirstSection({ isMobile }) {
+import { Box, Typography, Grid } from "@material-ui/core";
+export default function ToggleFirstSection() {
+  const isMobile = useContext(MobileContext);
   return (
     <>
       <Box style={{ padding: "24px" }}>
