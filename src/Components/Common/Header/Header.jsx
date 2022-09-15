@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { MobileContext } from "../../../context/MobileContext";
 import { BrandContext } from "../../../context/BrandContext";
+import { LandingViewContext } from "../../../context/LadingViewContext";
 import Links from "../../Shared/Link/Links";
 import { ReactComponent as Logo } from "../../../assets/svg/Logo_white_1.svg";
 import { ReactComponent as LogoDark } from "../../../assets/svg/Logo 1.svg";
@@ -14,6 +15,7 @@ import { Grid, Box } from "@material-ui/core";
 export default function Header({ dark = false, darkLink, toggle }) {
   const isMobile = useContext(MobileContext);
   const { brand } = useContext(BrandContext);
+  const { setLandingView } = useContext(LandingViewContext);
   const navigate = useNavigate();
   return (
     <HeaderStyled>
@@ -34,7 +36,10 @@ export default function Header({ dark = false, darkLink, toggle }) {
               style={{
                 marginLeft: isMobile ? "10px" : "0px",
               }}
-              onClick={() => navigate("/")}
+              onClick={() => {
+                setLandingView(true);
+                navigate("/");
+              }}
             >
               {isMobile ? (
                 !brand ? (
