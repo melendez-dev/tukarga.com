@@ -1,14 +1,18 @@
 import { useContext } from "react";
 import { MobileContext } from "../../../context/MobileContext";
+import { BrandContext } from "../../../context/BrandContext";
 import Links from "../../Shared/Link/Links";
 import { ReactComponent as Logo } from "../../../assets/svg/Logo_white_1.svg";
 import { ReactComponent as LogoDark } from "../../../assets/svg/Logo 1.svg";
 import { ReactComponent as Tukarga } from "../../../assets/svg/Logo-Tukarga-final-original_blanco 1.svg";
+import { ReactComponent as TukargaDark } from "../../../assets/svg/image 1.svg";
+import { ReactComponent as TukargaM } from "../../../assets/svg/Logo-Tukarga-final-original_blanco 1M.svg";
 import { HeaderStyled } from "../../../styles/Header.styled";
 import { Grid, Box } from "@material-ui/core";
 
 export default function Header({ dark = false, darkLink, toggle }) {
   const isMobile = useContext(MobileContext);
+  const { brand } = useContext(BrandContext);
   return (
     <HeaderStyled>
       <Box
@@ -30,10 +34,16 @@ export default function Header({ dark = false, darkLink, toggle }) {
               }}
             >
               {isMobile ? (
-                dark ? (
-                  <LogoDark />
+                !brand ? (
+                  dark ? (
+                    <LogoDark />
+                  ) : (
+                    <Logo />
+                  )
+                ) : dark ? (
+                  <TukargaDark />
                 ) : (
-                  <Logo />
+                  <TukargaM />
                 )
               ) : dark ? (
                 <LogoDark />
