@@ -586,9 +586,9 @@ export default function AtomFourSection({
                       <Box
                         style={{
                           display: "flex",
-                          justifyContent: brand ? undefined : "space-between",
+                          justifyContent: brand ? "center" : "space-between",
                           gap: brand ? "10px" : undefined,
-                          width: "233px",
+                          width: brand ? undefined : "233px",
                         }}
                       >
                         {!brand && (
