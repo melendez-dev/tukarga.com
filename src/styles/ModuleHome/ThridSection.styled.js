@@ -3,8 +3,8 @@ import styled from "@emotion/styled";
 
 export const ThridSectionStyled = styled(Box)`
   //padding-top: 72px;
-	//padding-bottom: 72px;
-	padding: 73px;
+  //padding-bottom: 72px;
+  padding: 73px;
   .title {
     text-align: center;
     font-size: 30px;
@@ -45,7 +45,9 @@ export const ThridSectionStyled = styled(Box)`
   }
   // mobil
   @media only screen and (max-width: 960px) {
-    padding: 24px;
+    padding: 0px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     .title {
       font-size: 24px;
       text-align: start;

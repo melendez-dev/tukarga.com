@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useContext } from "react";
 import { MobileContext } from "../../../context/MobileContext";
@@ -21,8 +22,9 @@ import { ReactComponent as Twitter } from "../../../assets/svg/twitter.svg";
 import { ReactComponent as FB } from "../../../assets/svg/FB.svg";
 import { ReactComponent as In } from "../../../assets/svg/Path 2520.svg";
 
-export default function Links({ dark, darkLink, is }) {
+export default function Links({ dark, darkLink }) {
   const [linkSelect, setLinkSelect] = useState(1);
+  const navigate = useNavigate();
   // get the router
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
@@ -175,6 +177,7 @@ export default function Links({ dark, darkLink, is }) {
                     color: "#fff",
                     marginTop: "10px",
                   }}
+                  onClick={() => navigate("/login")}
                 >
                   Ingresar
                 </Button>

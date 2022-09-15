@@ -12,7 +12,6 @@ import quintigillar from "../../../assets/images/quintingellar.png";
 import hero_bg from "../../../assets/images/Oficios_Hero_BG.png";
 
 // img mobile
-import hero_bgM from "../../../assets/images/Hero_oficiosMobile2.png";
 import quintigillar_mobile from "../../../assets/images/pexels-quintin-gellar-2199293 1.png";
 
 // import CardWithImage
@@ -26,13 +25,17 @@ import { LandingViewContext } from "../../../context/LadingViewContext";
 export default function FirstSection() {
   const isMobile = useContext(MobileContext);
   const { brand, setBrand } = useContext(BrandContext);
-  const { landingView, setLandingView } = useContext(LandingViewContext);
+  const { landingView } = useContext(LandingViewContext);
   return (
     <>
       <FirstStyled>
         {!brand ? (
           <>
-            <Grid container spacing={3} style={{ display: "block" }}>
+            <Grid
+              container
+              spacing={3}
+              style={{ display: brand ? "block" : "flex" }}
+            >
               {!isMobile ? (
                 <>
                   <Grid

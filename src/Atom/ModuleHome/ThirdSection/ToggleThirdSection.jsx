@@ -44,7 +44,12 @@ export default function ToggleThridSection() {
                   justifyContent: isMobile ? "space-evenly" : undefined,
                 }}
               >
-                <Typography className="subtitleToggle">
+                <Typography
+                  className="subtitleToggle"
+                  style={{
+                    width: "90%",
+                  }}
+                >
                   Estos son los servicios más populares tomados por nuestros
                   clientes
                 </Typography>

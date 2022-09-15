@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { MobileContext } from "../../../context/MobileContext";
 import { BrandContext } from "../../../context/BrandContext";
@@ -13,6 +14,7 @@ import { Grid, Box } from "@material-ui/core";
 export default function Header({ dark = false, darkLink, toggle }) {
   const isMobile = useContext(MobileContext);
   const { brand } = useContext(BrandContext);
+  const navigate = useNavigate();
   return (
     <HeaderStyled>
       <Box
@@ -32,6 +34,7 @@ export default function Header({ dark = false, darkLink, toggle }) {
               style={{
                 marginLeft: isMobile ? "10px" : "0px",
               }}
+              onClick={() => navigate("/")}
             >
               {isMobile ? (
                 !brand ? (
