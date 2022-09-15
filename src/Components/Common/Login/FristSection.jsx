@@ -15,7 +15,14 @@ import { ReactComponent as Domicilios2 } from "../../../assets/svg/Domicilios2.s
 import { ReactComponent as Mensajeria2 } from "../../../assets/svg/Mensajeria2.svg";
 import { ReactComponent as MensajeriaM } from "../../../assets/svg/MensajeriaM.svg";
 import { ReactComponent as DomiciliosM } from "../../../assets/svg/DomiciliosM.svg";
+
+// svg tukarga
+import { ReactComponent as Carga } from "../../../assets/svg/Carga.svg";
+import { ReactComponent as Transporte } from "../../../assets/svg/Transporte.svg";
+
+// context
 import { MobileContext } from "../../../context/MobileContext";
+import { BrandContext } from "../../../context/BrandContext";
 
 // styles
 import { FirstSectionStyled } from "../../../styles/Login/FristSection.styled";
@@ -24,6 +31,7 @@ import { useForm, Controller } from "react-hook-form";
 export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
   const { state } = useLocation();
   const isMobile = useContext(MobileContext);
+  const { brand } = useContext(BrandContext);
   const {
     handleSubmit,
     control,
@@ -201,12 +209,12 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
                 <Grid container>
                   <Grid item xs={6}>
                     <Box onClick={() => setSelectSvg(1)} className="pointer">
-                      <MensajeriaM />
+                      {brand ? <Transporte /> : <MensajeriaM />}
                     </Box>
                   </Grid>
                   <Grid item xs={6}>
                     <Box onClick={() => setSelectSvg(2)} className="pointer">
-                      <DomiciliosM />
+                      {brand ? <Carga /> : <DomiciliosM />}
                     </Box>
                   </Grid>
                 </Grid>
@@ -215,8 +223,17 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
             {selectSvg === 1 && (
               <Box className="marginTopMobil ">
                 <Box className="FlexCenter">
-                  <MensajeriaM />
+                  {brand ? <Transporte /> : <MensajeriaM />}
                 </Box>
+                {brand && (
+                  <Box className="FlexCenter">
+                    <Typography className="transporteText">
+                      Si perteneces a una <b>empresa de transporte</b> y quieres
+                      optimizar su capacidad instalada
+                    </Typography>
+                  </Box>
+                )}
+
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <Grid container style={{ marginTop: "30px" }}>
                     <Grid item xs={12} style={{ textAlign: "center" }}>
@@ -316,8 +333,16 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
             {selectSvg === 2 && (
               <Box className="marginTopMobil ">
                 <Box className="FlexCenter">
-                  <DomiciliosM />
+                  {brand ? <Carga /> : <DomiciliosM />}
                 </Box>
+                {brand && (
+                  <Box className="FlexCenter">
+                    <Typography className="transporteText">
+                      Si su empresa <b>requiere transportar</b> sus materias
+                      primas o sus productos terminados
+                    </Typography>
+                  </Box>
+                )}
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <Grid container style={{ marginTop: "30px" }}>
                     <Grid item xs={12} style={{ textAlign: "center" }}>

@@ -83,5 +83,17 @@ export const FirstSectionStyled = styled(Box)`
       justify-content: center;
       align-items: center;
     }
+    .transporteText {
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 16px;
+      /* or 133% */
+
+      text-align: center;
+
+      /* Black_100 */
+
+      color: #3c3c3b;
+    }
   }
 `;
