@@ -1,8 +1,10 @@
-import { Box, Typography, Container, useMediaQuery } from "@material-ui/core";
+import { useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
+import { Box, Typography, Container } from "@material-ui/core";
 import Image from "../../../assets/images/Marcas.png";
 import ImageMobile from "../../../assets/images/marcas_mobile.png";
 export default function FiveSectionToggle() {
-  const isMobile = useMediaQuery("(max-width:960px)");
+  const isMobile = useContext(MobileContext);
   return (
     <>
       <Box style={{ padding: isMobile ? "0px" : "73px" }}>

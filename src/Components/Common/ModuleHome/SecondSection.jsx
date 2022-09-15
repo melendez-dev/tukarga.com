@@ -4,11 +4,15 @@ import { Container } from "@material-ui/core";
 
 import PrincipalServices from "../../../Atom/ModuleHome/SecondSection/PrincipalServices";
 import ToggleSecondSection from "../../../Atom/ModuleHome/SecondSection/ToggleSecondSection";
-export default function SecondSection({ toggle }) {
+// context
+import { useContext } from "react";
+import { BrandContext } from "../../../context/BrandContext";
+export default function SecondSection() {
+  const { brand } = useContext(BrandContext);
   return (
     <SecondSectionStyled>
       <Container>
-        {!toggle ? (
+        {!brand ? (
           <>
             <PrincipalServices />
           </>

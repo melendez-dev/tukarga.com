@@ -6,12 +6,17 @@ import ToggleThridSection from "../../../Atom/ModuleHome/ThirdSection/ToggleThir
 
 // styles
 import { ThridSectionStyled } from "../../../styles/ModuleHome/ThridSection.styled";
-export default function ThridSection({ toggle }) {
+
+// context
+import { useContext } from "react";
+import { BrandContext } from "../../../context/BrandContext";
+export default function ThridSection() {
+  const { brand } = useContext(BrandContext);
   return (
     <ThridSectionStyled>
       <Container>
-        {!toggle ? (
-					<>
+        {!brand ? (
+          <>
             <AtomThridSection />
           </>
         ) : (

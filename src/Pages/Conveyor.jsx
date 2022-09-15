@@ -64,6 +64,10 @@ export default function Conveyor({ toggle }) {
   //   getCities().then((res) => console.log(res));
   // clear axios
   //}, []);
+  const srcoll = (id) => {
+    const part = document.querySelector(`#${id}`);
+    part.scrollIntoView({ behavior: "smooth" });
+  };
   return (
     <>
       <Header toggle={toggle} />
@@ -71,6 +75,8 @@ export default function Conveyor({ toggle }) {
         icon={Ilustraton}
         title="¡Crezcamos juntos!"
         button="Inscríbete ahora!"
+        scroll={srcoll}
+        to="form"
       />
       <SecondSection
         html_text="<p>Crece aumentando tus ganancias,
@@ -84,6 +90,7 @@ export default function Conveyor({ toggle }) {
         subtitle="Diligencia el formulario y nos contactaremos contigo en breve."
         buttonText="Enviar"
         type={true}
+        id="form"
       />
       <Footer />
     </>

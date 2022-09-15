@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { MobileContext } from "../../../context/MobileContext";
 import { useNavigate } from "react-router-dom";
 import {
   Box,
@@ -35,7 +36,7 @@ import { ReactComponent as Motorcycle } from "../../../assets/svg/ico_motorcycle
 import { getCities } from "../../../services/City";
 
 export default function AtomFourSection({ title, subtitle, buttonText, type }) {
-  const isMobile = useMediaQuery("(max-width:930px)");
+  const isMobile = useContext(MobileContext);
   const [selected, setSelected] = useState(1);
   const [autoComplete, setAutoComplete] = useState([]);
   const [autoMovil, setAutoMovil] = useState(0);

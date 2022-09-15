@@ -13,34 +13,42 @@ import CardWithImage from "../../Shared/Card/CardWithImage";
 import quintigillar from "../../../assets/images/quintingellar.png";
 import hero_bg from "../../../assets/images/Oficios_Hero_BG.png";
 
+// context
 import { MobileContext } from "../../../context/MobileContext";
+import { BrandContext } from "../../../context/BrandContext";
+// use the contex
 import { useContext } from "react";
-export default function Header({ toggle, setToggle }) {
+
+export default function Header() {
+  // KNOW IF IS MOBILE
   const isMobile = useContext(MobileContext);
+  // KNOW THE BRAND
+  const { brand, setBrand } = useContext(BrandContext);
+
   return (
     <HeaderStyled>
       <Box
-        className={toggle ? "secondBackground" : "firstBackground"}
+        className={brand ? "secondBackground" : "firstBackground"}
         style={{ minHeight: isMobile ? "513px" : undefined }}
       >
-        <HeaderBanner dark={false} />
+        <HeaderBanner dark={false} toggle={brand} />
         <Container>
           <Box className={!isMobile ? "fixedBotton" : undefined}>
             <Grid container spacing={3}>
               <Grid item xs={12} md={6}>
-                <TextLeft toggle={toggle} isMobile={isMobile} />
+                <TextLeft toggle={brand} isMobile={isMobile} />
               </Grid>
               {!isMobile && (
                 <Grid item xs={6}>
                   <Box className="marginLeftCard">
-                    {!toggle ? (
+                    {!brand ? (
                       <>
                         <CardWithImage
                           img={quintigillar}
                           title="Tukarga, plataforma tecnológica de servicios logísticos."
                           subtitle="Conoce y empieza un nuevo servicio!"
                           textButton="Conocer más"
-                          setToggle={setToggle}
+                          setToggle={setBrand}
                           isMobile={!isMobile}
                         />
                       </>
@@ -51,7 +59,7 @@ export default function Header({ toggle, setToggle }) {
                           title="¡Despreocúpate de las entregas, Oficios by tuKarga lo hace por ti!"
                           subtitle="Solicita tu servicio ahora!"
                           textButton="Solicitar servicio"
-                          setToggle={setToggle}
+                          setToggle={setBrand}
                           isMobile={!isMobile}
                         />
                       </>

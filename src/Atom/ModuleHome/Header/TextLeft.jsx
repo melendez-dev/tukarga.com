@@ -1,22 +1,81 @@
+import { useContext } from "react";
 // react-router-dom
 import { Link } from "react-router-dom";
 import { Box, Typography, Button } from "@material-ui/core";
+// view context
+import { LandingViewContext } from "../../../context/LadingViewContext";
+import { BrandContext } from "../../../context/BrandContext";
 export default function TextLeft({ toggle, isMobile }) {
+  // context
+  const { landingView } = useContext(LandingViewContext);
+  const { brand } = useContext(BrandContext);
   return (
     <>
       {isMobile ? (
         <>
           <Box style={{ marginTop: "17px" }}>
             <Typography className="title">
-              <b>{"Tukarga es la "}</b>
-              <b>{"primera plataforma"}</b>
+              {landingView ? (
+                <>
+                  {brand ? (
+                    <>
+                      <Box>
+                        <b>Tukarga es la </b>
+                      </Box>
+                      <b> primera plataforma</b>
+                    </>
+                  ) : (
+                    <>
+                      <Box>
+                        <b>¡Despreocúpate </b>
+                      </Box>
+                      <b>de las entregas, </b>
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  <b>{"Tukarga es la "}</b>
+                  <b>{"primera plataforma"}</b>
+                </>
+              )}
             </Typography>
             <Typography className="subtitle" style={{ fontSize: "18px" }}>
-              {"tecnológica de servicios logísticos."}
+              {landingView ? (
+                <>
+                  {brand ? (
+                    <>tecnológica de servicios logísticos.</>
+                  ) : (
+                    <>Oficios by tuKarga lo hace por ti!</>
+                  )}
+                </>
+              ) : (
+                <>{"tecnológica de servicios logísticos."}</>
+              )}
             </Typography>
             <Typography className="subtitle">
-              {"¡Con una gama completa de servicios, somos una"}
-              {"solucioń integral para todas las necesidades de su negoció!"}
+              {landingView ? (
+                <>
+                  {brand ? (
+                    <>
+                      ¡Con una gama completa de servicios, somos una solución
+                      integral para todas las necesidades de su negocio!
+                    </>
+                  ) : (
+                    <>
+                      Con la ayuda de nuestra red de más de 4000 profesionales,
+                      llevamos tus envíos a tiempo.
+                    </>
+                  )}
+                </>
+              ) : (
+                <>
+                  {"¡Con una gama completa de servicios, somos una"}
+                  {
+                    "solucioń integral para todas las necesidades de su negoció!"
+                  }
+                </>
+              )}
             </Typography>
             <Box>
               <Button
@@ -29,7 +88,7 @@ export default function TextLeft({ toggle, isMobile }) {
                 }}
               >
                 <Link
-                  to={!toggle ? "/contacto" : "/login"}
+                  to={!toggle ? "/quotation" : "/login"}
                   className="text_light_button"
                   style={{
                     fontSize: "12px",

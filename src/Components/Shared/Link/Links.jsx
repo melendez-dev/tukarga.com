@@ -12,6 +12,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 import { ReactComponent as IconMenu } from "../../../assets/svg/ico_main-menu.svg";
+import { ReactComponent as IconMenuOrange } from "../../../assets/svg/ico_main-menu2.svg";
 import { ReactComponent as IconClose } from "../../../assets/svg/ico_close_01.svg";
 import Dialog from "@mui/material/Dialog";
 
@@ -29,7 +30,6 @@ export default function Links({ dark, darkLink, is }) {
   // context mobile
 
   const isMobile = useContext(MobileContext);
-  console.log(pathname);
 
   // switch the router with nameLinks
   useEffect(() => {
@@ -37,6 +37,8 @@ export default function Links({ dark, darkLink, is }) {
       if (link.url === pathname) {
         setLinkSelect(link.id);
       } else if ("/login" === pathname) {
+        setLinkSelect(0);
+      } else if ("/quotation" === pathname) {
         setLinkSelect(0);
       }
       return;
@@ -74,14 +76,17 @@ export default function Links({ dark, darkLink, is }) {
         )}
         <Link to="/login" className="links_header_login">
           <Button
-            variant="contained"
+            variant={dark ? "outlined" : "contained"}
             style={{
               height: "32px",
               width: "85px",
-              backgroundColor: "#FCFCED",
+              backgroundColor: dark ? undefined : "#FCFCED",
               borderRadius: "8px",
               marginLeft: "20px",
               fontSize: "10px",
+              border: dark ? "1px solid #D74723" : undefined,
+              borderRadius: dark ? "8px" : undefined,
+              color: dark ? "#D74723" : undefined,
             }}
           >
             Ingresar
@@ -90,7 +95,7 @@ export default function Links({ dark, darkLink, is }) {
 
         {isMobile && (
           <Box onClick={() => setOpen(!open)} style={{ marginLeft: "3%" }}>
-            <IconMenu />
+            {dark ? <IconMenuOrange /> : <IconMenu />}
           </Box>
         )}
         <Dialog open={open} maxWidth="sm" fullScreen>

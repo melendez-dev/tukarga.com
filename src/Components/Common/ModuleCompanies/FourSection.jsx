@@ -7,10 +7,11 @@ export default function FourSection({
   subtitle,
   buttonText,
   type = false,
+  id = "#",
 }) {
   return (
     <>
-      <FourSectionStyled>
+      <FourSectionStyled id={id}>
         <Container>
           <Box>
             <AtomFormByHomePage
