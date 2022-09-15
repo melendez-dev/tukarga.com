@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { BrandContext } from "../../../context/BrandContext";
 // styles
 import { FooterStyled } from "../../../styles/Footer/Footer.styled";
 import {
@@ -10,21 +12,23 @@ import {
 // icons
 import { ReactComponent as Mail } from "../../../assets/svg/ico_mail-light2.svg";
 import { ReactComponent as Address } from "../../../assets/svg/ico_navigation.svg";
-import { ReactComponent as Logo } from "../../../assets/svg/Logo_white_1.svg";
 import { ReactComponent as MasterCard } from "../../../assets/svg/ico_mastercard.svg";
 import { ReactComponent as Visa } from "../../../assets/svg/ico_visa.svg";
 import { ReactComponent as Twitter } from "../../../assets/svg/twitter.svg";
 import { ReactComponent as FB } from "../../../assets/svg/FB.svg";
 import { ReactComponent as In } from "../../../assets/svg/Path 2520.svg";
-export default function Footer() {
+import img from "../../../assets/images/Logo-Tukarga-final-original_blanco 1.png";
+import img2 from "../../../assets/images/Logo.png";
+export default function Footer({ dark }) {
   const isMobile = useMediaQuery("(max-width:960px)");
+  const { brand } = useContext(BrandContext);
   return (
     <FooterStyled>
       <Container>
         <Grid container spacing={3}>
           <Grid item xs={12}>
-            <Box>
-              <Logo />
+            <Box id="footer">
+              <img src={brand ? img : img2} alt="Logo" />
             </Box>
           </Grid>
           <Grid item xs={12} md={3}>

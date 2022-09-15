@@ -197,7 +197,7 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
         {isMobile && (
           <>
             {selectSvg === 0 && (
-              <Box className="marginTopMobil">
+              <Box className="marginTopMobil" style={{ marginBottom: "200px" }}>
                 <Grid container>
                   <Grid item xs={6}>
                     <Box onClick={() => setSelectSvg(1)} className="pointer">
