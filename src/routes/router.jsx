@@ -8,9 +8,9 @@ import Companies from "../Pages/Companies";
 import Conveyor from "../Pages/Conveyor";
 import Login from "../Pages/Login";
 import Quotation from "../Pages/Quotation";
+import Generator from "../Pages/Generator";
 
 export default function Router() {
-  const [toggle, setToggle] = useState(false);
   const router = useRoutes([
     {
       path: principalRoutes.base, // pricipal
@@ -19,19 +19,23 @@ export default function Router() {
     // companies
     {
       path: routesName.companies,
-      element: <Companies toggle={toggle} />,
+      element: <Companies />,
     },
     {
       path: routesName.conveyor,
-      element: <Conveyor toggle={toggle} />,
+      element: <Conveyor />,
     },
     {
       path: routesName.login,
-      element: <Login toggle={toggle} />,
+      element: <Login />,
     },
     {
       path: routesName.quotation,
-      element: <Quotation toggle={toggle} />,
+      element: <Quotation />,
+    },
+    {
+      path: routesName.generator,
+      element: <Generator />,
     },
     // not found
     {

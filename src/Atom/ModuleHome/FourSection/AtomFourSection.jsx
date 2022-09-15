@@ -40,6 +40,7 @@ export default function AtomFourSection({
   subtitle,
   buttonText,
   type,
+  withoutTextArea = false,
   brand = false,
 }) {
   const isMobile = useContext(MobileContext);
@@ -288,45 +289,47 @@ export default function AtomFourSection({
                         </FormHelperText>
                       )}
                     </Grid>
-                    <Grid item xs={12}>
-                      <Controller
-                        rules={{
-                          required: {
-                            value: true,
-                            message: "Este campo es requerido",
-                          },
-                          // max length
-                          maxLength: {
-                            value: 500,
-                            message: "Máximo 500 caracteres",
-                          },
-                        }}
-                        control={control}
-                        name="description"
-                        render={({ field }) => (
-                          <TextField
-                            {...field}
-                            size="small"
-                            label="Tu mensaje"
-                            variant="outlined"
-                            fullWidth
-                            error={errors?.description?.value}
-                            className="marginTop"
-                            multiline
-                            maxRows={10}
-                            minRows={7}
-                            onChange={(e) => {
-                              field.onChange(e.target.value);
-                            }}
-                          />
+                    {!withoutTextArea && (
+                      <Grid item xs={12}>
+                        <Controller
+                          rules={{
+                            required: {
+                              value: true,
+                              message: "Este campo es requerido",
+                            },
+                            // max length
+                            maxLength: {
+                              value: 500,
+                              message: "Máximo 500 caracteres",
+                            },
+                          }}
+                          control={control}
+                          name="description"
+                          render={({ field }) => (
+                            <TextField
+                              {...field}
+                              size="small"
+                              label="Tu mensaje"
+                              variant="outlined"
+                              fullWidth
+                              error={errors?.description?.value}
+                              className="marginTop"
+                              multiline
+                              maxRows={10}
+                              minRows={7}
+                              onChange={(e) => {
+                                field.onChange(e.target.value);
+                              }}
+                            />
+                          )}
+                        />
+                        {errors?.description && (
+                          <FormHelperText error>
+                            {errors?.description?.message}
+                          </FormHelperText>
                         )}
-                      />
-                      {errors?.description && (
-                        <FormHelperText error>
-                          {errors?.description?.message}
-                        </FormHelperText>
-                      )}
-                    </Grid>
+                      </Grid>
+                    )}
                   </>
                 ) : (
                   <Grid container>
@@ -586,9 +589,9 @@ export default function AtomFourSection({
                       <Box
                         style={{
                           display: "flex",
-                          justifyContent: brand ? undefined : "space-between",
+                          justifyContent: brand ? "center" : "space-between",
                           gap: brand ? "10px" : undefined,
-                          width: "233px",
+                          width: brand ? undefined : "233px",
                         }}
                       >
                         {!brand && (
