@@ -6,25 +6,31 @@ import ToggleFourSection from "../../../Atom/ModuleHome/FourSection/ToggleFourSe
 // context
 import { useContext } from "react";
 import { BrandContext } from "../../../context/BrandContext";
-export default function FourSection() {
+export default function FourSection({ router = false }) {
   const { brand } = useContext(BrandContext);
   return (
-    <FourSectionStyled>
-      <Container>
-        {!brand ? (
-          <>
-            <AtomFourSection
-              title="Contáctanos ahora"
-              subtitle="Para contactar un ejecutivo comercial, llena el siguiente formulario"
-              buttonText="Enviar"
-            />
-          </>
-        ) : (
-          <>
-            <ToggleFourSection />
-          </>
-        )}
-      </Container>
-    </FourSectionStyled>
+    <>
+      {router & brand ? (
+        <></>
+      ) : (
+        <FourSectionStyled>
+          <Container>
+            {!brand ? (
+              <>
+                <AtomFourSection
+                  title="Contáctanos ahora"
+                  subtitle="Para contactar un ejecutivo comercial, llena el siguiente formulario"
+                  buttonText="Enviar"
+                />
+              </>
+            ) : (
+              <>
+                <ToggleFourSection />
+              </>
+            )}
+          </Container>
+        </FourSectionStyled>
+      )}
+    </>
   );
 }

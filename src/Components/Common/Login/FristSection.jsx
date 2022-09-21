@@ -22,7 +22,9 @@ import FormLogin from "../../../Atom/Login/Form";
 
 // svg tukarga
 import { ReactComponent as Carga } from "../../../assets/svg/Carga.svg";
+import { ReactComponent as CargaSelected } from "../../../assets/svg/CargaD.svg";
 import { ReactComponent as Transporte } from "../../../assets/svg/Transporte.svg";
+import { ReactComponent as TransporteSelcted } from "../../../assets/svg/TransporteD.svg";
 
 // context
 import { MobileContext } from "../../../context/MobileContext";
@@ -42,6 +44,9 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
   const { brand } = useContext(BrandContext);
 
   const [forgetPass, setForgetPass] = useState(0);
+
+  // selected svg tukarga
+  const [selectedSvg, setSelectedSvg] = useState(0);
 
   const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const register = () => {
@@ -128,45 +133,80 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
               <Grid item xs={6}>
                 {" "}
                 <Box
-                  onClick={() => setToggleLogin(false)}
+                  onClick={() => !brand && setToggleLogin(false)}
                   className={isMobile ? undefined : "pointer flexEnd"}
                 >
-                  {!toggleLogin ? (
-                    <Mensajeria
-                      style={{
-                        width: isMobile ? "109px" : "174px",
-                      }}
-                    />
+                  {!brand ? (
+                    !toggleLogin ? (
+                      <Mensajeria
+                        style={{
+                          width: isMobile ? "109px" : "174px",
+                        }}
+                      />
+                    ) : (
+                      <Mensajeria2
+                        style={{
+                          width: isMobile ? "109px" : "174px",
+                        }}
+                      />
+                    )
                   ) : (
-                    <Mensajeria2
-                      style={{
-                        width: isMobile ? "109px" : "174px",
-                      }}
-                    />
+                    <Box onClick={() => setSelectedSvg(1)}>
+                      {selectedSvg === 1 ? (
+                        <TransporteSelcted />
+                      ) : (
+                        <Transporte />
+                      )}
+                    </Box>
                   )}
                 </Box>
               </Grid>
               <Grid item xs={6}>
-                <Box className=" pointer" onClick={() => setToggleLogin(true)}>
-                  {!toggleLogin ? (
-                    <Domicilios
-                      style={{
-                        width: isMobile ? "109px" : "174px",
-                      }}
-                    />
+                <Box
+                  className=" pointer"
+                  onClick={() => !brand && setToggleLogin(true)}
+                >
+                  {!brand ? (
+                    !toggleLogin ? (
+                      <Domicilios
+                        style={{
+                          width: isMobile ? "109px" : "174px",
+                        }}
+                      />
+                    ) : (
+                      <Domicilios2
+                        style={{
+                          width: isMobile ? "109px" : "174px",
+                        }}
+                      />
+                    )
                   ) : (
-                    <Domicilios2
-                      style={{
-                        width: isMobile ? "109px" : "174px",
-                      }}
-                    />
+                    <Box onClick={() => setSelectedSvg(2)}>
+                      {selectedSvg === 2 ? <CargaSelected /> : <Carga />}
+                    </Box>
+                  )}
+                </Box>
+              </Grid>
+              <Grid item xs={12}>
+                <Box>
+                  {selectedSvg === 1 && (
+                    <Typography className="subtitle">
+                      Si perteneces a una <b>empresa de transporte</b> y quieres
+                      optimizar su capacidad instalada
+                    </Typography>
+                  )}
+                  {selectedSvg === 2 && (
+                    <Typography className="subtitle">
+                      Si tu empresa <b>requiere transportar</b> su materias
+                      primas o sus productos terminados
+                    </Typography>
                   )}
                 </Box>
               </Grid>
             </>
           )}
         </Grid>
-        {!isMobile && (
+        {!isMobile & !brand ? (
           <FormLogin
             handleSubmit={handleSubmit}
             onSubmit={onSubmit}
@@ -174,6 +214,19 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
             errors={errors}
             forgetPass={forgetPass}
           />
+        ) : (
+          <></>
+        )}
+        {!isMobile & (selectedSvg === 1) || selectedSvg === 2 ? (
+          <FormLogin
+            handleSubmit={handleSubmit}
+            onSubmit={onSubmit}
+            control={control}
+            errors={errors}
+            forgetPass={forgetPass}
+          />
+        ) : (
+          <></>
         )}
         {/*Mobile*/}
         {isMobile && (
