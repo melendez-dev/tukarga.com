@@ -17,15 +17,21 @@ import { ReactComponent as MensajeriaM } from "../../../assets/svg/MensajeriaM.s
 import { ReactComponent as DomiciliosM } from "../../../assets/svg/DomiciliosM.svg";
 import { ReactComponent as ForgetIlustration } from "../../../assets/svg/Group 84.svg";
 
+import { useSnackbar } from "notistack";
 import FormLogin from "../../../Atom/Login/Form";
 
 // svg tukarga
 import { ReactComponent as Carga } from "../../../assets/svg/Carga.svg";
+import { ReactComponent as CargaSelected } from "../../../assets/svg/CargaD.svg";
 import { ReactComponent as Transporte } from "../../../assets/svg/Transporte.svg";
+import { ReactComponent as TransporteSelcted } from "../../../assets/svg/TransporteD.svg";
 
 // context
 import { MobileContext } from "../../../context/MobileContext";
 import { BrandContext } from "../../../context/BrandContext";
+
+// services
+import { postLoginDelivery } from "../../../services/Forms";
 
 // styles
 import { FirstSectionStyled } from "../../../styles/Login/FristSection.styled";
@@ -39,6 +45,10 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
 
   const [forgetPass, setForgetPass] = useState(0);
 
+  // selected svg tukarga
+  const [selectedSvg, setSelectedSvg] = useState(0);
+
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const register = () => {
     navigate("/companies");
     setTimeout(() => {
@@ -55,7 +65,37 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
 
   // onSubmit
   const onSubmit = (json) => {
-    console.log(json);
+    // remove empty fields
+    //Object.keys(json).forEach((key) => json[key] === "" && delete json[key]);
+    try {
+      postLoginDelivery(json)
+        .then((res) => {
+          console.log(res?.data);
+          if (res?.data?.status === "error") {
+            enqueueSnackbar(res?.data?.message, {
+              variant: "error",
+              autoHideDuration: 2000,
+            });
+            return;
+          }
+          // join to the join page
+          enqueueSnackbar("Ingreso exitosos", {
+            variant: "success",
+            autoHideDuration: 2000,
+          });
+        })
+        .catch((err) => {
+          enqueueSnackbar(err.message, {
+            variant: "error",
+            autoHideDuration: 2000,
+          });
+        });
+    } catch (err) {
+      enqueueSnackbar(err.message, {
+        variant: "error",
+        autoHideDuration: 2000,
+      });
+    }
   };
 
   return (
@@ -91,52 +131,102 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
           {!isMobile && (
             <>
               <Grid item xs={6}>
+                {" "}
                 <Box
-                  onClick={() => setToggleLogin(false)}
+                  onClick={() => !brand && setToggleLogin(false)}
                   className={isMobile ? undefined : "pointer flexEnd"}
                 >
-                  {!toggleLogin ? (
-                    <Mensajeria
-                      style={{
-                        width: isMobile ? "109px" : "174px",
-                      }}
-                    />
+                  {!brand ? (
+                    !toggleLogin ? (
+                      <Mensajeria
+                        style={{
+                          width: isMobile ? "109px" : "174px",
+                        }}
+                      />
+                    ) : (
+                      <Mensajeria2
+                        style={{
+                          width: isMobile ? "109px" : "174px",
+                        }}
+                      />
+                    )
                   ) : (
-                    <Mensajeria2
-                      style={{
-                        width: isMobile ? "109px" : "174px",
-                      }}
-                    />
+                    <Box onClick={() => setSelectedSvg(1)}>
+                      {selectedSvg === 1 ? (
+                        <TransporteSelcted />
+                      ) : (
+                        <Transporte />
+                      )}
+                    </Box>
                   )}
                 </Box>
               </Grid>
               <Grid item xs={6}>
-                <Box className=" pointer" onClick={() => setToggleLogin(true)}>
-                  {!toggleLogin ? (
-                    <Domicilios
-                      style={{
-                        width: isMobile ? "109px" : "174px",
-                      }}
-                    />
+                <Box
+                  className=" pointer"
+                  onClick={() => !brand && setToggleLogin(true)}
+                >
+                  {!brand ? (
+                    !toggleLogin ? (
+                      <Domicilios
+                        style={{
+                          width: isMobile ? "109px" : "174px",
+                        }}
+                      />
+                    ) : (
+                      <Domicilios2
+                        style={{
+                          width: isMobile ? "109px" : "174px",
+                        }}
+                      />
+                    )
                   ) : (
-                    <Domicilios2
-                      style={{
-                        width: isMobile ? "109px" : "174px",
-                      }}
-                    />
+                    <Box onClick={() => setSelectedSvg(2)}>
+                      {selectedSvg === 2 ? <CargaSelected /> : <Carga />}
+                    </Box>
+                  )}
+                </Box>
+              </Grid>
+              <Grid item xs={12}>
+                <Box>
+                  {selectedSvg === 1 && (
+                    <Typography className="subtitle">
+                      Si perteneces a una <b>empresa de transporte</b> y quieres
+                      optimizar su capacidad instalada
+                    </Typography>
+                  )}
+                  {selectedSvg === 2 && (
+                    <Typography className="subtitle">
+                      Si tu empresa <b>requiere transportar</b> su materias
+                      primas o sus productos terminados
+                    </Typography>
                   )}
                 </Box>
               </Grid>
             </>
           )}
         </Grid>
-        {!isMobile && (
+        {!isMobile & !brand ? (
           <FormLogin
             handleSubmit={handleSubmit}
             onSubmit={onSubmit}
             control={control}
             errors={errors}
+            forgetPass={forgetPass}
           />
+        ) : (
+          <></>
+        )}
+        {!isMobile & (selectedSvg === 1) || selectedSvg === 2 ? (
+          <FormLogin
+            handleSubmit={handleSubmit}
+            onSubmit={onSubmit}
+            control={control}
+            errors={errors}
+            forgetPass={forgetPass}
+          />
+        ) : (
+          <></>
         )}
         {/*Mobile*/}
         {isMobile && (

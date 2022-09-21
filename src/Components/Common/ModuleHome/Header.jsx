@@ -68,7 +68,8 @@ export default function Header() {
             <HeaderBanner
               dark={false}
               toggle={brand}
-              darkLink={secondBackground === "firstBackground2" ? true : false}
+              darkLink={changeColor ? false : true}
+              changeColor={changeColor}
             />
           </Grid>
 

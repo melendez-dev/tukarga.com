@@ -17,7 +17,7 @@ import { ReactComponent as Twitter } from "../../../assets/svg/twitter.svg";
 import { ReactComponent as FB } from "../../../assets/svg/FB.svg";
 import { ReactComponent as In } from "../../../assets/svg/Path 2520.svg";
 
-export default function Links({ dark, darkLink }) {
+export default function Links({ dark, darkLink, changeColor }) {
   const [linkSelect, setLinkSelect] = useState(1);
   const navigate = useNavigate();
   // get the router
@@ -28,6 +28,7 @@ export default function Links({ dark, darkLink }) {
   const isMobile = useContext(MobileContext);
   const { brand } = useContext(BrandContext);
 
+  const selectDesktop = brand ? nameLinksBrand : nameLinks;
   // switch the router with nameLinks
   useEffect(() => {
     let selected = brand ? nameLinksBrand : nameLinks;
@@ -54,7 +55,7 @@ export default function Links({ dark, darkLink }) {
       >
         {!isMobile && (
           <>
-            {nameLinks.map((item, index) => (
+            {selectDesktop.map((item, index) => (
               <Link
                 to={item.url}
                 key={index}
@@ -74,17 +75,45 @@ export default function Links({ dark, darkLink }) {
         )}
         <Link to="/login" className="links_header_login">
           <Button
-            variant={dark ? "outlined" : "contained"}
+            variant={
+              isMobile
+                ? dark
+                  ? "outlined"
+                  : "contained"
+                : changeColor
+                ? "outlined"
+                : dark
+                ? "outlined"
+                : "contained"
+            }
             style={{
               height: "32px",
               width: "85px",
-              backgroundColor: dark ? undefined : "#FCFCED",
+              backgroundColor: dark
+                ? undefined
+                : "#FCFCED" || changeColor
+                ? undefined
+                : "#FCFCED",
               borderRadius: "8px",
               marginLeft: "20px",
               fontSize: "10px",
-              border: dark ? "1px solid #D74723" : undefined,
+              border: dark
+                ? "1px solid #D74723"
+                : undefined || changeColor
+                ? "1px solid #D74723"
+                : undefined,
               borderRadius: dark ? "8px" : undefined,
-              color: dark ? "#D74723" : undefined,
+              color: dark
+                ? "#D74723"
+                : undefined || changeColor
+                ? "#D74723"
+                : undefined,
+              borderColor: dark
+                ? "#D74723"
+                : undefined || changeColor
+                ? "#D74723"
+                : undefined,
+              transition: "all 0.3s ease-in-out",
             }}
           >
             Ingresar
