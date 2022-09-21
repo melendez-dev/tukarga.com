@@ -30,26 +30,23 @@ export default function FormLogin({
               }}
               defaultValue=""
               control={control}
-              name="email"
+              name="USERNAME"
               render={({ field }) => (
                 <TextField
                   {...field}
-                  name="email"
                   size="small"
                   label="Correo electrónico"
                   variant="outlined"
+                  error={errors.USERNAME}
                   onChange={(e) => field.onChange(e.target.value)}
                 />
               )}
             />
-            {errors?.email && (
-              <FormHelperText error>{errors?.email?.message}</FormHelperText>
-            )}
           </Grid>
           {forgetPass !== 1 && (
             <Grid item xs={12} style={{ textAlign: "center" }}>
               <Controller
-                name="password"
+                name="PASSWORD"
                 control={control}
                 defaultValue=""
                 rules={{
@@ -61,23 +58,19 @@ export default function FormLogin({
                 render={({ field }) => (
                   <TextField
                     {...field}
-                    name="email"
+                    name="password"
                     size="small"
                     label="Contraseña"
                     type="password"
                     style={{
                       marginTop: "10px",
                     }}
+                    error={errors.PASSWORD}
                     variant="outlined"
                     onChange={(e) => field.onChange(e.target.value)}
                   />
                 )}
               />
-              {errors?.password && (
-                <FormHelperText error>
-                  {errors?.password?.message}
-                </FormHelperText>
-              )}
             </Grid>
           )}
           {forgetPass == 3 && (
@@ -95,7 +88,6 @@ export default function FormLogin({
                 render={({ field }) => (
                   <TextField
                     {...field}
-                    name="email"
                     size="small"
                     label="Repetir contraseña"
                     type="password"
@@ -171,7 +163,7 @@ export default function FormLogin({
                   </>
                 ) : (
                   <>
-                    <b>Registrame</b>
+                    <b>Registrarme</b>
                   </>
                 )}
               </span>

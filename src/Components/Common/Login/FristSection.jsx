@@ -17,6 +17,7 @@ import { ReactComponent as MensajeriaM } from "../../../assets/svg/MensajeriaM.s
 import { ReactComponent as DomiciliosM } from "../../../assets/svg/DomiciliosM.svg";
 import { ReactComponent as ForgetIlustration } from "../../../assets/svg/Group 84.svg";
 
+import { useSnackbar } from "notistack";
 import FormLogin from "../../../Atom/Login/Form";
 
 // svg tukarga
@@ -26,6 +27,9 @@ import { ReactComponent as Transporte } from "../../../assets/svg/Transporte.svg
 // context
 import { MobileContext } from "../../../context/MobileContext";
 import { BrandContext } from "../../../context/BrandContext";
+
+// services
+import { postLoginDelivery } from "../../../services/Forms";
 
 // styles
 import { FirstSectionStyled } from "../../../styles/Login/FristSection.styled";
@@ -39,6 +43,7 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
 
   const [forgetPass, setForgetPass] = useState(0);
 
+  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
   const register = () => {
     navigate("/companies");
     setTimeout(() => {
@@ -55,7 +60,37 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
 
   // onSubmit
   const onSubmit = (json) => {
-    console.log(json);
+    // remove empty fields
+    //Object.keys(json).forEach((key) => json[key] === "" && delete json[key]);
+    try {
+      postLoginDelivery(json)
+        .then((res) => {
+          console.log(res?.data);
+          if (res?.data?.status === "error") {
+            enqueueSnackbar(res?.data?.message, {
+              variant: "error",
+              autoHideDuration: 2000,
+            });
+            return;
+          }
+          // join to the join page
+          enqueueSnackbar("Ingreso exitosos", {
+            variant: "success",
+            autoHideDuration: 2000,
+          });
+        })
+        .catch((err) => {
+          enqueueSnackbar(err.message, {
+            variant: "error",
+            autoHideDuration: 2000,
+          });
+        });
+    } catch (err) {
+      enqueueSnackbar(err.message, {
+        variant: "error",
+        autoHideDuration: 2000,
+      });
+    }
   };
 
   return (
@@ -91,6 +126,7 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
           {!isMobile && (
             <>
               <Grid item xs={6}>
+                {" "}
                 <Box
                   onClick={() => setToggleLogin(false)}
                   className={isMobile ? undefined : "pointer flexEnd"}
@@ -136,6 +172,7 @@ export default function FirstSection({ toggleLogin = false, setToggleLogin }) {
             onSubmit={onSubmit}
             control={control}
             errors={errors}
+            forgetPass={forgetPass}
           />
         )}
         {/*Mobile*/}
