@@ -12,7 +12,12 @@ import { ReactComponent as TukargaM } from "../../../assets/svg/Logo-Tukarga-fin
 import { HeaderStyled } from "../../../styles/Header.styled";
 import { Grid, Box } from "@material-ui/core";
 
-export default function Header({ dark = false, darkLink, toggle }) {
+export default function Header({
+  dark = false,
+  darkLink,
+  toggle,
+  changeColor,
+}) {
   const isMobile = useContext(MobileContext);
   const { brand } = useContext(BrandContext);
   const { setLandingView } = useContext(LandingViewContext);
@@ -41,29 +46,30 @@ export default function Header({ dark = false, darkLink, toggle }) {
                 navigate("/");
               }}
             >
-              {isMobile ? (
-                !brand ? (
-                  dark ? (
+              {!brand ? (
+                dark || changeColor ? (
+                  changeColor ? (
                     <LogoDark />
                   ) : (
-                    <Logo />
+                    <LogoDark />
                   )
-                ) : dark ? (
-                  <TukargaDark />
                 ) : (
-                  <TukargaM />
+                  <Logo />
                 )
-              ) : dark ? (
-                <LogoDark />
-              ) : toggle ? (
-                <Tukarga />
+              ) : dark || changeColor ? (
+                <TukargaDark />
               ) : (
-                <Logo />
+                <TukargaM />
               )}
             </Box>
           </Grid>
           <Grid item xs={6} md={5}>
-            <Links dark={dark} darkLink={darkLink} isMobile={isMobile} />
+            <Links
+              dark={dark}
+              darkLink={darkLink}
+              isMobile={isMobile}
+              changeColor={changeColor}
+            />
           </Grid>
         </Grid>
       </Box>

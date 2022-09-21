@@ -5,10 +5,12 @@ import { Box, Typography, Button } from "@material-ui/core";
 // view context
 import { LandingViewContext } from "../../../context/LadingViewContext";
 import { BrandContext } from "../../../context/BrandContext";
-export default function TextLeft({ toggle, isMobile }) {
+import { MobileContext } from "../../../context/MobileContext";
+export default function TextLeft({ toggle, changeColor }) {
   // context
   const { landingView } = useContext(LandingViewContext);
   const { brand } = useContext(BrandContext);
+  const isMobile = useContext(MobileContext);
   return (
     <>
       {isMobile ? (
@@ -103,31 +105,39 @@ export default function TextLeft({ toggle, isMobile }) {
         </>
       ) : (
         <>
-          <Typography className="title">
-            <b>{!toggle ? "¡Despreocúpate" : "Primera fintech"}</b>
+          <Typography className={changeColor ? "titleGreen" : "title"}>
+            <b>{!toggle ? "¡Despreocúpate" : "Tukarga es la"}</b>
           </Typography>
-          <Typography className="title">
-            <b>{!toggle ? "De las entregas," : "para el sector transporte"}</b>
+          <Typography className={changeColor ? "titleGreen" : "title"}>
+            <b>{!toggle ? "De las entregas," : "primera plataforma"}</b>
           </Typography>
-          <Typography className="subtitle">
-            {!toggle ? "Oficios By TuKarga lo hace por ti!" : undefined}
+          <Typography className={changeColor ? "subtitleGreen" : "subtitle"}>
+            {!toggle
+              ? "Oficios By TuKarga lo hace por ti!"
+              : "Tecnológica de servicios logísticos."}
           </Typography>
-          <Typography className="text_light" style={{ marginTop: "10px" }}>
+          <Typography
+            className={changeColor ? "text_lightGreen" : "text_light"}
+            style={{ marginTop: "10px" }}
+          >
             {!toggle
               ? "Con la ayuda de nuestra red de más de 4000 profesionales,"
               : "¡Con una gama completa de servicios, somos una"}
           </Typography>
-          <Typography className="text_light">
+          <Typography
+            className={changeColor ? "text_lightGreen" : "text_light"}
+          >
             {!toggle
               ? "llevamos tus envíos a tiempo."
               : "solucioń integral para todas las necesidades de su negoció!"}
           </Typography>
           <Box>
             <Button
-              variant="contained"
+              variant={changeColor ? "outlined" : "contained"}
               style={{
-                backgroundColor: "#ff6600",
-                color: "#fff",
+                backgroundColor: changeColor ? undefined : "#ff6600",
+                color: changeColor ? "#ff6600" : "#fff",
+                borderColor: changeColor ? "#ff6600" : undefined,
                 borderRadius: "8px",
                 marginTop: "20px",
               }}
@@ -138,6 +148,7 @@ export default function TextLeft({ toggle, isMobile }) {
                 style={{
                   fontSize: "12px",
                   textTransform: "capitalize",
+                  color: changeColor ? "#ff6600" : "#fff",
                 }}
               >
                 {!toggle ? "Cotizar ahora" : "Iniciar sesión"}

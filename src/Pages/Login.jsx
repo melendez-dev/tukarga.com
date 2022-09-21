@@ -1,3 +1,4 @@
+import { useLocation } from "react-router-dom";
 import { useState, useContext } from "react";
 import { MobileContext } from "../context/MobileContext";
 import HeaderCustom from "../Components/Common/Header/Header";
@@ -10,6 +11,7 @@ import Footer from "../Components/Common/Footer/Footer";
 export default function Login({ toggle }) {
   const [toggleLogin, setToggleLogin] = useState(false);
   const isMobile = useContext(MobileContext);
+  const location = useLocation();
   return (
     <>
       <HeaderCustom toggle={toggle} darkLink={true} dark={true} />
@@ -21,7 +23,7 @@ export default function Login({ toggle }) {
       >
         {!toggleLogin ? (
           <Box>
-            <FormLogin1 />
+            <FormLogin1 router={location?.pathname === "/login"} />
           </Box>
         ) : (
           <FourSectionStyled>
