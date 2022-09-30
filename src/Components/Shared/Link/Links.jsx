@@ -73,7 +73,7 @@ export default function Links({ dark, darkLink, changeColor }) {
             ))}
           </>
         )}
-        <Link to="/login" className="links_header_login">
+        <a href="https://admin.tukarga.com/" className="links_header_login">
           <Button
             variant={
               isMobile
@@ -94,7 +94,7 @@ export default function Links({ dark, darkLink, changeColor }) {
                 : "#FCFCED" || changeColor
                 ? undefined
                 : "#FCFCED",
-              borderRadius: "8px",
+              // borderRadius: "8px",
               marginLeft: "20px",
               fontSize: "10px",
               border: dark
@@ -118,7 +118,7 @@ export default function Links({ dark, darkLink, changeColor }) {
           >
             Ingresar
           </Button>
-        </Link>
+        </a>
 
         {isMobile && (
           <Box onClick={() => setOpen(!open)} style={{ marginLeft: "3%" }}>
@@ -217,21 +217,23 @@ export default function Links({ dark, darkLink, changeColor }) {
               </Grid>
 
               <Grid item xs={4}>
-                <Button
-                  style={{
-                    padding: "4px 16px 6px",
-                    width: "76px",
-                    height: "32px",
-                    background: "#FF6600",
-                    borderRadius: "8px",
-                    fontSize: "10px",
-                    color: "#fff",
-                    marginTop: "10px",
-                  }}
-                  onClick={() => navigate("/login")}
-                >
-                  Ingresar
-                </Button>
+                <a href="https://admin.tukarga.com/" style={{textDecoration: "none"}}>
+                  <Button
+                    style={{
+                      padding: "4px 16px 6px",
+                      width: "76px",
+                      height: "32px",
+                      background: "#FF6600",
+                      borderRadius: "8px",
+                      fontSize: "10px",
+                      color: "#fff",
+                      marginTop: "10px",
+                    }}
+                    // onClick={() => navigate("/login")}
+                  >
+                    Ingresar
+                  </Button>
+                </a>
               </Grid>
               <Grid item xs={8}>
                 <Box
