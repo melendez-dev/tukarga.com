@@ -3,7 +3,7 @@ import { routesName } from "../routes/constants";
 export const nameLinks = [
   {
     id: 1,
-    name: "Home",
+    name: "Inicio",
     url: routesName.base,
   },
   {
@@ -21,7 +21,7 @@ export const nameLinks = [
 export const nameLinksBrand = [
   {
     id: 1,
-    name: "Home",
+    name: "Inicio",
     url: routesName.base,
   },
   {

@@ -15,16 +15,18 @@ export default function LeftIlustration() {
           width: "161px",
         }}
       >
-        <Link
-          to="/contacto"
+        <a
+          href="https://admin.tukarga.com/"
           className="text_light_button"
           style={{
 						fontSize: "12px",
-						textTransform: "capitalize"
+						textTransform: "capitalize",
+            textDecoration: "none",
+            color: "white"
           }}
 			>
           Más información
-        </Link>
+        </a>
       </Button>
     </Box>
   );
