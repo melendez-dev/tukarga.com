@@ -163,7 +163,14 @@ export default function FormLogin({
                   </>
                 ) : (
                   <>
-                    <b>Registrarme</b>
+                    <a style={{
+                        cursor: "pointer",
+                        textDecoration: "none",
+                        color: "black"
+                      }} 
+                      href="https://admin.tukarga.com/"
+                      >Registrarme</a>
+
                   </>
                 )}
               </span>
