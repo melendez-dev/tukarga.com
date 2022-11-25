@@ -9,6 +9,7 @@ export default function ButtonIcoTextIco({
   secondIcon,
   route,
   id,
+  anotherPage = false,
 }) {
   const isMobile = useContext(MobileContext);
   const navigate = useNavigate();
@@ -25,13 +26,18 @@ export default function ButtonIcoTextIco({
           display: "flex",
           alignItems: "center",
           cursor: "pointer",
+          textDecoration: "none"
         }}
+        component={anotherPage && "a" }
+        href={anotherPage && route}
         onClick={() => {
-          navigate(`${route}`, {
-            state: {
-              id: id,
-            },
-          });
+          if (!anotherPage){
+            navigate(`${route}`, {
+              state: {
+                id: id,
+              },
+            });
+          }
         }}
       >
         <Grid
@@ -48,6 +54,8 @@ export default function ButtonIcoTextIco({
               style={{
                 fontSize: isMobile ? "12px" : "14px",
                 marginLeft: "8px",
+                textDecoration: anotherPage ? "none" : undefined,
+                color: anotherPage ? "black" : undefined
               }}
             >
               {title}
@@ -57,6 +65,8 @@ export default function ButtonIcoTextIco({
             <Typography
               style={{
                 fontSize: isMobile ? "12px" : "14px",
+                textDecoration: anotherPage ? "none" : undefined,
+                color: anotherPage ? "black" : undefined
               }}
             >
               <b>{subtitle}</b>

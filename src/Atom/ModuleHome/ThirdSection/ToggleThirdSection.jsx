@@ -64,12 +64,16 @@ export default function ToggleThridSection() {
                 title="Empresa de Transporte"
                 subtitle="Solicita aquí"
                 secondIcon={<Arrow />}
+                route="https://admin.tukarga.com/signup"
+                anotherPage={true}
               />
               <ButtonIconTextIco
                 firstIcon={<IcoBox />}
                 title="Generador de carga"
                 subtitle="Solicita aquí"
                 secondIcon={<Arrow />}
+                route="https://admin.tukarga.com/signup"
+                anotherPage={true}
               />
             </Box>
           </Box>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { Box, Container, Grid } from "@material-ui/core";
 // import styles
 import { HeaderStyled } from "../../../styles/ModuleHome/header.styled";
@@ -26,7 +26,6 @@ export default function Header() {
   const [background, setBackground] = useState("desktopBackground2");
   const [secondBackground, setSecondBackground] = useState("firstBackground2");
   const [changeColor, setChangeColor] = useState(false);
-
   useEffect(() => {
     if (brand) {
       setBackground("desktopBackground2hover");
@@ -34,6 +33,14 @@ export default function Header() {
       setBackground("desktopBackground2");
     }
   }, [brand]);
+
+  useLayoutEffect(() => {
+    if(window.location?.hostname?.includes("oficios")){
+      setBrand(true)
+      setSecondBackground("desktopBackgroundOpacity1")
+    }
+  }, [])
+
 
   return (
     <HeaderStyled>

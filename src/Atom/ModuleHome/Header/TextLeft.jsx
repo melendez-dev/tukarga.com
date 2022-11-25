@@ -142,8 +142,8 @@ export default function TextLeft({ toggle, changeColor }) {
                 marginTop: "20px",
               }}
             >
-              <Link
-                to={!toggle ? "/contacto" : "/login"}
+              <a
+                href={!toggle ? "https://admin.tukarga.com/" : "/login"}
                 className="text_light_button"
                 style={{
                   fontSize: "12px",
@@ -152,7 +152,7 @@ export default function TextLeft({ toggle, changeColor }) {
                 }}
               >
                 {!toggle ? "Cotizar ahora" : "Iniciar sesión"}
-              </Link>
+              </a>
             </Button>
           </Box>
         </>
