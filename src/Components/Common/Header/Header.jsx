@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useLayoutEffect } from "react";
 import { MobileContext } from "../../../context/MobileContext";
 import { BrandContext } from "../../../context/BrandContext";
 import { LandingViewContext } from "../../../context/LadingViewContext";
@@ -20,9 +20,10 @@ export default function Header({
 }) {
   const isMobile = useContext(MobileContext);
   const { brand } = useContext(BrandContext);
-  const { setLandingView } = useContext(LandingViewContext);
-  const navigate = useNavigate();
-  return (
+  const { setLandingView } = useContext(LandingViewContext); 
+  const navigate = useNavigate(); 
+  
+   return (
     <HeaderStyled>
       <Box
         className={dark ? "white header_link_logo" : "black header_link_logo"}
